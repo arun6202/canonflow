@@ -1,0 +1,32 @@
+[
+  {
+    "Column": "Discount",
+    "CheckContains": "<=(1)",
+    "PredicateName": "BetweenZeroAndOne"
+  },
+  {
+    "Column": "Quantity",
+    "CheckContains": ">(0)",
+    "PredicateName": "GreaterThanZero"
+  },
+  {
+    "Column": "UnitPrice",
+    "CheckContains": ">=(0)",
+    "PredicateName": "GreaterThanOrEqualToZero"
+  },
+  {
+    "Column": "UnitsInStock",
+    "CheckContains": ">=(0)",
+    "PredicateName": "GreaterThanOrEqualToZero"
+  },
+  {
+    "Column": "UnitsOnOrder",
+    "CheckContains": ">=(0)",
+    "PredicateName": "GreaterThanOrEqualToZero"
+  },
+  {
+    "Column": "ReorderLevel",
+    "CheckContains": ">=(0)",
+    "PredicateName": "GreaterThanOrEqualToZero"
+  }
+]

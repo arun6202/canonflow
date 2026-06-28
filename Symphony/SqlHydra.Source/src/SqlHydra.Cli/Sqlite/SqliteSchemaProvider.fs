@@ -171,6 +171,12 @@ let private readSchema (conn: SqliteConnection) (tableRestrictions: string array
         rows |> List.map _.Column
     tables, columns
 
+type ConstraintRule = {
+    Column: string
+    CheckContains: string
+    PredicateName: string
+}
+
 let getSchema (cfg: Config, isLegacy: bool, extensions: IExtendTypeMapping list) : Schema =
     use conn = new SqliteConnection(cfg.ConnectionString)
     conn.Open()
@@ -188,19 +194,22 @@ let getSchema (cfg: Config, isLegacy: bool, extensions: IExtendTypeMapping list)
 
     let extractConstraints (sql: string) =
         let lines = sql.Split('\n')
+        let path = "constraints.json"
+        
+        let rules = 
+            if System.IO.File.Exists(path) then
+                let json = System.IO.File.ReadAllText(path)
+                try
+                    System.Text.Json.JsonSerializer.Deserialize<ConstraintRule array>(json)
+                with _ -> [||]
+            else
+                [||]
+
         [ for line in lines do
-            if line.Contains("CHECK") && line.Contains("Discount") && line.Contains(">=") && line.Contains("<=") then
-                yield ("Discount", "BetweenZeroAndOne")
-            elif line.Contains("CHECK") && line.Contains("Quantity") && line.Contains(">(0)") then
-                yield ("Quantity", "GreaterThanZero")
-            elif line.Contains("CHECK") && line.Contains("UnitPrice") && line.Contains(">=(0)") then
-                yield ("UnitPrice", "GreaterThanOrEqualToZero")
-            elif line.Contains("CHECK") && line.Contains("UnitsInStock") && line.Contains(">=(0)") then
-                yield ("UnitsInStock", "GreaterThanOrEqualToZero")
-            elif line.Contains("CHECK") && line.Contains("ReorderLevel") && line.Contains(">=(0)") then
-                yield ("ReorderLevel", "GreaterThanOrEqualToZero")
-            elif line.Contains("CHECK") && line.Contains("UnitsOnOrder") && line.Contains(">=(0)") then
-                yield ("UnitsOnOrder", "GreaterThanOrEqualToZero")
+            if line.Contains("CHECK") then
+                for rule in rules do
+                    if line.Contains(rule.Column) && line.Contains(rule.CheckContains) then
+                        yield (rule.Column, rule.PredicateName)
         ]
         |> Map.ofList
 
