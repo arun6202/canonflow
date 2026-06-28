@@ -1,0 +1,33 @@
+﻿{
+  "entityType": "Table",
+  "name": "Customers",
+  "fullyQualifiedName": "sqlite.northwind.main.Customers",
+  "description": "Northwind source table Customers.",
+  "version": "0.1.0",
+  "customProperties": {
+    "symphony.specHash": "561f20a87f3eb312ab11189c0f95aac39034e58434053be0f4592689a1399c5a",
+    "symphony.sourceDialect": "SQLite"
+  },
+  "columns": [
+    {
+      "name": "CustomerID",
+      "fullyQualifiedName": "sqlite.northwind.main.Customers.CustomerID",
+      "description": "Source column CustomerID."
+    },
+    {
+      "name": "CompanyName",
+      "fullyQualifiedName": "sqlite.northwind.main.Customers.CompanyName",
+      "description": "Source column CompanyName."
+    },
+    {
+      "name": "ContactName",
+      "fullyQualifiedName": "sqlite.northwind.main.Customers.ContactName",
+      "description": "Source column ContactName."
+    },
+    {
+      "name": "Country",
+      "fullyQualifiedName": "sqlite.northwind.main.Customers.Country",
+      "description": "Source column Country."
+    }
+  ]
+}

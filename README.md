@@ -50,7 +50,9 @@ Northwind SQLite
   -> strict ES 8/9-compatible mapping
   -> chunked bulk NDJSON
   -> OKF/catalog lineage
-  -> local ES 8 validation
+  -> OpenMetadata draft bundle
+  -> local ES 8 and ES 9 validation
+  -> local Oracle Docker smoke target
 ```
 
 Generated artifacts live under:
@@ -63,6 +65,12 @@ Symphony/output/
   bulk/
     order-lines-0001.ndjson
     ...
+  openmetadata/
+    database-service.json
+    search/
+    lineage/
+    quality/
+    contracts/
 ```
 
 The generated order-line projection currently emits 609,283 documents split into
@@ -82,16 +90,17 @@ rejected larger requests because they crossed the coordinating-operation byte li
   artifacts.
 - `validate-elasticsearch.ps1` validates generated mapping and bulk chunks against an
   Elasticsearch endpoint.
-- A local Elasticsearch 8.19.17 Docker container was tested successfully on
-  `http://localhost:9208`.
+- `CompileOpenMetadata` emits a neutral OpenMetadata-style draft bundle under
+  `Symphony/output/openmetadata/`.
+- Local Docker services cover Elasticsearch 8.19.17, Elasticsearch 9.0.0, and Oracle Free.
+- Oracle Free is reachable on `localhost:11521/FREEPDB1` with a `SYMPHONY` app user and
+  a smoke table for the future Oracle harvester path.
 
-Validation result from the current ES 8 test:
+Validation results from the current ES tests:
 
 ```text
-Version:      8.19.17
-Documents:    609283
-BulkChunks:   6
-StrictReject: True
+ES 8.19.17: 609283 documents, 6 chunks, strict reject True
+ES 9.0.0:   609283 documents, 6 chunks, strict reject True
 ```
 
 ## Architecture
@@ -146,8 +155,16 @@ docs/                   static documentation site notes/assets
 references/
   oracle-es-bridge-comprehensive-plan.md
   symphony-openmetadata-alignment.md
+  local-docker-lab.md
   helios/               reference implementation and ES/DSL material
   ai-skills/            F#/ETL/reference skills and notes
+
+docker/
+  oracle/init/          Oracle Free initialization smoke SQL
+
+scripts/
+  Start-SymphonyLab.ps1 local Docker lab starter
+  Stop-SymphonyLab.ps1  local Docker lab stopper
 ```
 
 ## OpenMetadata Alignment
@@ -187,7 +204,7 @@ See:
 Current target:
 
 - Elasticsearch 8.x: tested with Docker image `docker.elastic.co/elasticsearch/elasticsearch:8.19.17`
-- Elasticsearch 9.x: planned, same artifact contract should be validated next
+- Elasticsearch 9.x: tested with Docker image `docker.elastic.co/elasticsearch/elasticsearch:9.0.0`
 
 The generated mapping uses:
 
@@ -197,24 +214,94 @@ The generated mapping uses:
 - text fields with `.keyword` subfields
 - alias-oriented bulk actions
 
-Run local ES 8:
+Run the local Docker lab:
 
 ```powershell
-docker run -d --name symphony-es8 `
-  -p 9208:9200 `
-  --env discovery.type=single-node `
-  --env xpack.security.enabled=false `
-  --env "ES_JAVA_OPTS=-Xms1g -Xmx1g" `
-  -m 2g `
-  docker.elastic.co/elasticsearch/elasticsearch:8.19.17
+pwsh -NoProfile -Command "& .\scripts\Start-SymphonyLab.ps1 -Service @('es8','es9','oracle')"
 ```
 
 Validate generated artifacts:
 
 ```powershell
-pwsh -NoProfile -File .\Symphony\validate-elasticsearch.ps1 `
-  -ElasticsearchUrl http://localhost:9208
+pwsh -NoProfile -File .\Symphony\validate-elasticsearch.ps1 -ElasticsearchUrl http://localhost:9208
+pwsh -NoProfile -File .\Symphony\validate-elasticsearch.ps1 -ElasticsearchUrl http://localhost:9209
 ```
+
+## Oracle
+
+Current Oracle target:
+
+- Docker image: `gvenzl/oracle-free:23-slim-faststart`
+- Container: `symphony-oracle`
+- Connection: `localhost:11521/FREEPDB1`
+- App user: `SYMPHONY`
+- Smoke table: `SYMPHONY.ORACLE_LAB_SMOKE`
+
+The Oracle lab is intentionally small for now. Its purpose is to prove the container,
+credentials, PDB context, and schema discovery target before importing Northwind-style
+tables and harvesting `ALL_CONSTRAINTS` / `ALL_CONS_COLUMNS`.
+
+## Oracle To Elasticsearch Roadmap
+
+The long-term path is not just Oracle data movement. The valuable path is Oracle truth
+becoming a typed, explainable, testable, documented Elasticsearch serving surface:
+
+```text
+Oracle schema and data
+  -> harvested source metadata
+  -> Symphony typed spec
+  -> deterministic ETL extraction
+  -> generated documentation/catalog
+  -> generated Elasticsearch mapping and bulk files
+  -> validation, quality gates, alias swap, and run audit
+```
+
+### Missing Next Capabilities
+
+- Oracle source harvester: read `ALL_TAB_COLUMNS`, `ALL_CONSTRAINTS`,
+  `ALL_CONS_COLUMNS`, indexes, table comments, column comments, nullability, precision,
+  scale, and FK relationships.
+- Oracle type fidelity map: define how `NUMBER`, `DATE`, `TIMESTAMP WITH TIME ZONE`,
+  `CLOB`, `BLOB`, `CHAR`, `VARCHAR2`, and `RAW` become F# types and Elasticsearch fields.
+- Snapshot identity: capture Oracle SCN, extract timestamp, source schema version, spec
+  hash, and bulk manifest hash for every generated run.
+- Incremental extraction plan: prove batch first, then add SCN or `last_modified` deltas
+  before considering GoldenGate/Kafka CDC.
+- Oracle-to-spec bridge: move from hand-shaped specs toward harvested Oracle metadata plus
+  explicit business projection rules.
+- Data quality gates: check required fields, primary-key uniqueness, FK presence, numeric
+  ranges, source row counts, and source-vs-index document counts.
+- Elasticsearch alias lifecycle: create versioned index, load, validate, swap alias, and
+  keep rollback instructions.
+- Load audit trail: persist rows read, docs emitted, bytes written, chunk count, ES
+  version, validation result, source SCN, and spec hash.
+- Contract diffing: classify schema/spec changes as additive, breaking, lossy, or
+  operationally neutral.
+- OpenMetadata validation and push path: validate generated artifacts against schemas first,
+  then add an API sink.
+- Operator runbook: document extract, validate, load, rollback, and failed-field
+  investigation steps.
+
+### High-Value Additions
+
+- Add a `runId` across bulk manifests, generated docs, OpenMetadata artifacts, ES `_meta`,
+  and validation output.
+- Carry field confidence through the system: `Exact`, `Declared`, `Opaque`, plus explicit
+  lossiness markers where Elasticsearch cannot preserve Oracle semantics exactly.
+- Include Oracle table and column comments in generated catalog/docs.
+- Add PII, classification, owner, and steward tags before real enterprise data is indexed.
+- Generate human-readable field explanations: source fields, transform, constraints, and
+  reason the target field exists.
+- Generate ES smoke queries from the spec: term query, range query, aggregation, count, and
+  bad-field strict-mapping rejection.
+- Make replay safe: deterministic document IDs, deterministic chunking, checkpointable
+  manifests, and resumable loads.
+- Store validation output as structured JSON so docs and OpenMetadata can reference actual
+  run evidence.
+- Add spec diff reports so reviewers can see field additions, removals, type changes,
+  constraint changes, and lineage confidence changes.
+- Keep the typed spec as the center. ETL, docs, ES mappings, quality checks, and catalog
+  exports should all be folds over the same source of truth.
 
 ## Build And Generate
 
@@ -251,12 +338,12 @@ Pop-Location
 
 ### Immediate
 
-- Validate the same generated mapping and bulk chunks against Elasticsearch 9.x.
-- Add a repeatable Docker script or compose file for ES 8 and ES 9 local validation.
+- Recreate ES 8 under `docker-compose.local.yml` so all lab services are Compose-owned.
 - Move ES version/container details into a small documented test matrix.
 - Fix or suppress the `SQLitePCLRaw.lib_e_sqlite3` dependency advisory properly.
 - Add generated artifact sanity tests: mapping parses, bulk chunks end in newline, chunk
   sizes stay under budget, and action/source pairs are balanced.
+- Add a first-class Oracle smoke command from .NET instead of relying only on SQL*Plus.
 
 ### Spec And Lineage
 
@@ -296,16 +383,17 @@ Pop-Location
 
 ### OpenMetadata And Catalog
 
-- Emit the first OpenMetadata-compatible JSON bundle under
-  `Symphony/output/openmetadata/`.
-- Validate emitted bundle against OpenMetadata Standards JSON schemas.
+- Validate the emitted OpenMetadata draft bundle under `Symphony/output/openmetadata/`
+  against OpenMetadata Standards JSON schemas.
+- Add structured validator run results after the ES validator emits stable JSON.
 - Keep OpenMetadata as an export target first; add an API sink later.
 - Preserve OKF/Markdown output for human-readable local review.
-- Consider a shared intermediate catalog model only after the first OMS bundle lands.
+- Consider a shared intermediate catalog model only after schema validation is clean.
 
 ### Oracle Path
 
-- After SQLite MVP is stable, import the same Northwind-style shape into Oracle.
+- Import the same Northwind-style shape into Oracle.
+- Harvest the current `SYMPHONY.ORACLE_LAB_SMOKE` constraints from Oracle data dictionary views.
 - Replace SQLite/DuckDB snapshot assumptions with Oracle flashback/SCN concepts.
 - Add Oracle type fidelity rules: NUMBER precision, DATE/TIMESTAMP/TZ, CLOB/BLOB.
 - Add SCN-stamped `BulkOp` versioning and tombstones.

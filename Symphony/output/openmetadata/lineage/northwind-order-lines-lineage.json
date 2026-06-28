@@ -1,0 +1,124 @@
+﻿{
+  "entityType": "Lineage",
+  "name": "northwind-order-lines-lineage",
+  "fullyQualifiedName": "lineage.northwind-order-lines",
+  "description": "Constructed field-level lineage from Northwind source columns to Elasticsearch fields.",
+  "version": "0.1.0",
+  "customProperties": {
+    "symphony.specHash": "561f20a87f3eb312ab11189c0f95aac39034e58434053be0f4592689a1399c5a",
+    "symphony.lineageSource": "constructed"
+  },
+  "edges": [
+    {
+      "from": "sqlite.northwind.OrderID",
+      "to": "elasticsearch.local.northwind_order_lines_alias.id",
+      "grade": "Declared"
+    },
+    {
+      "from": "sqlite.northwind.ProductID",
+      "to": "elasticsearch.local.northwind_order_lines_alias.id",
+      "grade": "Declared"
+    },
+    {
+      "from": "sqlite.northwind.OrderID",
+      "to": "elasticsearch.local.northwind_order_lines_alias.orderId",
+      "grade": "Exact"
+    },
+    {
+      "from": "sqlite.northwind.OrderDate",
+      "to": "elasticsearch.local.northwind_order_lines_alias.orderDate",
+      "grade": "Exact"
+    },
+    {
+      "from": "sqlite.northwind.CustomerID",
+      "to": "elasticsearch.local.northwind_order_lines_alias.customer.customerId",
+      "grade": "Exact"
+    },
+    {
+      "from": "sqlite.northwind.CompanyName",
+      "to": "elasticsearch.local.northwind_order_lines_alias.customer.companyName",
+      "grade": "Exact"
+    },
+    {
+      "from": "sqlite.northwind.ContactName",
+      "to": "elasticsearch.local.northwind_order_lines_alias.customer.contactName",
+      "grade": "Exact"
+    },
+    {
+      "from": "sqlite.northwind.Country",
+      "to": "elasticsearch.local.northwind_order_lines_alias.customer.country",
+      "grade": "Exact"
+    },
+    {
+      "from": "sqlite.northwind.EmployeeID",
+      "to": "elasticsearch.local.northwind_order_lines_alias.employee.employeeId",
+      "grade": "Exact"
+    },
+    {
+      "from": "sqlite.northwind.FirstName",
+      "to": "elasticsearch.local.northwind_order_lines_alias.employee.firstName",
+      "grade": "Exact"
+    },
+    {
+      "from": "sqlite.northwind.LastName",
+      "to": "elasticsearch.local.northwind_order_lines_alias.employee.lastName",
+      "grade": "Exact"
+    },
+    {
+      "from": "sqlite.northwind.Title",
+      "to": "elasticsearch.local.northwind_order_lines_alias.employee.title",
+      "grade": "Exact"
+    },
+    {
+      "from": "sqlite.northwind.ProductID",
+      "to": "elasticsearch.local.northwind_order_lines_alias.product.productId",
+      "grade": "Exact"
+    },
+    {
+      "from": "sqlite.northwind.ProductName",
+      "to": "elasticsearch.local.northwind_order_lines_alias.product.productName",
+      "grade": "Exact"
+    },
+    {
+      "from": "sqlite.northwind.CategoryName",
+      "to": "elasticsearch.local.northwind_order_lines_alias.product.categoryName",
+      "grade": "Exact"
+    },
+    {
+      "from": "sqlite.northwind.UnitPrice",
+      "to": "elasticsearch.local.northwind_order_lines_alias.unitPrice",
+      "grade": "Exact"
+    },
+    {
+      "from": "sqlite.northwind.Quantity",
+      "to": "elasticsearch.local.northwind_order_lines_alias.quantity",
+      "grade": "Exact"
+    },
+    {
+      "from": "sqlite.northwind.Discount",
+      "to": "elasticsearch.local.northwind_order_lines_alias.discount",
+      "grade": "Exact"
+    },
+    {
+      "from": "sqlite.northwind.Discount",
+      "to": "elasticsearch.local.northwind_order_lines_alias.lineSales",
+      "grade": "Declared"
+    },
+    {
+      "from": "sqlite.northwind.Quantity",
+      "to": "elasticsearch.local.northwind_order_lines_alias.lineSales",
+      "grade": "Declared"
+    },
+    {
+      "from": "sqlite.northwind.UnitPrice",
+      "to": "elasticsearch.local.northwind_order_lines_alias.lineSales",
+      "grade": "Declared"
+    }
+  ],
+  "coverage": {
+    "totalFields": 18,
+    "exactFields": 16,
+    "declaredFields": 2,
+    "opaqueFields": 0
+  }
+}

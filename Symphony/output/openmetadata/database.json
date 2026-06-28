@@ -1,0 +1,10 @@
+﻿{
+  "entityType": "Database",
+  "name": "northwind",
+  "fullyQualifiedName": "sqlite.local.northwind",
+  "description": "Northwind sample database.",
+  "version": "0.1.0",
+  "customProperties": {
+    "symphony.specHash": "561f20a87f3eb312ab11189c0f95aac39034e58434053be0f4592689a1399c5a"
+  }
+}

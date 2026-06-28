@@ -1,0 +1,33 @@
+﻿{
+  "entityType": "Table",
+  "name": "Orders",
+  "fullyQualifiedName": "sqlite.northwind.main.Orders",
+  "description": "Northwind source table Orders.",
+  "version": "0.1.0",
+  "customProperties": {
+    "symphony.specHash": "561f20a87f3eb312ab11189c0f95aac39034e58434053be0f4592689a1399c5a",
+    "symphony.sourceDialect": "SQLite"
+  },
+  "columns": [
+    {
+      "name": "OrderID",
+      "fullyQualifiedName": "sqlite.northwind.main.Orders.OrderID",
+      "description": "Source column OrderID."
+    },
+    {
+      "name": "OrderDate",
+      "fullyQualifiedName": "sqlite.northwind.main.Orders.OrderDate",
+      "description": "Source column OrderDate."
+    },
+    {
+      "name": "CustomerID",
+      "fullyQualifiedName": "sqlite.northwind.main.Orders.CustomerID",
+      "description": "Source column CustomerID."
+    },
+    {
+      "name": "EmployeeID",
+      "fullyQualifiedName": "sqlite.northwind.main.Orders.EmployeeID",
+      "description": "Source column EmployeeID."
+    }
+  ]
+}

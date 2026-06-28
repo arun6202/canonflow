@@ -1,0 +1,27 @@
+﻿{
+  "entityType": "DataContract",
+  "name": "northwind-order-lines-contract",
+  "fullyQualifiedName": "contract.northwind-order-lines",
+  "description": "Serving contract for the Northwind order-line Elasticsearch alias.",
+  "version": "0.1.0",
+  "customProperties": {
+    "symphony.specHash": "561f20a87f3eb312ab11189c0f95aac39034e58434053be0f4592689a1399c5a",
+    "symphony.documentGrain": "order-line",
+    "symphony.indexAlias": "northwind_order_lines_alias",
+    "symphony.mappingStrictness": "dynamic strict",
+    "symphony.compatibility": "Elasticsearch 8.x and 9.x",
+    "symphony.lineageExpectation": "no Opaque serving fields"
+  },
+  "searchIndex": "elasticsearch.local.northwind_order_lines_alias",
+  "requiredFields": [
+    "id",
+    "orderId",
+    "customer.customerId",
+    "product.productId",
+    "unitPrice",
+    "quantity",
+    "discount",
+    "lineSales"
+  ],
+  "qualitySuite": "quality.northwind-order-lines-suite"
+}

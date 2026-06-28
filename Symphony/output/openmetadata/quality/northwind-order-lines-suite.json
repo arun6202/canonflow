@@ -1,0 +1,67 @@
+﻿{
+  "entityType": "TestSuite",
+  "name": "northwind-order-lines-suite",
+  "fullyQualifiedName": "quality.northwind-order-lines-suite",
+  "description": "Desired quality tests for the Northwind order-line Elasticsearch projection.",
+  "version": "0.1.0",
+  "customProperties": {
+    "symphony.specHash": "561f20a87f3eb312ab11189c0f95aac39034e58434053be0f4592689a1399c5a",
+    "symphony.resultsPolicy": "desired-tests-only"
+  },
+  "tests": [
+    {
+      "name": "id-is-unique",
+      "description": "Each Elasticsearch document id is unique.",
+      "target": "northwind_order_lines_alias.id",
+      "expectation": "unique"
+    },
+    {
+      "name": "order-id-required",
+      "description": "Order id is required.",
+      "target": "northwind_order_lines_alias.orderId",
+      "expectation": "not-null"
+    },
+    {
+      "name": "product-id-required",
+      "description": "Product id is required.",
+      "target": "northwind_order_lines_alias.product.productId",
+      "expectation": "not-null"
+    },
+    {
+      "name": "unit-price-non-negative",
+      "description": "Unit price must be non-negative.",
+      "target": "northwind_order_lines_alias.unitPrice",
+      "expectation": "\u003E= 0"
+    },
+    {
+      "name": "quantity-positive",
+      "description": "Quantity must be positive.",
+      "target": "northwind_order_lines_alias.quantity",
+      "expectation": "\u003E 0"
+    },
+    {
+      "name": "discount-range",
+      "description": "Discount must be between zero and one.",
+      "target": "northwind_order_lines_alias.discount",
+      "expectation": "0 \u003C= value \u003C= 1"
+    },
+    {
+      "name": "line-sales-non-negative",
+      "description": "Line sales must be non-negative.",
+      "target": "northwind_order_lines_alias.lineSales",
+      "expectation": "\u003E= 0"
+    },
+    {
+      "name": "strict-mapping-rejects-unknown",
+      "description": "Strict mapping rejects unknown fields.",
+      "target": "northwind_order_lines_alias",
+      "expectation": "dynamic strict"
+    },
+    {
+      "name": "source-target-count-match",
+      "description": "Elasticsearch document count equals source projection count.",
+      "target": "northwind_order_lines_alias",
+      "expectation": "count match"
+    }
+  ]
+}

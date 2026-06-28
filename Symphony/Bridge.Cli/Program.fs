@@ -272,4 +272,14 @@ let main _ =
     let bulkFiles = writeBulkFiles spec docs
     printfn "Wrote %d order-line documents to %d bulk chunks" docs.Length bulkFiles.Length
 
+    let openMetadataContext: CompileOpenMetadata.BundleContext =
+        { OutputDirectory = outputDirectory
+          DocumentCount = docs.Length
+          BulkChunkCount = bulkFiles.Length
+          MaxChunkBytes = bulkChunkByteLimit }
+
+    match CompileOpenMetadata.emitBundle openMetadataContext spec with
+    | Ok files -> printfn "Wrote %d OpenMetadata draft artifacts" files.Length
+    | Error message -> failwith message
+
     0

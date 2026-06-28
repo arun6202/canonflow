@@ -1,0 +1,61 @@
+name: symphony-lab
+
+services:
+  es8:
+    image: docker.elastic.co/elasticsearch/elasticsearch:${ELASTICSEARCH_8_VERSION:-8.19.17}
+    container_name: symphony-es8
+    environment:
+      discovery.type: single-node
+      xpack.security.enabled: "false"
+      ES_JAVA_OPTS: -Xms1g -Xmx1g
+    mem_limit: 2g
+    ports:
+      - "9208:9200"
+    volumes:
+      - symphony-es8-data:/usr/share/elasticsearch/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:9200 >/dev/null || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+
+  es9:
+    image: docker.elastic.co/elasticsearch/elasticsearch:${ELASTICSEARCH_9_VERSION:-9.0.0}
+    container_name: symphony-es9
+    environment:
+      discovery.type: single-node
+      xpack.security.enabled: "false"
+      ES_JAVA_OPTS: -Xms1g -Xmx1g
+    mem_limit: 2g
+    ports:
+      - "9209:9200"
+    volumes:
+      - symphony-es9-data:/usr/share/elasticsearch/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:9200 >/dev/null || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 30
+
+  oracle:
+    image: gvenzl/oracle-free:${ORACLE_FREE_VERSION:-23-slim-faststart}
+    container_name: symphony-oracle
+    environment:
+      ORACLE_PASSWORD: ${ORACLE_PASSWORD:-Symphony_12345}
+      APP_USER: ${ORACLE_APP_USER:-SYMPHONY}
+      APP_USER_PASSWORD: ${ORACLE_APP_PASSWORD:-Symphony_12345}
+    ports:
+      - "${ORACLE_HOST_PORT:-11521}:1521"
+    volumes:
+      - symphony-oracle-data:/opt/oracle/oradata
+      - ./docker/oracle/init:/container-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "healthcheck.sh"]
+      interval: 10s
+      timeout: 5s
+      retries: 60
+
+volumes:
+  symphony-es8-data:
+  symphony-es9-data:
+  symphony-oracle-data:

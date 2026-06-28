@@ -1,0 +1,96 @@
+﻿{
+  "entityType": "SearchIndex",
+  "name": "northwind_order_lines_alias",
+  "fullyQualifiedName": "elasticsearch.local.northwind_order_lines_alias",
+  "description": "Elasticsearch serving alias for the Northwind order-line projection.",
+  "version": "0.1.0",
+  "customProperties": {
+    "symphony.specHash": "561f20a87f3eb312ab11189c0f95aac39034e58434053be0f4592689a1399c5a",
+    "symphony.targetDialect": "Elasticsearch 8/9",
+    "symphony.documentGrain": "order-line",
+    "symphony.indexAlias": "northwind_order_lines_alias",
+    "symphony.concreteIndex": "validation/generated at load time"
+  },
+  "fields": [
+    {
+      "name": "id",
+      "dataType": "keyword"
+    },
+    {
+      "name": "orderId",
+      "dataType": "keyword"
+    },
+    {
+      "name": "orderDate",
+      "dataType": "date"
+    },
+    {
+      "name": "customer.customerId",
+      "dataType": "keyword"
+    },
+    {
+      "name": "customer.companyName",
+      "dataType": "text"
+    },
+    {
+      "name": "customer.contactName",
+      "dataType": "text"
+    },
+    {
+      "name": "customer.country",
+      "dataType": "keyword"
+    },
+    {
+      "name": "employee.employeeId",
+      "dataType": "long"
+    },
+    {
+      "name": "employee.firstName",
+      "dataType": "text"
+    },
+    {
+      "name": "employee.lastName",
+      "dataType": "text"
+    },
+    {
+      "name": "employee.title",
+      "dataType": "text"
+    },
+    {
+      "name": "product.productId",
+      "dataType": "long"
+    },
+    {
+      "name": "product.productName",
+      "dataType": "text"
+    },
+    {
+      "name": "product.categoryName",
+      "dataType": "keyword"
+    },
+    {
+      "name": "unitPrice",
+      "dataType": "double"
+    },
+    {
+      "name": "quantity",
+      "dataType": "long"
+    },
+    {
+      "name": "discount",
+      "dataType": "double"
+    },
+    {
+      "name": "lineSales",
+      "dataType": "double"
+    }
+  ],
+  "lineageCoverage": {
+    "totalFields": 18,
+    "exactFields": 16,
+    "declaredFields": 2,
+    "opaqueFields": 0
+  },
+  "documentCount": 609283,
+  "bulkChunkCount": 6
+}

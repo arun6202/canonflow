@@ -1,0 +1,33 @@
+﻿{
+  "entityType": "Table",
+  "name": "Employees",
+  "fullyQualifiedName": "sqlite.northwind.main.Employees",
+  "description": "Northwind source table Employees.",
+  "version": "0.1.0",
+  "customProperties": {
+    "symphony.specHash": "561f20a87f3eb312ab11189c0f95aac39034e58434053be0f4592689a1399c5a",
+    "symphony.sourceDialect": "SQLite"
+  },
+  "columns": [
+    {
+      "name": "EmployeeID",
+      "fullyQualifiedName": "sqlite.northwind.main.Employees.EmployeeID",
+      "description": "Source column EmployeeID."
+    },
+    {
+      "name": "FirstName",
+      "fullyQualifiedName": "sqlite.northwind.main.Employees.FirstName",
+      "description": "Source column FirstName."
+    },
+    {
+      "name": "LastName",
+      "fullyQualifiedName": "sqlite.northwind.main.Employees.LastName",
+      "description": "Source column LastName."
+    },
+    {
+      "name": "Title",
+      "fullyQualifiedName": "sqlite.northwind.main.Employees.Title",
+      "description": "Source column Title."
+    }
+  ]
+}

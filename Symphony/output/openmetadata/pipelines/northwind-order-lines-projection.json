@@ -1,0 +1,39 @@
+﻿{
+  "entityType": "Pipeline",
+  "name": "northwind-order-lines-projection",
+  "fullyQualifiedName": "pipeline.northwind-order-lines-projection",
+  "description": "Batch projection from Northwind source tables to the Elasticsearch order-line alias.",
+  "version": "0.1.0",
+  "customProperties": {
+    "symphony.specHash": "561f20a87f3eb312ab11189c0f95aac39034e58434053be0f4592689a1399c5a",
+    "symphony.sourceDialect": "SQLite/DuckDB",
+    "symphony.targetDialect": "Elasticsearch 8/9",
+    "symphony.bulkChunks": "6"
+  },
+  "source": "SQLite.Northwind.OrderLine",
+  "target": "elasticsearch.local.northwind_order_lines_alias",
+  "tasks": [
+    {
+      "name": "harvest",
+      "fullyQualifiedName": "pipeline.northwind-order-lines.harvest"
+    },
+    {
+      "name": "project",
+      "fullyQualifiedName": "pipeline.northwind-order-lines.project"
+    },
+    {
+      "name": "compile-elasticsearch",
+      "fullyQualifiedName": "pipeline.northwind-order-lines.compile-elasticsearch"
+    },
+    {
+      "name": "write-bulk",
+      "fullyQualifiedName": "pipeline.northwind-order-lines.write-bulk"
+    },
+    {
+      "name": "validate",
+      "fullyQualifiedName": "pipeline.northwind-order-lines.validate"
+    }
+  ],
+  "documentCount": 609283,
+  "maxChunkBytes": 52428800
+}

@@ -1,0 +1,28 @@
+﻿{
+  "entityType": "Table",
+  "name": "Products",
+  "fullyQualifiedName": "sqlite.northwind.main.Products",
+  "description": "Northwind source table Products.",
+  "version": "0.1.0",
+  "customProperties": {
+    "symphony.specHash": "561f20a87f3eb312ab11189c0f95aac39034e58434053be0f4592689a1399c5a",
+    "symphony.sourceDialect": "SQLite"
+  },
+  "columns": [
+    {
+      "name": "ProductID",
+      "fullyQualifiedName": "sqlite.northwind.main.Products.ProductID",
+      "description": "Source column ProductID."
+    },
+    {
+      "name": "ProductName",
+      "fullyQualifiedName": "sqlite.northwind.main.Products.ProductName",
+      "description": "Source column ProductName."
+    },
+    {
+      "name": "CategoryID",
+      "fullyQualifiedName": "sqlite.northwind.main.Products.CategoryID",
+      "description": "Source column CategoryID."
+    }
+  ]
+}

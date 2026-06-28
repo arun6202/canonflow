@@ -1,0 +1,38 @@
+﻿{
+  "entityType": "Table",
+  "name": "Order Details",
+  "fullyQualifiedName": "sqlite.northwind.main.Order Details",
+  "description": "Northwind source table Order Details.",
+  "version": "0.1.0",
+  "customProperties": {
+    "symphony.specHash": "561f20a87f3eb312ab11189c0f95aac39034e58434053be0f4592689a1399c5a",
+    "symphony.sourceDialect": "SQLite"
+  },
+  "columns": [
+    {
+      "name": "OrderID",
+      "fullyQualifiedName": "sqlite.northwind.main.Order Details.OrderID",
+      "description": "Source column OrderID."
+    },
+    {
+      "name": "ProductID",
+      "fullyQualifiedName": "sqlite.northwind.main.Order Details.ProductID",
+      "description": "Source column ProductID."
+    },
+    {
+      "name": "UnitPrice",
+      "fullyQualifiedName": "sqlite.northwind.main.Order Details.UnitPrice",
+      "description": "Source column UnitPrice."
+    },
+    {
+      "name": "Quantity",
+      "fullyQualifiedName": "sqlite.northwind.main.Order Details.Quantity",
+      "description": "Source column Quantity."
+    },
+    {
+      "name": "Discount",
+      "fullyQualifiedName": "sqlite.northwind.main.Order Details.Discount",
+      "description": "Source column Discount."
+    }
+  ]
+}
