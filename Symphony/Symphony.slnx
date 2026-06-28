@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="Bridge.Cli/Bridge.Cli.fsproj" />
+  <Project Path="Bridge.Folds/Bridge.Folds.fsproj" />
+  <Project Path="Bridge.Spec/Bridge.Spec.fsproj" />
+  <Project Path="SqlHydra.DuckDb/SqlHydra.DuckDb.fsproj" />
+</Solution>

@@ -1,0 +1,186 @@
+{"index":{"_index":"customer_analytics_alias","_id":"VINET"}}
+{"customerId":"VINET","customerName":"Vins et alcools Chevalier","country":"France","totalOrders":158,"totalSales":4332214.279999997,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"TOMSP"}}
+{"customerId":"TOMSP","customerName":"Toms Spezialit\u00E4ten","country":"Germany","totalOrders":174,"totalSales":4745078.099999998,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"HANAR"}}
+{"customerId":"HANAR","customerName":"Hanari Carnes","country":"Brazil","totalOrders":180,"totalSales":5097941.559999994,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"VICTE"}}
+{"customerId":"VICTE","customerName":"Victuailles en stock","country":"France","totalOrders":188,"totalSales":5276686.059999999,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"SUPRD"}}
+{"customerId":"SUPRD","customerName":"Supr\u00EAmes d\u00E9lices","country":"Belgium","totalOrders":169,"totalSales":4609931.109999996,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"CHOPS"}}
+{"customerId":"CHOPS","customerName":"Chop-suey Chinese","country":"Switzerland","totalOrders":183,"totalSales":4989158.990000001,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"RICSU"}}
+{"customerId":"RICSU","customerName":"Richter Supermarkt","country":"Switzerland","totalOrders":175,"totalSales":4834229.548999993,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"WELLI"}}
+{"customerId":"WELLI","customerName":"Wellington Importadora","country":"Brazil","totalOrders":185,"totalSales":5333907.690000002,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"HILAA"}}
+{"customerId":"HILAA","customerName":"HILARION-Abastos","country":"Venezuela","totalOrders":178,"totalSales":4841324.414,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"ERNSH"}}
+{"customerId":"ERNSH","customerName":"Ernst Handel","country":"Austria","totalOrders":187,"totalSales":4541857.868500002,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"CENTC"}}
+{"customerId":"CENTC","customerName":"Centro comercial Moctezuma","country":"Mexico","totalOrders":174,"totalSales":4606245.249999996,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"OTTIK"}}
+{"customerId":"OTTIK","customerName":"Ottilies K\u00E4seladen","country":"Germany","totalOrders":177,"totalSales":4911223.400000012,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"QUEDE"}}
+{"customerId":"QUEDE","customerName":"Que Del\u00EDcia","country":"Brazil","totalOrders":169,"totalSales":4258199.690000002,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"RATTC"}}
+{"customerId":"RATTC","customerName":"Rattlesnake Canyon Grocery","country":"USA","totalOrders":174,"totalSales":4687815.010499996,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"FOLKO"}}
+{"customerId":"FOLKO","customerName":"Folk och f\u00E4 HB","country":"Sweden","totalOrders":175,"totalSales":4466300.62249999,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"BLONP"}}
+{"customerId":"BLONP","customerName":"Blondesddsl p\u00E8re et fils","country":"France","totalOrders":165,"totalSales":4705978.139999991,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"WARTH"}}
+{"customerId":"WARTH","customerName":"Wartian Herkku","country":"Finland","totalOrders":162,"totalSales":4574418.762499995,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"FRANK"}}
+{"customerId":"FRANK","customerName":"Frankenversand","country":"Germany","totalOrders":162,"totalSales":4434934.5595,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"GROSR"}}
+{"customerId":"GROSR","customerName":"GROSELLA-Restaurante","country":"Venezuela","totalOrders":168,"totalSales":4649039.290000005,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"WHITC"}}
+{"customerId":"WHITC","customerName":"White Clover Markets","country":"USA","totalOrders":183,"totalSales":4662707.935,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"SPLIR"}}
+{"customerId":"SPLIR","customerName":"Split Rail Beer \u0026 Ale","country":"USA","totalOrders":169,"totalSales":4499350.869999998,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"QUICK"}}
+{"customerId":"QUICK","customerName":"QUICK-Stop","country":"Germany","totalOrders":183,"totalSales":4938975.484999991,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"MAGAA"}}
+{"customerId":"MAGAA","customerName":"Magazzini Alimentari Riuniti","country":"Italy","totalOrders":175,"totalSales":4833909.454999997,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"TORTU"}}
+{"customerId":"TORTU","customerName":"Tortuga Restaurante","country":"Mexico","totalOrders":197,"totalSales":5278083.970000006,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"MORGK"}}
+{"customerId":"MORGK","customerName":"Morgenstern Gesundkost","country":"Germany","totalOrders":178,"totalSales":5349089.590000001,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"BERGS"}}
+{"customerId":"BERGS","customerName":"Berglunds snabbk\u00F6p","country":"Sweden","totalOrders":178,"totalSales":4833398.527499997,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"LEHMS"}}
+{"customerId":"LEHMS","customerName":"Lehmanns Marktstand","country":"Germany","totalOrders":166,"totalSales":4184144.4499999965,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"ROMEY"}}
+{"customerId":"ROMEY","customerName":"Romero y tomillo","country":"Spain","totalOrders":176,"totalSales":4782770.280000008,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"LILAS"}}
+{"customerId":"LILAS","customerName":"LILA-Supermercado","country":"Venezuela","totalOrders":203,"totalSales":5437438.339999999,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"RICAR"}}
+{"customerId":"RICAR","customerName":"Ricardo Adocicados","country":"Brazil","totalOrders":203,"totalSales":5524517.310000005,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"REGGC"}}
+{"customerId":"REGGC","customerName":"Reggiani Caseifici","country":"Italy","totalOrders":160,"totalSales":4223241.669999997,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"BSBEV"}}
+{"customerId":"BSBEV","customerName":"B\u0027s Beverages","country":"UK","totalOrders":210,"totalSales":6154115.339999997,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"COMMI"}}
+{"customerId":"COMMI","customerName":"Com\u00E9rcio Mineiro","country":"Brazil","totalOrders":179,"totalSales":4992489.53,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"TRADH"}}
+{"customerId":"TRADH","customerName":"Tradi\u00E7\u00E3o Hipermercados","country":"Brazil","totalOrders":188,"totalSales":5087091.413999998,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"HUNGO"}}
+{"customerId":"HUNGO","customerName":"Hungry Owl All-Night Grocers","country":"Ireland","totalOrders":182,"totalSales":4732282.284999997,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"WANDK"}}
+{"customerId":"WANDK","customerName":"Die Wandernde Kuh","country":"Germany","totalOrders":175,"totalSales":4854775.624999993,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"GODOS"}}
+{"customerId":"GODOS","customerName":"Godos Cocina T\u00EDpica","country":"Spain","totalOrders":173,"totalSales":4622798.43,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"OLDWO"}}
+{"customerId":"OLDWO","customerName":"Old World Delicatessen","country":"USA","totalOrders":176,"totalSales":4809258.512499997,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"LONEP"}}
+{"customerId":"LONEP","customerName":"Lonesome Pine Restaurant","country":"USA","totalOrders":166,"totalSales":4298854.649999999,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"ANATR"}}
+{"customerId":"ANATR","customerName":"Ana Trujillo Emparedados y helados","country":"Mexico","totalOrders":195,"totalSales":5534356.649999994,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"THEBI"}}
+{"customerId":"THEBI","customerName":"The Big Cheese","country":"USA","totalOrders":164,"totalSales":4830860.979999994,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"DUMON"}}
+{"customerId":"DUMON","customerName":"Du monde entier","country":"France","totalOrders":160,"totalSales":4236208.169999998,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"ISLAT"}}
+{"customerId":"ISLAT","customerName":"Island Trading","country":"UK","totalOrders":185,"totalSales":4885549.180000002,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"PERIC"}}
+{"customerId":"PERIC","customerName":"Pericles Comidas cl\u00E1sicas","country":"Mexico","totalOrders":169,"totalSales":5071822.530000002,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"KOENE"}}
+{"customerId":"KOENE","customerName":"K\u00F6niglich Essen","country":"Germany","totalOrders":177,"totalSales":4621173.903999999,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"SAVEA"}}
+{"customerId":"SAVEA","customerName":"Save-a-lot Markets","country":"USA","totalOrders":190,"totalSales":4520065.249999997,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"BOLID"}}
+{"customerId":"BOLID","customerName":"B\u00F3lido Comidas preparadas","country":"Spain","totalOrders":182,"totalSales":5398064.440000006,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"FURIB"}}
+{"customerId":"FURIB","customerName":"Furia Bacalhau e Frutos do Mar","country":"Portugal","totalOrders":155,"totalSales":4098647.7924999977,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"BONAP"}}
+{"customerId":"BONAP","customerName":"Bon app\u0027","country":"France","totalOrders":167,"totalSales":4725685.202499997,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"MEREP"}}
+{"customerId":"MEREP","customerName":"M\u00E8re Paillarde","country":"Canada","totalOrders":175,"totalSales":4877478.780000002,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"PRINI"}}
+{"customerId":"PRINI","customerName":"Princesa Isabel Vinhos","country":"Portugal","totalOrders":200,"totalSales":5436770.549999987,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"SIMOB"}}
+{"customerId":"SIMOB","customerName":"Simons bistro","country":"Denmark","totalOrders":161,"totalSales":4767493.937500005,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"FAMIA"}}
+{"customerId":"FAMIA","customerName":"Familia Arquibaldo","country":"Brazil","totalOrders":168,"totalSales":4895780.420000006,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"LAMAI"}}
+{"customerId":"LAMAI","customerName":"La maison d\u0027Asie","country":"France","totalOrders":185,"totalSales":4675692.489999989,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"PICCO"}}
+{"customerId":"PICCO","customerName":"Piccolo und mehr","country":"Austria","totalOrders":177,"totalSales":5366426.270000004,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"AROUT"}}
+{"customerId":"AROUT","customerName":"Around the Horn","country":"UK","totalOrders":156,"totalSales":4251821.619999996,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"SEVES"}}
+{"customerId":"SEVES","customerName":"Seven Seas Imports","country":"UK","totalOrders":168,"totalSales":4749839.215000011,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"DRACD"}}
+{"customerId":"DRACD","customerName":"Drachenblut Delikatessen","country":"Germany","totalOrders":176,"totalSales":4779289.009999995,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"EASTC"}}
+{"customerId":"EASTC","customerName":"Eastern Connection","country":"UK","totalOrders":165,"totalSales":4577978.394999997,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"ANTON"}}
+{"customerId":"ANTON","customerName":"Antonio Moreno Taquer\u00EDa","country":"Mexico","totalOrders":163,"totalSales":4311774.037500002,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"GALED"}}
+{"customerId":"GALED","customerName":"Galer\u00EDa del gastr\u00F3nomo","country":"Spain","totalOrders":163,"totalSales":4500324.900000005,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"VAFFE"}}
+{"customerId":"VAFFE","customerName":"Vaffeljernet","country":"Denmark","totalOrders":171,"totalSales":4940880.7849999955,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"QUEEN"}}
+{"customerId":"QUEEN","customerName":"Queen Cozinha","country":"Brazil","totalOrders":185,"totalSales":5059541.857499999,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"WOLZA"}}
+{"customerId":"WOLZA","customerName":"Wolski  Zajazd","country":"Poland","totalOrders":177,"totalSales":4738465.22000001,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"HUNGC"}}
+{"customerId":"HUNGC","customerName":"Hungry Coyote Import Store","country":"USA","totalOrders":198,"totalSales":5698023.669999998,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"SANTG"}}
+{"customerId":"SANTG","customerName":"Sant\u00E9 Gourmet","country":"Norway","totalOrders":159,"totalSales":4691250.639999998,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"BOTTM"}}
+{"customerId":"BOTTM","customerName":"Bottom-Dollar Markets","country":"Canada","totalOrders":185,"totalSales":5064202.339999995,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"LINOD"}}
+{"customerId":"LINOD","customerName":"LINO-Delicateses","country":"Venezuela","totalOrders":177,"totalSales":4497109.925000001,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"FOLIG"}}
+{"customerId":"FOLIG","customerName":"Folies gourmandes","country":"France","totalOrders":195,"totalSales":5505502.850000002,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"OCEAN"}}
+{"customerId":"OCEAN","customerName":"Oc\u00E9ano Atl\u00E1ntico Ltda.","country":"Argentina","totalOrders":154,"totalSales":4059079.050000001,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"FRANS"}}
+{"customerId":"FRANS","customerName":"Franchi S.p.A.","country":"Italy","totalOrders":184,"totalSales":4943582.1099999985,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"GOURL"}}
+{"customerId":"GOURL","customerName":"Gourmet Lanchonetes","country":"Brazil","totalOrders":202,"totalSales":5552309.805000009,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"CONSH"}}
+{"customerId":"CONSH","customerName":"Consolidated Holdings","country":"UK","totalOrders":180,"totalSales":4931207.189999992,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"RANCH"}}
+{"customerId":"RANCH","customerName":"Rancho grande","country":"Argentina","totalOrders":194,"totalSales":5559110.079999999,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"LAZYK"}}
+{"customerId":"LAZYK","customerName":"Lazy K Kountry Store","country":"USA","totalOrders":167,"totalSales":4942067.560000001,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"LAUGB"}}
+{"customerId":"LAUGB","customerName":"Laughing Bacchus Wine Cellars","country":"Canada","totalOrders":160,"totalSales":4259986.339999997,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"BLAUS"}}
+{"customerId":"BLAUS","customerName":"Blauer See Delikatessen","country":"Germany","totalOrders":164,"totalSales":4411617.7500000065,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"NORTS"}}
+{"customerId":"NORTS","customerName":"North/South","country":"UK","totalOrders":170,"totalSales":4408743.859999998,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"CACTU"}}
+{"customerId":"CACTU","customerName":"Cactus Comidas para llevar","country":"Argentina","totalOrders":168,"totalSales":4615377.629999997,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"GREAL"}}
+{"customerId":"GREAL","customerName":"Great Lakes Food Market","country":"USA","totalOrders":177,"totalSales":4900810.009999993,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"MAISD"}}
+{"customerId":"MAISD","customerName":"Maison Dewey","country":"Belgium","totalOrders":162,"totalSales":4815829.324999991,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"TRAIH"}}
+{"customerId":"TRAIH","customerName":"Trail\u0027s Head Gourmet Provisioners","country":"USA","totalOrders":157,"totalSales":4291819.959999999,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"LETSS"}}
+{"customerId":"LETSS","customerName":"Let\u0027s Stop N Shop","country":"USA","totalOrders":191,"totalSales":5462198.022499997,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"WILMK"}}
+{"customerId":"WILMK","customerName":"Wilman Kala","country":"Finland","totalOrders":169,"totalSales":4635588.030000007,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"THECR"}}
+{"customerId":"THECR","customerName":"The Cracker Box","country":"USA","totalOrders":168,"totalSales":4997732.409999994,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"ALFKI"}}
+{"customerId":"ALFKI","customerName":"Alfreds Futterkiste","country":"Germany","totalOrders":163,"totalSales":3965464.9500000007,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"FRANR"}}
+{"customerId":"FRANR","customerName":"France restauration","country":"France","totalOrders":187,"totalSales":5180799.3999999985,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"SPECD"}}
+{"customerId":"SPECD","customerName":"Sp\u00E9cialit\u00E9s du monde","country":"France","totalOrders":188,"totalSales":5298269.649999997,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"LACOR"}}
+{"customerId":"LACOR","customerName":"La corne d\u0027abondance","country":"France","totalOrders":155,"totalSales":4580281.870000005,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"PARIS"}}
+{"customerId":"PARIS","customerName":"Paris sp\u00E9cialit\u00E9s","country":"France","totalOrders":161,"totalSales":4805987.649999993,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"FISSA"}}
+{"customerId":"FISSA","customerName":"FISSA Fabrica Inter. Salchichas S.A.","country":"Spain","totalOrders":155,"totalSales":4719540.200000004,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"Val2 "}}
+{"customerId":"Val2 ","customerName":"IT","country":"","totalOrders":159,"totalSales":4820276.680000004,"customerSegment":"Gold"}
+{"index":{"_index":"customer_analytics_alias","_id":"VALON"}}
+{"customerId":"VALON","customerName":"IT","country":"","totalOrders":176,"totalSales":4925094.610000008,"customerSegment":"Gold"}

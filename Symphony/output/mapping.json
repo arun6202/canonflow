@@ -1,0 +1,24 @@
+{
+  "mappings": {
+    "properties": {
+      "customerId": {
+        "type": "keyword"
+      },
+      "customerName": {
+        "type": "text"
+      },
+      "country": {
+        "type": "keyword"
+      },
+      "totalSales": {
+        "type": "double"
+      },
+      "totalOrders": {
+        "type": "long"
+      },
+      "customerSegment": {
+        "type": "keyword"
+      }
+    }
+  }
+}

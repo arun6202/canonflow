@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "isRoot": true,
+  "tools": {
+    "sqlhydra.cli": {
+      "version": "4.0.1",
+      "commands": [
+        "sqlhydra"
+      ],
+      "rollForward": false
+    }
+  }
+}

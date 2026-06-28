@@ -1,0 +1,56 @@
+name: Build and test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+env:
+  # Stop wasting time caching packages
+  DOTNET_SKIP_FIRST_TIME_EXPERIENCE: true
+  # Disable sending usage data to Microsoft
+  DOTNET_CLI_TELEMETRY_OPTOUT: true
+
+# Kill other jobs when we trigger this workflow by sending new commits
+# to the PR.
+# https://stackoverflow.com/a/72408109
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: |
+            8.x
+            9.x
+      - name: Restore
+        working-directory: src/
+        run: dotnet restore
+
+      - name: Start containers
+        working-directory: src/.devcontainer
+        run: docker compose up -d mssql postgresql orcl
+      - name: Build
+        working-directory: src/
+        run: dotnet build --no-restore
+      - name: Test net8.0
+        working-directory: src/
+        run: dotnet test --framework net8.0
+
+      - name: Stop and Start containers
+        working-directory: src/.devcontainer
+        run: docker compose down && docker compose up -d mssql postgresql orcl
+      - name: Build
+        working-directory: src/
+        run: dotnet build --no-restore
+      - name: Test net9.0
+        working-directory: src/
+        run: dotnet test --framework net9.0

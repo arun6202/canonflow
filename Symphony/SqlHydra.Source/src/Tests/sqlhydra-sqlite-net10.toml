@@ -1,0 +1,15 @@
+[general]
+connection = "Data Source=TestData/AdventureWorksLT.db"
+output = "Sqlite/AdventureWorksNet10.fs"
+namespace = "Sqlite.AdventureWorksNet10"
+cli_mutable = true
+[sqlhydra_query_integration]
+provider_db_type_attributes = true
+table_declarations = true
+[readers]
+reader_type = "System.Data.Common.DbDataReader"
+[filters]
+include = [ "*" ]
+exclude = [ "hr/*" ]
+[extensions]
+type_mappings = ["Tests"]

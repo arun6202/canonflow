@@ -1,0 +1,51 @@
+USE [master]
+RESTORE DATABASE [AdventureWorks] 
+    FROM DISK = '/var/opt/mssql/backup/AdventureWorks2019.bak'
+        WITH REPLACE,
+        MOVE 'AdventureWorks2019' TO '/var/opt/mssql/data/AdventureWorks.mdf',
+        MOVE 'AdventureWorks2019_log' TO '/var/opt/mssql/data/AdventureWorks_log.ldf'
+GO
+
+USE [AdventureWorks]
+GO
+
+-- SqlHydra custom "extensions" schema for bug fix reproductions, new features, etc
+CREATE SCHEMA [ext]
+GO
+
+-- https://github.com/JordanMarr/SqlHydra/issues/30
+-- https://github.com/JordanMarr/SqlHydra/pull/33
+CREATE TABLE [ext].[DateTime2Support] (
+  [ID] [INT] PRIMARY KEY,
+  [LessPrecision] [DATETIME] NOT NULL,
+  [MorePrecision] [DATETIME2](7) NOT NULL
+)
+GO
+
+-- https://github.com/JordanMarr/SqlHydra/issues/38
+CREATE TABLE [ext].[GetIdGuidRepro]
+(
+    [Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT NEWID(),
+    -- descriptive data
+    [EmailAddress] NCHAR(50) NOT NULL
+)
+GO
+
+-- Upsert with nullable composite key for insertOrUpdateOnUnique NULL-safe fix
+CREATE TABLE [ext].[NullableKeyUpsert]
+(
+    [Key1] UNIQUEIDENTIFIER NOT NULL,
+    [Key2] NVARCHAR(50) NULL,
+    [Value] NVARCHAR(200) NOT NULL,
+    CONSTRAINT [UQ_NullableKeyUpsert] UNIQUE ([Key1], [Key2])
+)
+GO
+
+-- https://github.com/JordanMarr/SqlHydra/issues/106
+CREATE TABLE [ext].[HierarchyIdSupport]
+(
+    [Id] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT NEWID(),
+    -- descriptive data
+    [Hierarchy] HIERARCHYID NOT NULL
+)
+GO

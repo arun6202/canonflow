@@ -1,0 +1,86 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFrameworks>net8.0;net9.0;net10.0</TargetFrameworks>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<Version>4.0.1</Version>
+		<WarningsAsErrors>
+			<!-- Incomplete pattern matches on this expression. -->
+			FS0025
+		</WarningsAsErrors>
+		<NoWarn>
+			<!-- Duplicate Package -->
+			NU1504
+		</NoWarn>
+		<Authors>Jordan Marr</Authors>
+		<Description>SqlHydra.Cli is a dotnet tool that generates F# types for SQL Server, PostgreSQL, Sqlite, MySQL and Oracle.</Description>
+		<PackageTags>F# fsharp data database orm sql codegen typeprovider</PackageTags>
+		<PackAsTool>true</PackAsTool>
+		<ToolCommandName>sqlhydra</ToolCommandName>
+		<PackageOutputPath>./nupkg</PackageOutputPath>
+		<TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage</TargetsForTfmSpecificBuildOutput>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Content Include="Properties\launchSettings.json" />
+		<Compile Include="SchemaFilters.fs" />
+		<Compile Include="SqlServer\SqlServerDataTypes.fs" />
+		<Compile Include="SqlServer\SqlServerSchemaProvider.fs" />
+		<Compile Include="SqlServer\Provider.fs" />
+		<Compile Include="Sqlite\SqliteDataTypes.fs" />
+		<Compile Include="Sqlite\SqliteSchemaProvider.fs" />
+		<Compile Include="Sqlite\Provider.fs" />
+		<Compile Include="Oracle\OracleDataTypes.fs" />
+		<Compile Include="Oracle\OracleSchemaProvider.fs" />
+		<Compile Include="Oracle\Provider.fs" />
+		<Compile Include="MySql\MySqlDataTypes.fs" />
+		<Compile Include="MySql\MySqlSchemaProvider.fs" />
+		<Compile Include="MySql\Provider.fs" />
+		<Compile Include="Npgsql\NpgsqlDataTypes.fs" />
+		<Compile Include="Npgsql\NpgsqlSchemaProvider.fs" />
+		<Compile Include="Npgsql\Provider.fs" />
+		<Compile Include="Version.fs" />
+		<Compile Include="SchemaTemplate.fs" />
+		<Compile Include="TomlConfigParser.fs" />
+		<Compile Include="Fsproj.fs" />
+		<Compile Include="Extensions.fs" />
+		<Compile Include="Console.fs" />
+		<Compile Include="Program.fs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Update="FSharp.Core" Version="8.0.100" Condition="'$(TargetFramework)' == 'net8.0'" />
+		<PackageReference Update="FSharp.Core" Version="9.0.201" Condition="'$(TargetFramework)' == 'net9.0'" />
+		<PackageReference Update="FSharp.Core" Version="10.0.100" Condition="'$(TargetFramework)' == 'net10.0'" />
+		<PackageReference Include="Fantomas.Core" Version="6.3.16" />
+		<PackageReference Include="Microsoft.Data.Sqlite" Version="10.0.5" />
+		<PackageReference Include="Microsoft.SqlServer.Types" Version="160.1000.6" />
+		<PackageReference Include="MySql.Data" Version="9.0.0" />
+		<PackageReference Include="Fantomas.FCS" Version="6.3.16" />
+		<PackageReference Include="Npgsql" Version="8.0.3" Condition="'$(TargetFramework)' == 'net8.0'" />
+		<PackageReference Include="Npgsql" Version="9.0.3" Condition="'$(TargetFramework)' == 'net9.0'" />
+		<PackageReference Include="Npgsql" Version="9.0.3" Condition="'$(TargetFramework)' == 'net10.0'" />
+		<PackageReference Include="Oracle.ManagedDataAccess.Core" Version="3.21.140" />
+		<PackageReference Include="StringBuffer" Version="1.0.1" />
+		<PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.1" />
+		<PackageReference Include="FSharp.SystemCommandLine" Version="2.1.0" />
+		<PackageReference Include="Glob" Version="1.1.9" />
+		<PackageReference Include="Microsoft.Build" Version="16.11.0" />
+		<PackageReference Include="Spectre.Console" Version="0.49.1" />
+		<PackageReference Include="Tomlyn" Version="0.17.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\SqlHydra.Domain\SqlHydra.Domain.fsproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\..\LICENSE">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+	</ItemGroup>
+
+</Project>

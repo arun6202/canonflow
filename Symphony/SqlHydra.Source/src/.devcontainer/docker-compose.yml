@@ -1,0 +1,70 @@
+services:
+  app:
+    container_name: app
+    build: 
+      context: .
+      dockerfile: Dockerfile
+
+    depends_on:
+      - "mssql"
+
+    volumes:
+      # This is where VS Code should expect to find your project's source code and the value of "workspaceFolder" in .devcontainer/devcontainer.json
+      - ../..:/workspace:cached
+
+      # Uncomment the next line to use Docker from inside the container. See https://aka.ms/vscode-remote/samples/docker-from-docker-compose for details.
+      # - /var/run/docker.sock:/var/run/docker.sock 
+
+    # Overrides default command so things don't shut down after the process ends.
+    command: /bin/sh -c "while sleep 1000; do :; done"  
+
+    # Runs app on the same network as the service container, allows "forwardPorts" in devcontainer.json function.
+    network_mode: service:mssql
+    
+    # Use "forwardPorts" in **devcontainer.json** to forward an app port locally. 
+    # (Adding the "ports" property to this file will not forward from a Codespace.)
+        
+  mssql:
+    # image: mcr.microsoft.com/mssql/server:2019-latest
+    hostname: mssql
+    container_name: mssql
+    build: 
+      context: ./mssql
+      dockerfile: Dockerfile
+    ports:
+      - "12019:1433"    
+    environment:
+      - ACCEPT_EULA=Y
+      - MSSQL_SA_PASSWORD=Password#123
+      - MSSQL_PID=Express
+
+    #extra_hosts:
+    #  - "localhost:192.168.1.123"
+  
+  postgresql:
+    hostname: postgresql
+    container_name: postgresql
+    build: 
+      context: ./postgresql
+      dockerfile: Dockerfile
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "54320:5432"
+      
+  orcl:
+    hostname: orcl
+    container_name: orcl
+    image: gvenzl/oracle-xe:21-slim
+    environment:
+      - ORACLE_PASSWORD=oracle
+      - APP_USER=OT
+      - APP_USER_PASSWORD=Oracle1
+    ports:
+      - 1521:1521
+    volumes:
+      - ./orcl/init-ot-schema.sql:/docker-entrypoint-initdb.d/01_init_schema.sql
+      - ./orcl/init-ot-data.sql:/docker-entrypoint-initdb.d/02_init_data.sql
+    
+    

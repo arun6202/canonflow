@@ -1,0 +1,14 @@
+{
+  "profiles": {
+    "test-sqlite": {
+      "commandName": "Project",
+      "workingDirectory": "C:\\_github\\SqlHydra\\src\\Tests",
+      "commandLineArgs": "sqlite -t sqlhydra-sqlite-net8.toml -p Tests.fsproj"
+    },
+    "test-sqlite-no-proj": {
+      "commandName": "Project",
+      "workingDirectory": "C:\\_github\\SqlHydra\\src\\Tests",
+      "commandLineArgs": "sqlite -t sqlhydra-sqlite-net8.toml"
+    }
+  }
+}

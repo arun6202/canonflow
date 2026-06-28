@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="AdventureWorks.fs">
+      <Visible>False</Visible>
+    </Compile>
+    <Compile Include="DapperFSharpExample.fs" />
+    <Compile Include="DapperExample.fs" />
+    <Compile Include="DonaldExample.fs" />
+    <Compile Include="ReaderExample.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Dapper.FSharp" Version="4.2.0" />
+    <PackageReference Include="Donald" Version="6.2.2" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="4.0.0" />
+    <PackageReference Include="TaskBuilder.fs" Version="2.1.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SqlHydra.Domain\SqlHydra.Domain.fsproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Update="FSharp.Core" Version="6.0.1" />
+  </ItemGroup>
+  <Target Name="SqlHydra" BeforeTargets="Clean">
+    <Exec Command="sqlhydra-mssql.bat" />
+  </Target>
+</Project>

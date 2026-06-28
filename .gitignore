@@ -1,0 +1,9 @@
+# .NET Core
+[Bb]in/
+[Oo]bj/
+
+# Mac
+.DS_Store
+
+# Windows
+Thumbs.db

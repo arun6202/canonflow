@@ -1,0 +1,90 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>netstandard2.0;net8.0;net9.0;net10.0</TargetFrameworks>
+		<GenerateDocumentationFile>true</GenerateDocumentationFile>
+		<WarnOn>3390;$(WarnOn)</WarnOn>
+		<Version>4.0.4</Version>
+		<Description>SqlHydra.Query is an F# query builder that supports SQL Server, PostgreSQL, Sqlite, MySQL and Oracle.</Description>
+		<WarningsAsErrors>
+			<!-- Incomplete pattern matches on this expression. -->
+			FS0025
+		</WarningsAsErrors>
+		<NoWarn>
+			<!-- Duplicate Package -->
+			NU1504
+		</NoWarn>
+		<Authors>Jordan Marr</Authors>
+		<PackageTags>F# fsharp data database orm sql</PackageTags>
+		<PackageLicenseFile>LICENSE</PackageLicenseFile>
+		<TargetsForTfmSpecificBuildOutput>$(TargetsForTfmSpecificBuildOutput);CopyProjectReferencesToPackage</TargetsForTfmSpecificBuildOutput>
+		<PackageReleaseNotes></PackageReleaseNotes>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<InternalsVisibleTo Include="Tests" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\..\LICENSE">
+			<Pack>True</Pack>
+			<PackagePath></PackagePath>
+		</None>
+		<Compile Include="QueryIR.fs" />
+		<Compile Include="SqlEmitter.fs" />
+		<Compile Include="SqlEmitterBase.fs" />
+		<Compile Include="SqlEmitters.fs" />
+		<Compile Include="Core.fs" />
+		<Compile Include="QueryFunctions.fs" />
+		<Compile Include="QuotationVisitor.fs" />
+		<Compile Include="ExpressionNormalizer.fs" />
+		<Compile Include="LinqExpressionVisitors.fs" />
+		<Compile Include="Fixes.fs" />
+		<Compile Include="InsertOrUpdateOnUnique.fs" />
+		<Compile Include="ColumnReaders.fs" />
+		<Compile Include="Hydration.fs" />
+		<Compile Include="QueryContext.fs" />
+		<Compile Include="IQueryContextFactory.fs" />
+		<Compile Include="SelectBuilders.fs" />
+		<Compile Include="InsertBuilders.fs" />
+		<Compile Include="UpdateBuilders.fs" />
+		<Compile Include="DeleteBuilders.fs" />
+		<Compile Include="Diff.fs" />
+		<Compile Include="SqlServerExtensions.fs" />
+		<Compile Include="NpgsqlExtensions.fs" />
+		<Compile Include="SqliteExtensions.fs" />
+		<Compile Include="OracleExtensions.fs" />
+		<Compile Include="MySqlExtensions.fs" />
+		<Compile Include="DataReaderExtensions.fs" />
+		<Compile Include="VersionCheck.fs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="FastExpressionCompiler" Version="5.1.1" />
+		<PackageReference Update="FSharp.Core" Version="6.0.7" Condition="'$(TargetFramework)' == 'netstandard2.0'" />
+		<PackageReference Update="FSharp.Core" Version="8.0.100" Condition="'$(TargetFramework)' == 'net8.0'" />
+		<PackageReference Update="FSharp.Core" Version="9.0.201" Condition="'$(TargetFramework)' == 'net9.0'" />
+		<PackageReference Update="FSharp.Core" Version="10.1.201" Condition="'$(TargetFramework)' == 'net10.0'" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<!-- Marked with PrivateAssets="All" to include project reference in NuGet package -->
+		<ProjectReference Include="..\SqlHydra.Domain\SqlHydra.Domain.fsproj" PrivateAssets="All" />
+	</ItemGroup>
+
+	<Target Name="CopyProjectReferencesToPackage" DependsOnTargets="BuildOnlySettings;ResolveReferences">
+		<ItemGroup>
+			<!-- Filter out unnecessary files -->
+			<_ReferenceCopyLocalPaths Include="@(ReferenceCopyLocalPaths-&gt;WithMetadataValue('ReferenceSourceTarget', 'ProjectReference')-&gt;WithMetadataValue('PrivateAssets', 'All'))" />
+		</ItemGroup>
+
+		<!-- Print batches for debug purposes -->
+		<Message Text="Batch for .nupkg: ReferenceCopyLocalPaths = @(_ReferenceCopyLocalPaths), ReferenceCopyLocalPaths.DestinationSubDirectory = %(_ReferenceCopyLocalPaths.DestinationSubDirectory) Filename = %(_ReferenceCopyLocalPaths.Filename) Extension = %(_ReferenceCopyLocalPaths.Extension)" Importance="High" Condition="'@(_ReferenceCopyLocalPaths)' != ''" />
+
+		<ItemGroup>
+			<!-- Add file to package with consideration of sub folder. If empty, the root folder is chosen. -->
+			<BuildOutputInPackage Include="@(_ReferenceCopyLocalPaths)" TargetPath="%(_ReferenceCopyLocalPaths.DestinationSubDirectory)" />
+		</ItemGroup>
+	</Target>
+
+</Project>

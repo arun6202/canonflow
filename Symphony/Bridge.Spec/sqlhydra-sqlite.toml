@@ -1,0 +1,6 @@
+[general]
+namespace = "Symphony.Northwind"
+output = "Northwind.fs"
+connection = "Data Source=E:/github/symphony/references/helios/northwind.db"
+provider = "Sqlite"
+cli_mutable = false
