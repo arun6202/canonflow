@@ -49,9 +49,16 @@ let mkTable cfg db (table: Table) schema tableName columnName = stringBuffer {
             let isColNullable = col.IsNullable && not col.IsPK
             let notNullStr = isString && not isColNullable
             
+            let baseType = 
+                if col.TypeMapping.ClrType.EndsWith "[]" || col.TypeMapping.ClrType.EndsWith "array" then
+                    let baseTypeNm = col.TypeMapping.ClrType.Split([| "[]"; " []"; " array" |], System.StringSplitOptions.RemoveEmptyEntries) |> Array.head
+                    $"{baseTypeNm} []"
+                else
+                    col.TypeMapping.ClrType
+
             let checks = [
-                if col.IsPK then yield "global.Symphony.Bridge.Spec.PrimaryKey().Check(v)"
-                if col.Constraint.IsSome then yield $"global.Symphony.Bridge.Spec.{col.Constraint.Value}().Check(v)"
+                if col.IsPK then yield $"(global.Symphony.Bridge.Spec.PrimaryKey() :> global.Symphony.Bridge.Spec.IPredicate<{baseType}>).Check(v)"
+                if col.Constraint.IsSome then yield $"(global.Symphony.Bridge.Spec.{col.Constraint.Value}() :> global.Symphony.Bridge.Spec.IPredicate<{baseType}>).Check(v)"
                 if maxLength.IsSome then yield $"(not (System.String.IsNullOrWhiteSpace(v)) && v.Length <= {maxLength.Value})"
                 if notNullStr && maxLength.IsNone then yield "(not (System.String.IsNullOrWhiteSpace(v)))"
             ]
@@ -60,12 +67,6 @@ let mkTable cfg db (table: Table) schema tableName columnName = stringBuffer {
                 hasAnyConstraints <- true
                 let colName = columnName { NamingContext.Table = table; Column = Some col }
                 let constraintTypeName = backticks colName
-                let baseType = 
-                    if col.TypeMapping.ClrType.EndsWith "[]" || col.TypeMapping.ClrType.EndsWith "array" then
-                        let baseTypeNm = col.TypeMapping.ClrType.Split([| "[]"; " []"; " array" |], System.StringSplitOptions.RemoveEmptyEntries) |> Array.head
-                        $"{baseTypeNm} []"
-                    else
-                        col.TypeMapping.ClrType
 
                 $"[<Struct>]"
                 $"type {constraintTypeName} ="

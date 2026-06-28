@@ -9,6 +9,7 @@
 - **Repository Cleanup:** Cleaned up the repository by stripping out large `bin`/`obj` folders, established a solid `.gitignore`, and successfully pushed to main.
 
 ## 🚀 What is Pending / What's Next
+- **Dynamic String Constraints:** Add custom constraint mappers for things like `StartsWithP` (`CHECK (CustomerID LIKE 'P%')`) and other business-logic specific string validations.
 - **DuckDB Staging:** We scaffolded `SqlHydra.DuckDb` during the MVP phase, but it isn't wired into the live CLI bridging pipeline yet. We need to finalize how data will flow from SQLite -> DuckDB.
 - **Elasticsearch Pipeline:** The final goal of "Symphony" is pushing these rigid types into Elasticsearch. We still need to write and test the translation layer mapping F# `Refined` structs to Elasticsearch JSON indices.
 - **Expanded Refined Types:** Currently, we only mapped basic numeric constraints (`GreaterThanZero`, `BetweenZeroAndOne`). We need to map `string` length limits, regex, and date boundaries.
