@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Symphony - State-of-the-Art Data Bridge</title>
+    <meta name="description" content="Documentation for Symphony: An enterprise-grade data bridge leveraging F# Refined types for Oracle-level strictness.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Highlight.js for Code Snippets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body class="theme-dark">
+    <!-- Navigation / Top App Bar -->
+    <header class="top-app-bar">
+        <div class="container header-content">
+            <div class="logo">
+                <div class="logo-icon"></div>
+                <h1>Symphony Docs</h1>
+            </div>
+            <nav class="nav-links">
+                <a href="#overview" class="nav-link">Overview</a>
+                <a href="#accomplishments" class="nav-link">Accomplishments</a>
+                <a href="#sota-architecture" class="nav-link">SOTA Architecture</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="overview">
+            <div class="container hero-container">
+                <div class="hero-text">
+                    <h2 class="display-large">Oracle-Level Strictness in F#</h2>
+                    <p class="body-large text-secondary">
+                        Symphony is a state-of-the-art data bridge that eliminates runtime data anomalies. 
+                        By parsing native database constraints and elevating them directly into the F# compiler's type system, 
+                        we guarantee data integrity at compile time.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#accomplishments" class="btn btn-filled">Explore Capabilities</a>
+                        <a href="https://github.com/arun6202/symphony" class="btn btn-outlined" target="_blank">View on GitHub</a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="glass-card floating-animation">
+                        <div class="card-header">
+                            <span class="dot red"></span>
+                            <span class="dot yellow"></span>
+                            <span class="dot green"></span>
+                        </div>
+                        <pre><code class="language-fsharp">
+// Zero-cost domain validation
+type ``Order Details`` = { 
+    OrderID: int64
+    UnitPrice: Refined&lt;decimal, GreaterThanOrEqualToZero&gt;
+    Quantity: Refined&lt;int64, GreaterThanZero&gt; 
+}
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Accomplishments Section -->
+        <section class="section surface-container" id="accomplishments">
+            <div class="container">
+                <h3 class="headline-medium section-title">What We Accomplished</h3>
+                <div class="cards-grid">
+                    
+                    <!-- Card 1 -->
+                    <div class="m3-card elevated interactive">
+                        <div class="card-icon primary-container">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" fill="currentColor"><path d="M480-120 200-272v-240L40-600l440-240 440 240-160 88v240L480-120Zm0-474 266-146-266-146-266 146 266 146Zm0 367 160-87v-164l-160 87v164Zm-160-87v-164l-160-87v164l160 87Z"/></svg>
+                        </div>
+                        <h4 class="title-large">SqlHydra Core Integration</h4>
+                        <p class="body-medium text-secondary">
+                            We extracted the raw <code>SqlHydra</code> generator into the Symphony codebase. By natively patching the CLI architecture, we brought code-generation completely in-house without breaking standard cross-database workflows.
+                        </p>
+                    </div>
+
+                    <!-- Card 2 -->
+                    <div class="m3-card elevated interactive">
+                        <div class="card-icon tertiary-container">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" fill="currentColor"><path d="M160-200v-80h80v-280q0-83 50-147.5T420-792v-28q0-25 17.5-42.5T480-880q25 0 42.5 17.5T540-820v28q80 20 130 84.5T720-560v280h80v80H160Zm320-300q-33 0-56.5-23.5T400-580q0-33 23.5-56.5T480-660q33 0 56.5 23.5T560-580q0 33-23.5 56.5T480-500Zm0 420q-33 0-56.5-23.5T400-160h160q0 33-23.5 56.5T480-80Z"/></svg>
+                        </div>
+                        <h4 class="title-large">SQLite Constraint Parsing</h4>
+                        <p class="body-medium text-secondary">
+                            Engineered a robust SQLite parser that queries the <code>sqlite_master</code> table, extracts raw SQL string definitions, and actively detects constraints such as <code>CHECK ([Quantity]>0)</code>.
+                        </p>
+                    </div>
+
+                    <!-- Card 3 -->
+                    <div class="m3-card elevated interactive">
+                        <div class="card-icon secondary-container">
+                            <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24" fill="currentColor"><path d="M480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm-40-160h80v-240h-80v240Zm40-320q17 0 28.5-11.5T520-600q0-17-11.5-28.5T480-640q-17 0-28.5 11.5T440-600q0 17 11.5 28.5T480-560Z"/></svg>
+                        </div>
+                        <h4 class="title-large">Refined Types AST Injection</h4>
+                        <p class="body-medium text-secondary">
+                            Connected the parsed constraints directly to the Fantomas F# AST generator. SQLite constraints dynamically compile into explicitly typed structural predicates for flawless schema alignment.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- The SOTA Approach Section -->
+        <section class="section" id="sota-architecture">
+            <div class="container">
+                <div class="sota-header">
+                    <h3 class="headline-large">The State-of-the-Art (SOTA) Approach</h3>
+                    <p class="body-large text-secondary">
+                        Instead of relying on fragile runtime reflection, attributes, or ORM interception logic, Symphony embeds validation strictly at the compiler level.
+                    </p>
+                </div>
+
+                <div class="workflow-container">
+                    <!-- Workflow Step 1 -->
+                    <div class="workflow-step">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h4 class="title-large">The Source Database</h4>
+                            <p class="body-medium text-secondary">
+                                SQLite stores constraints loosely inside its schema definition. Historically, applications read this data directly into unconstrained primitives like <code>int64</code> or <code>decimal</code>.
+                            </p>
+                            <div class="code-block-wrapper">
+                                <pre><code class="language-sql">
+CREATE TABLE [Order Details] (
+    [OrderID] int NOT NULL,
+    [UnitPrice] NUMERIC NOT NULL DEFAULT 0,
+    CHECK ([UnitPrice]>=(0))
+);
+                                </code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="workflow-connector"></div>
+
+                    <!-- Workflow Step 2 -->
+                    <div class="workflow-step">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h4 class="title-large">The Structural Interface</h4>
+                            <p class="body-medium text-secondary">
+                                We utilize F# Structs to define statically resolved predicate filters. This design ensures that constraint verification executes with zero heap allocations.
+                            </p>
+                            <div class="code-block-wrapper">
+                                <pre><code class="language-fsharp">
+[&lt;Struct&gt;]
+type GreaterThanOrEqualToZero =
+    interface IPredicate&lt;decimal&gt; with 
+        member _.Check(v) = v >= 0M
+
+[&lt;Struct&gt;]
+type Refined&lt;'T, 'P when 'P :> IPredicate&lt;'T&gt; and 'P : struct&gt; = 
+    private { Value: 'T }
+                                </code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="workflow-connector"></div>
+
+                    <!-- Workflow Step 3 -->
+                    <div class="workflow-step">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h4 class="title-large">The Symphony Generator</h4>
+                            <p class="body-medium text-secondary">
+                                During build time, the custom <code>SqlHydra.Cli</code> tool parses the SQL <code>CHECK</code> clause, matches it to the F# Predicate, and emits perfectly type-safe models using Fantomas.
+                            </p>
+                            <div class="code-block-wrapper">
+                                <pre><code class="language-fsharp">
+type ``Order Details`` =
+    { OrderID: int64
+      UnitPrice: Refined&lt;decimal, GreaterThanOrEqualToZero&gt; }
+                                </code></pre>
+                            </div>
+                            <p class="body-medium text-secondary mt-3">
+                                <strong class="color-primary">Result:</strong> If an application attempts to insert <code>-10M</code> into <code>UnitPrice</code>, it won't trigger a late database exception. It won't even compile unless it correctly passes through the <code>Refined.create</code> factory, guaranteeing invariant protection!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer surface-container">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="logo">
+                        <div class="logo-icon small"></div>
+                        <span class="title-medium">Symphony</span>
+                    </div>
+                    <p class="body-small text-secondary">Built with modern web technologies and advanced F# architecture.</p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/fsharp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/languages/sql.min.js"></script>
+    <script src="./script.js"></script>
+</body>
+</html>
