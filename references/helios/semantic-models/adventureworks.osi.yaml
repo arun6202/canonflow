@@ -1,0 +1,230 @@
+# OSI Core Metadata draft-aligned semantic model for the local AdventureWorks domain.
+# The current implementation queries AdventureWorksFlat, but this model also
+# records the source fact/dimension relationships needed for the next joinhouse phase.
+
+semantic_model:
+  - name: adventureworks
+    description: AdventureWorks internet sales analytics model backed by SQLite.
+    ai_context:
+      instructions: Use this model for internet sales, customers, products, and revenue analysis.
+      synonyms:
+        - internet sales
+        - AdventureWorks
+        - customers
+        - products
+        - revenue
+      examples:
+        - Show total revenue by country.
+        - Find sales lines between two revenue values.
+        - Group sales by product.
+    datasets:
+      - name: internet_sales
+        source: FactInternetSales
+        primary_key: [sales_order_number, sales_order_line_number]
+        description: Fact table for internet sales order lines.
+        fields:
+          - name: sales_order_number
+            label: Sales Order Number
+            expression:
+              dialects:
+                - dialect: ANSI_SQL
+                  expression: SalesOrderNumber
+          - name: sales_order_line_number
+            label: Sales Order Line Number
+            expression:
+              dialects:
+                - dialect: ANSI_SQL
+                  expression: SalesOrderLineNumber
+          - name: order_id
+            label: Order ID
+            description: Numeric order identifier derived from the sales order number.
+            expression:
+              dialects:
+                - dialect: ANSI_SQL
+                  expression: CAST(REPLACE(SalesOrderNumber, 'SO', '') AS INTEGER)
+            custom_extensions:
+              - vendor_name: NORTHWIND_PLATFORM
+                data: '{"client_field":"OrderId","ui":{"supports_terms":true,"supports_prefix":false,"supports_range":false,"supports_match":false},"sqlite":{"flat_column":"OrderId"},"dto_path":"OrderId"}'
+          - name: order_date
+            label: Order Date
+            expression:
+              dialects:
+                - dialect: ANSI_SQL
+                  expression: OrderDate
+            dimension:
+              is_time: true
+          - name: customer_key
+            label: Customer Key
+            expression:
+              dialects:
+                - dialect: ANSI_SQL
+                  expression: CustomerKey
+          - name: product_key
+            label: Product Key
+            expression:
+              dialects:
+                - dialect: ANSI_SQL
+                  expression: ProductKey
+          - name: line_sales
+            label: Line Sales
+            description: Sales amount for one AdventureWorks internet sales line.
+            expression:
+              dialects:
+                - dialect: ANSI_SQL
+                  expression: SalesAmount
+            ai_context:
+              synonyms: [sales, revenue, amount, sales amount]
+            custom_extensions:
+              - vendor_name: NORTHWIND_PLATFORM
+                data: '{"client_field":"LineSales","ui":{"supports_terms":false,"supports_prefix":false,"supports_range":true,"supports_match":false},"sqlite":{"flat_column":"LineSales"},"dto_path":"LineSales"}'
+
+      - name: customers
+        source: DimCustomer
+        primary_key: [customer_key]
+        unique_keys:
+          - [customer_alternate_key]
+        description: AdventureWorks customer dimension.
+        fields:
+          - name: customer_key
+            label: Customer Key
+            expression:
+              dialects:
+                - dialect: ANSI_SQL
+                  expression: CustomerKey
+          - name: customer_id
+            label: Customer ID
+            description: Business-facing customer alternate key.
+            expression:
+              dialects:
+                - dialect: ANSI_SQL
+                  expression: CustomerAlternateKey
+            ai_context:
+              synonyms: [customer, customer code, account]
+            custom_extensions:
+              - vendor_name: NORTHWIND_PLATFORM
+                data: '{"client_field":"CustomerId","ui":{"supports_terms":true,"supports_prefix":true,"supports_range":false,"supports_match":false},"sqlite":{"flat_column":"CustomerId"},"dto_path":"Customer.CustomerId"}'
+          - name: last_name
+            label: Customer Last Name
+            expression:
+              dialects:
+                - dialect: ANSI_SQL
+                  expression: LastName
+            custom_extensions:
+              - vendor_name: NORTHWIND_PLATFORM
+                data: '{"client_field":"EmployeeLastName","ui":{"supports_terms":false,"supports_prefix":false,"supports_range":false,"supports_match":true},"sqlite":{"flat_column":"EmployeeLastName"},"dto_path":"Employee.LastName"}'
+          - name: country
+            label: Customer Country
+            description: Current flattened model uses a constant USA country value.
+            expression:
+              dialects:
+                - dialect: ANSI_SQL
+                  expression: '''USA'''
+            ai_context:
+              synonyms: [country, geography, market]
+            custom_extensions:
+              - vendor_name: NORTHWIND_PLATFORM
+                data: '{"client_field":"Country","ui":{"supports_terms":true,"supports_prefix":false,"supports_range":false,"supports_match":false},"sqlite":{"flat_column":"Country"},"dto_path":"Customer.Country"}'
+
+      - name: products
+        source: DimProduct
+        primary_key: [product_key]
+        description: AdventureWorks product dimension.
+        fields:
+          - name: product_key
+            label: Product Key
+            expression:
+              dialects:
+                - dialect: ANSI_SQL
+                  expression: ProductKey
+          - name: product_name
+            label: Product
+            description: English product name currently surfaced as ProductCategory in the flat view.
+            expression:
+              dialects:
+                - dialect: ANSI_SQL
+                  expression: EnglishProductName
+            ai_context:
+              synonyms: [product, item, SKU]
+            custom_extensions:
+              - vendor_name: NORTHWIND_PLATFORM
+                data: '{"client_field":"ProductCategory","ui":{"supports_terms":true,"supports_prefix":false,"supports_range":false,"supports_match":false},"sqlite":{"flat_column":"ProductCategory"},"dto_path":"Product.CategoryName"}'
+
+      - name: adventureworks_flat
+        source: AdventureWorksFlat
+        primary_key: [id]
+        description: Current denormalized SQLite view used by the provider.
+        fields:
+          - name: id
+            label: ID
+            expression:
+              dialects:
+                - dialect: ANSI_SQL
+                  expression: Id
+          - name: order_id
+            label: Order ID
+            expression:
+              dialects:
+                - dialect: ANSI_SQL
+                  expression: OrderId
+          - name: customer_id
+            label: Customer ID
+            expression:
+              dialects:
+                - dialect: ANSI_SQL
+                  expression: CustomerId
+          - name: country
+            label: Customer Country
+            expression:
+              dialects:
+                - dialect: ANSI_SQL
+                  expression: Country
+          - name: product_category
+            label: Product Category
+            expression:
+              dialects:
+                - dialect: ANSI_SQL
+                  expression: ProductCategory
+          - name: line_sales
+            label: Line Sales
+            expression:
+              dialects:
+                - dialect: ANSI_SQL
+                  expression: LineSales
+
+    relationships:
+      - name: internet_sales_to_customers
+        from: internet_sales
+        to: customers
+        from_columns: [customer_key]
+        to_columns: [customer_key]
+      - name: internet_sales_to_products
+        from: internet_sales
+        to: products
+        from_columns: [product_key]
+        to_columns: [product_key]
+
+    metrics:
+      - name: total_revenue
+        description: Total internet sales revenue.
+        expression:
+          dialects:
+            - dialect: ANSI_SQL
+              expression: SUM(internet_sales.line_sales)
+        ai_context:
+          synonyms: [sales, revenue, total sales, sales amount]
+      - name: sales_line_count
+        description: Count of internet sales lines.
+        expression:
+          dialects:
+            - dialect: ANSI_SQL
+              expression: COUNT(*)
+      - name: average_line_sales
+        description: Average revenue per sales line.
+        expression:
+          dialects:
+            - dialect: ANSI_SQL
+              expression: AVG(internet_sales.line_sales)
+
+    custom_extensions:
+      - vendor_name: NORTHWIND_PLATFORM
+        data: '{"domain_id":"AdventureWorks","display_name":"AdventureWorks (SQLite)","default_provider":"sqlite","current_serving_source":"AdventureWorksFlat"}'

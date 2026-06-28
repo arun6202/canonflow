@@ -33,26 +33,86 @@ let mkTable cfg db (table: Table) schema tableName columnName = stringBuffer {
         db.Tables
         |> List.find (fun t -> t.Schema = schema && t.Name = table.Name)
 
-    if cfg.IsCLIMutable then "[<CLIMutable>]"
-
     let tblName = tableName { NamingContext.Table = table; Column = None }
-    $"type {backticks tblName} ="
+    let moduleName = backticks (tblName + "_Constraints")
+
+    $"module {moduleName} ="
     indent {
-        "{"
-        indent {
-            for col in tableType.Columns do
-                let baseType =
-                    // Handles array types: "byte[]", "string[]", "int[]", "int []", "int array"
+        let mutable hasAnyConstraints = false
+        for col in tableType.Columns do
+            let getMaxLength (typeAlias: string) =
+                let m = System.Text.RegularExpressions.Regex.Match(typeAlias, @"(?i)(?:var)?char\((\d+)\)")
+                if m.Success then Some (int m.Groups.[1].Value) else None
+
+            let isString = col.TypeMapping.ClrType = "string"
+            let maxLength = getMaxLength col.TypeMapping.ColumnTypeAlias
+            let notNullStr = isString && not col.IsNullable
+            
+            let checks = [
+                if col.IsPK then yield "global.Symphony.Bridge.Spec.PrimaryKey().Check(v)"
+                if col.Constraint.IsSome then yield $"global.Symphony.Bridge.Spec.{col.Constraint.Value}().Check(v)"
+                if maxLength.IsSome then yield $"(not (System.String.IsNullOrWhiteSpace(v)) && v.Length <= {maxLength.Value})"
+                if notNullStr && maxLength.IsNone then yield "(not (System.String.IsNullOrWhiteSpace(v)))"
+            ]
+
+            if checks.Length > 0 then
+                hasAnyConstraints <- true
+                let colName = columnName { NamingContext.Table = table; Column = Some col }
+                let constraintTypeName = backticks colName
+                let baseType = 
                     if col.TypeMapping.ClrType.EndsWith "[]" || col.TypeMapping.ClrType.EndsWith "array" then
                         let baseTypeNm = col.TypeMapping.ClrType.Split([| "[]"; " []"; " array" |], System.StringSplitOptions.RemoveEmptyEntries) |> Array.head
                         $"{baseTypeNm} []"
                     else
                         col.TypeMapping.ClrType
 
+                $"[<Struct>]"
+                $"type {constraintTypeName} ="
+                indent {
+                    $"interface global.Symphony.Bridge.Spec.IPredicate<{baseType}> with"
+                    indent {
+                        $"member _.Check(v) = "
+                        indent {
+                            checks |> String.concat " && "
+                        }
+                    }
+                }
+        if not hasAnyConstraints then
+            $"let _dummy = 0"
+    }
+
+    if cfg.IsCLIMutable then "[<CLIMutable>]"
+
+    $"type {backticks tblName} ="
+    indent {
+        "{"
+        indent {
+            for col in tableType.Columns do
+                let getMaxLength (typeAlias: string) =
+                    let m = System.Text.RegularExpressions.Regex.Match(typeAlias, @"(?i)(?:var)?char\((\d+)\)")
+                    if m.Success then Some (int m.Groups.[1].Value) else None
+
+                let isString = col.TypeMapping.ClrType = "string"
+                let maxLength = getMaxLength col.TypeMapping.ColumnTypeAlias
+                let notNullStr = isString && not col.IsNullable
+                
+                let hasConstraints = col.IsPK || col.Constraint.IsSome || maxLength.IsSome || notNullStr
+
+                let baseType =
+                    if col.TypeMapping.ClrType.EndsWith "[]" || col.TypeMapping.ClrType.EndsWith "array" then
+                        let baseTypeNm = col.TypeMapping.ClrType.Split([| "[]"; " []"; " array" |], System.StringSplitOptions.RemoveEmptyEntries) |> Array.head
+                        $"{baseTypeNm} []"
+                    else
+                        col.TypeMapping.ClrType
+
+                let colName = columnName { NamingContext.Table = table; Column = Some col }
                 let propertyType = 
-                    match col.Constraint with
-                    | Some c -> $"global.Symphony.Bridge.Spec.Refined<{baseType}, global.Symphony.Bridge.Spec.{c}>"
-                    | None -> baseType
+                    if hasConstraints then 
+                        let moduleName = backticks (tblName + "_Constraints")
+                        let constraintTypeName = backticks colName
+                        $"global.Symphony.Bridge.Spec.Refined<{baseType}, {moduleName}.{constraintTypeName}>"
+                    else 
+                        baseType
 
                 let columnPropertyType =
                     if col.IsNullable then
@@ -74,7 +134,6 @@ let mkTable cfg db (table: Table) schema tableName columnName = stringBuffer {
                         None
 
                 if providerDbTypeAttribute.IsSome then providerDbTypeAttribute.Value
-                let colName = columnName { NamingContext.Table = table; Column = Some col }
                 $"""{if cfg.IsMutableProperties then "mutable " else ""}{backticks colName}: {columnPropertyType}"""
         }
         "}"

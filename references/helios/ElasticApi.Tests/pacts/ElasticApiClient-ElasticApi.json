@@ -1,0 +1,845 @@
+{
+  "consumer": {
+    "name": "ElasticApiClient"
+  },
+  "interactions": [
+    {
+      "description": "A request for Custom DSL search",
+      "pending": false,
+      "request": {
+        "body": {
+          "content": {
+            "Conditions": null,
+            "Groups": [
+              {
+                "Conditions": [
+                  {
+                    "Field": "customer.country",
+                    "IsExactMatch": true,
+                    "Value": "Germany"
+                  },
+                  {
+                    "Field": "employee.lastName",
+                    "IsExactMatch": false,
+                    "Value": "Davolio"
+                  }
+                ],
+                "Groups": null,
+                "Operator": "AND"
+              }
+            ],
+            "Operator": "OR"
+          },
+          "contentType": "application/json",
+          "encoded": false
+        },
+        "headers": {
+          "Content-Type": [
+            "application/json"
+          ]
+        },
+        "method": "POST",
+        "path": "/api/orders/custom-dsl"
+      },
+      "response": {
+        "body": {
+          "content": [
+            {
+              "Customer": {
+                "CompanyName": "Alfreds Futterkiste",
+                "ContactName": "Maria Anders",
+                "Country": "Germany",
+                "CustomerId": "ALFKI"
+              },
+              "Employee": {
+                "EmployeeId": 1,
+                "FirstName": "Nancy",
+                "LastName": "Davolio",
+                "Title": "Sales Representative"
+              },
+              "Id": "order-5",
+              "Lines": [],
+              "OrderDate": "1996-07-04T00:00:00",
+              "TotalAmount": 30.0
+            }
+          ],
+          "contentType": "application/json",
+          "encoded": false
+        },
+        "headers": {
+          "Content-Type": [
+            "application/json; charset=utf-8"
+          ]
+        },
+        "matchingRules": {
+          "body": {
+            "$[0].Customer.CompanyName": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].Customer.ContactName": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].Customer.Country": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].Customer.CustomerId": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].Employee.EmployeeId": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].Employee.FirstName": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].Employee.LastName": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].Employee.Title": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].Id": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].OrderDate": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].TotalAmount": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "decimal"
+                }
+              ]
+            }
+          }
+        },
+        "status": 200
+      },
+      "type": "Synchronous/HTTP"
+    },
+    {
+      "description": "A request for SQS compound search",
+      "pending": false,
+      "request": {
+        "method": "GET",
+        "path": "/api/orders/sqs/compound",
+        "query": {
+          "employeeId": [
+            "1"
+          ],
+          "q": [
+            "seafood -crab"
+          ]
+        }
+      },
+      "response": {
+        "body": {
+          "content": [
+            {
+              "Customer": {
+                "CompanyName": "Ana Trujillo Emparedados y helados",
+                "ContactName": "Ana Trujillo",
+                "Country": "Mexico",
+                "CustomerId": "ANATR"
+              },
+              "Employee": {
+                "EmployeeId": 1,
+                "FirstName": "Nancy",
+                "LastName": "Davolio",
+                "Title": "Sales Representative"
+              },
+              "Id": "order-4",
+              "Lines": [],
+              "OrderDate": "1996-07-04T00:00:00",
+              "TotalAmount": 20.0
+            }
+          ],
+          "contentType": "application/json",
+          "encoded": false
+        },
+        "headers": {
+          "Content-Type": [
+            "application/json; charset=utf-8"
+          ]
+        },
+        "matchingRules": {
+          "body": {
+            "$[0].Customer.CompanyName": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].Customer.ContactName": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].Customer.Country": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].Customer.CustomerId": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].Employee.EmployeeId": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].Employee.FirstName": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].Employee.LastName": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].Employee.Title": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].Id": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].OrderDate": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].TotalAmount": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "decimal"
+                }
+              ]
+            }
+          }
+        },
+        "status": 200
+      },
+      "type": "Synchronous/HTTP"
+    },
+    {
+      "description": "A request for SQS search",
+      "pending": false,
+      "request": {
+        "method": "GET",
+        "path": "/api/orders/sqs",
+        "query": {
+          "defaultOperator": [
+            "AND"
+          ],
+          "fields": [
+            "lines.product.productName"
+          ],
+          "q": [
+            "chees~2"
+          ]
+        }
+      },
+      "response": {
+        "body": {
+          "content": [
+            {
+              "Customer": {
+                "CompanyName": "Alfreds Futterkiste",
+                "ContactName": "Maria Anders",
+                "Country": "Germany",
+                "CustomerId": "ALFKI"
+              },
+              "Employee": {
+                "EmployeeId": 1,
+                "FirstName": "Nancy",
+                "LastName": "Davolio",
+                "Title": "Sales Representative"
+              },
+              "Id": "order-3",
+              "Lines": [],
+              "OrderDate": "1996-07-04T00:00:00",
+              "TotalAmount": 10.0
+            }
+          ],
+          "contentType": "application/json",
+          "encoded": false
+        },
+        "headers": {
+          "Content-Type": [
+            "application/json; charset=utf-8"
+          ]
+        },
+        "matchingRules": {
+          "body": {
+            "$[0].Customer.CompanyName": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].Customer.ContactName": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].Customer.Country": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].Customer.CustomerId": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].Employee.EmployeeId": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].Employee.FirstName": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].Employee.LastName": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].Employee.Title": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].Id": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].OrderDate": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].TotalAmount": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "decimal"
+                }
+              ]
+            }
+          }
+        },
+        "status": 200
+      },
+      "type": "Synchronous/HTTP"
+    },
+    {
+      "description": "A request for orders by employee",
+      "pending": false,
+      "request": {
+        "method": "GET",
+        "path": "/api/orders/employee/1"
+      },
+      "response": {
+        "body": {
+          "content": [
+            {
+              "Customer": {
+                "CompanyName": "Alfreds Futterkiste",
+                "ContactName": "Maria Anders",
+                "Country": "Germany",
+                "CustomerId": "ALFKI"
+              },
+              "Employee": {
+                "EmployeeId": 1,
+                "FirstName": "Nancy",
+                "LastName": "Davolio",
+                "Title": "Sales Representative"
+              },
+              "Id": "order-2",
+              "Lines": [],
+              "OrderDate": "1996-07-04T00:00:00",
+              "TotalAmount": 10.0
+            }
+          ],
+          "contentType": "application/json",
+          "encoded": false
+        },
+        "headers": {
+          "Content-Type": [
+            "application/json; charset=utf-8"
+          ]
+        },
+        "matchingRules": {
+          "body": {
+            "$[0].Customer.CompanyName": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].Customer.ContactName": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].Customer.Country": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].Customer.CustomerId": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].Employee.EmployeeId": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].Employee.FirstName": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].Employee.LastName": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].Employee.Title": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].Id": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].OrderDate": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].TotalAmount": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "decimal"
+                }
+              ]
+            }
+          }
+        },
+        "status": 200
+      },
+      "type": "Synchronous/HTTP"
+    },
+    {
+      "description": "A request for top customers",
+      "pending": false,
+      "request": {
+        "method": "GET",
+        "path": "/api/analytics/top-customers"
+      },
+      "response": {
+        "body": {
+          "content": [
+            {
+              "Key": "QUICK-Stop",
+              "Revenue": 117483.39
+            }
+          ],
+          "contentType": "application/json",
+          "encoded": false
+        },
+        "headers": {
+          "Content-Type": [
+            "application/json; charset=utf-8"
+          ]
+        },
+        "matchingRules": {
+          "body": {
+            "$[0].Key": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].Revenue": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "decimal"
+                }
+              ]
+            }
+          }
+        },
+        "status": 200
+      },
+      "type": "Synchronous/HTTP"
+    },
+    {
+      "description": "A request to search orders",
+      "pending": false,
+      "request": {
+        "method": "GET",
+        "path": "/api/orders/search",
+        "query": {
+          "q": [
+            "Tofu"
+          ]
+        }
+      },
+      "response": {
+        "body": {
+          "content": [
+            {
+              "Customer": {
+                "CompanyName": "Vins et alcools Chevalier",
+                "ContactName": "Paul Henriot",
+                "Country": "France",
+                "CustomerId": "VINET"
+              },
+              "Employee": {
+                "EmployeeId": 5,
+                "FirstName": "Steven",
+                "LastName": "Buchanan",
+                "Title": "Sales Manager"
+              },
+              "Id": "order-1",
+              "Lines": [
+                {
+                  "Discount": 0.0,
+                  "Product": {
+                    "CategoryName": "Dairy Products",
+                    "ProductId": 11,
+                    "ProductName": "Queso Cabrales"
+                  },
+                  "Quantity": 12,
+                  "UnitPrice": 14.0
+                }
+              ],
+              "OrderDate": "1996-07-04T00:00:00",
+              "TotalAmount": 12.34
+            }
+          ],
+          "contentType": "application/json",
+          "encoded": false
+        },
+        "headers": {
+          "Content-Type": [
+            "application/json; charset=utf-8"
+          ]
+        },
+        "matchingRules": {
+          "body": {
+            "$[0].Customer.CompanyName": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].Customer.ContactName": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].Customer.Country": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].Customer.CustomerId": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].Employee.EmployeeId": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].Employee.FirstName": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].Employee.LastName": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].Employee.Title": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].Id": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].Lines[0].Discount": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "decimal"
+                }
+              ]
+            },
+            "$[0].Lines[0].Product.CategoryName": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].Lines[0].Product.ProductId": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].Lines[0].Product.ProductName": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].Lines[0].Quantity": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].Lines[0].UnitPrice": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "decimal"
+                }
+              ]
+            },
+            "$[0].OrderDate": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "type"
+                }
+              ]
+            },
+            "$[0].TotalAmount": {
+              "combine": "AND",
+              "matchers": [
+                {
+                  "match": "decimal"
+                }
+              ]
+            }
+          }
+        },
+        "status": 200
+      },
+      "type": "Synchronous/HTTP"
+    }
+  ],
+  "metadata": {
+    "pactRust": {
+      "ffi": "0.4.27",
+      "models": "1.2.8"
+    },
+    "pactSpecification": {
+      "version": "4.0"
+    }
+  },
+  "provider": {
+    "name": "ElasticApi"
+  }
+}

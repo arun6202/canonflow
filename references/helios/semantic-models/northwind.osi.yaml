@@ -1,0 +1,266 @@
+# OSI Core Metadata draft-aligned semantic model for the local Northwind domain.
+# This is the semantic contract seed. Provider-specific details live under
+# custom_extensions so the core model remains portable.
+
+semantic_model:
+  - name: northwind
+    description: Northwind sales analytics model backed by SQLite source data and an Elasticsearch serving index.
+    ai_context:
+      instructions: Use this model for order, customer, employee, product, category, and revenue analysis.
+      synonyms:
+        - orders
+        - sales
+        - revenue
+        - customers
+        - products
+      examples:
+        - Show revenue by customer country.
+        - Find orders handled by an employee last name.
+        - Group sales by product category.
+    datasets:
+      - name: customers
+        source: Customers
+        primary_key: [customer_id]
+        description: Customer master data.
+        fields:
+          - name: customer_id
+            label: Customer ID
+            description: Stable Northwind customer identifier.
+            expression:
+              dialects:
+                - dialect: ANSI_SQL
+                  expression: CustomerID
+            dimension:
+              is_time: false
+            ai_context:
+              synonyms: [customer, customer code, account]
+            custom_extensions:
+              - vendor_name: NORTHWIND_PLATFORM
+                data: '{"client_field":"CustomerId","ui":{"supports_terms":true,"supports_prefix":true,"supports_range":false,"supports_match":false},"elasticsearch":{"path":"customer.customerId.keyword"},"dto_path":"Customer.CustomerId"}'
+          - name: company_name
+            label: Company Name
+            description: Customer company name.
+            expression:
+              dialects:
+                - dialect: ANSI_SQL
+                  expression: CompanyName
+            ai_context:
+              synonyms: [company, customer name]
+          - name: country
+            label: Customer Country
+            description: Customer country used for geographic grouping and filtering.
+            expression:
+              dialects:
+                - dialect: ANSI_SQL
+                  expression: Country
+            dimension:
+              is_time: false
+            ai_context:
+              synonyms: [country, market, geography]
+            custom_extensions:
+              - vendor_name: NORTHWIND_PLATFORM
+                data: '{"client_field":"Country","ui":{"supports_terms":true,"supports_prefix":false,"supports_range":false,"supports_match":false},"elasticsearch":{"path":"customer.country.keyword"},"dto_path":"Customer.Country"}'
+
+      - name: employees
+        source: Employees
+        primary_key: [employee_id]
+        description: Employees who handle orders.
+        fields:
+          - name: employee_id
+            label: Employee ID
+            description: Stable employee identifier.
+            expression:
+              dialects:
+                - dialect: ANSI_SQL
+                  expression: EmployeeID
+          - name: last_name
+            label: Employee Last Name
+            description: Employee family name used for text search.
+            expression:
+              dialects:
+                - dialect: ANSI_SQL
+                  expression: LastName
+            ai_context:
+              synonyms: [sales rep, representative, employee]
+            custom_extensions:
+              - vendor_name: NORTHWIND_PLATFORM
+                data: '{"client_field":"EmployeeLastName","ui":{"supports_terms":false,"supports_prefix":false,"supports_range":false,"supports_match":true},"elasticsearch":{"path":"employee.lastName"},"dto_path":"Employee.LastName"}'
+
+      - name: categories
+        source: Categories
+        primary_key: [category_id]
+        description: Product category dimension.
+        fields:
+          - name: category_id
+            label: Category ID
+            expression:
+              dialects:
+                - dialect: ANSI_SQL
+                  expression: CategoryID
+          - name: category_name
+            label: Product Category
+            description: Product category name used for grouping and filtering.
+            expression:
+              dialects:
+                - dialect: ANSI_SQL
+                  expression: CategoryName
+            ai_context:
+              synonyms: [category, product group, product family]
+            custom_extensions:
+              - vendor_name: NORTHWIND_PLATFORM
+                data: '{"client_field":"ProductCategory","ui":{"supports_terms":true,"supports_prefix":false,"supports_range":false,"supports_match":false},"elasticsearch":{"path":"product.categoryName.keyword"},"dto_path":"Product.CategoryName"}'
+
+      - name: products
+        source: Products
+        primary_key: [product_id]
+        description: Product master data.
+        fields:
+          - name: product_id
+            label: Product ID
+            expression:
+              dialects:
+                - dialect: ANSI_SQL
+                  expression: ProductID
+          - name: product_name
+            label: Product Name
+            description: Product display name.
+            expression:
+              dialects:
+                - dialect: ANSI_SQL
+                  expression: ProductName
+            ai_context:
+              synonyms: [item, SKU, product]
+
+      - name: orders
+        source: Orders
+        primary_key: [order_id]
+        description: Customer order header.
+        fields:
+          - name: order_id
+            label: Order ID
+            description: Stable order identifier.
+            expression:
+              dialects:
+                - dialect: ANSI_SQL
+                  expression: OrderID
+            ai_context:
+              synonyms: [order number, purchase]
+            custom_extensions:
+              - vendor_name: NORTHWIND_PLATFORM
+                data: '{"client_field":"OrderId","ui":{"supports_terms":true,"supports_prefix":false,"supports_range":false,"supports_match":false},"elasticsearch":{"path":"orderId"},"dto_path":"OrderId"}'
+          - name: order_date
+            label: Order Date
+            description: Date and time when the order was placed.
+            expression:
+              dialects:
+                - dialect: ANSI_SQL
+                  expression: OrderDate
+            dimension:
+              is_time: true
+            ai_context:
+              synonyms: [purchase date, sale date]
+
+      - name: order_lines
+        source: Order Details
+        primary_key: [order_id, product_id]
+        description: Order line grain used for revenue analytics.
+        fields:
+          - name: order_id
+            label: Order ID
+            expression:
+              dialects:
+                - dialect: ANSI_SQL
+                  expression: OrderID
+          - name: product_id
+            label: Product ID
+            expression:
+              dialects:
+                - dialect: ANSI_SQL
+                  expression: ProductID
+          - name: unit_price
+            label: Unit Price
+            expression:
+              dialects:
+                - dialect: ANSI_SQL
+                  expression: UnitPrice
+          - name: quantity
+            label: Quantity
+            expression:
+              dialects:
+                - dialect: ANSI_SQL
+                  expression: Quantity
+          - name: discount
+            label: Discount
+            expression:
+              dialects:
+                - dialect: ANSI_SQL
+                  expression: Discount
+          - name: line_sales
+            label: Line Sales
+            description: Revenue for one order line after discount.
+            expression:
+              dialects:
+                - dialect: ANSI_SQL
+                  expression: UnitPrice * Quantity * (1 - Discount)
+            ai_context:
+              synonyms: [sales, revenue, amount, line amount]
+            custom_extensions:
+              - vendor_name: NORTHWIND_PLATFORM
+                data: '{"client_field":"LineSales","ui":{"supports_terms":false,"supports_prefix":false,"supports_range":true,"supports_match":false},"elasticsearch":{"path":"lineSales"},"dto_path":"LineSales"}'
+
+    relationships:
+      - name: orders_to_customers
+        from: orders
+        to: customers
+        from_columns: [customer_id]
+        to_columns: [customer_id]
+      - name: orders_to_employees
+        from: orders
+        to: employees
+        from_columns: [employee_id]
+        to_columns: [employee_id]
+      - name: order_lines_to_orders
+        from: order_lines
+        to: orders
+        from_columns: [order_id]
+        to_columns: [order_id]
+      - name: order_lines_to_products
+        from: order_lines
+        to: products
+        from_columns: [product_id]
+        to_columns: [product_id]
+      - name: products_to_categories
+        from: products
+        to: categories
+        from_columns: [category_id]
+        to_columns: [category_id]
+
+    metrics:
+      - name: total_revenue
+        description: Total sales revenue after discounts.
+        expression:
+          dialects:
+            - dialect: ANSI_SQL
+              expression: SUM(order_lines.line_sales)
+        ai_context:
+          synonyms: [sales, revenue, total sales, total revenue]
+      - name: order_count
+        description: Distinct order count.
+        expression:
+          dialects:
+            - dialect: ANSI_SQL
+              expression: COUNT(DISTINCT orders.order_id)
+        ai_context:
+          synonyms: [orders, number of orders]
+      - name: average_order_value
+        description: Revenue divided by distinct order count.
+        expression:
+          dialects:
+            - dialect: ANSI_SQL
+              expression: SUM(order_lines.line_sales) / COUNT(DISTINCT orders.order_id)
+        ai_context:
+          synonyms: [AOV, average sale, average order]
+
+    custom_extensions:
+      - vendor_name: NORTHWIND_PLATFORM
+        data: '{"domain_id":"Northwind","display_name":"Northwind Orders (Elasticsearch)","default_provider":"elasticsearch","serving_index":"orders"}'

@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Northwind Generic Data Platform Report</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #111318;
+      --panel: #1b2028;
+      --panel-2: #232a34;
+      --ink: #f4f7fb;
+      --muted: #aab3c1;
+      --line: #374151;
+      --cyan: #52c7e8;
+      --green: #62d394;
+      --yellow: #f2c15b;
+      --red: #f07178;
+      --blue: #86a7ff;
+      --table: #151922;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font: 15px/1.55 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    .page {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 36px 22px 60px;
+    }
+
+    header {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(280px, 0.75fr);
+      gap: 24px;
+      align-items: end;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 28px;
+      margin-bottom: 28px;
+    }
+
+    .eyebrow {
+      color: var(--cyan);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .12em;
+      font-size: 12px;
+      margin-bottom: 10px;
+    }
+
+    h1, h2, h3 {
+      line-height: 1.15;
+      margin: 0;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      font-size: clamp(36px, 6vw, 64px);
+      max-width: 900px;
+    }
+
+    h2 {
+      font-size: 26px;
+      margin: 42px 0 16px;
+    }
+
+    h3 {
+      font-size: 17px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin: 0 0 12px;
+      color: var(--muted);
+    }
+
+    code {
+      color: #d7e3ff;
+      background: #10141c;
+      border: 1px solid #293241;
+      border-radius: 5px;
+      padding: 1px 5px;
+      font-family: "Cascadia Code", Consolas, monospace;
+      font-size: .92em;
+    }
+
+    .summary {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+    }
+
+    .summary strong {
+      color: var(--ink);
+    }
+
+    .grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .grid.cols-4 {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .grid.cols-3 {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .grid.cols-2 {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      min-width: 0;
+    }
+
+    .metric {
+      color: var(--ink);
+      font-weight: 850;
+      font-size: 30px;
+      line-height: 1;
+      margin-bottom: 7px;
+    }
+
+    .label {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .tag {
+      border: 1px solid var(--line);
+      background: #151a22;
+      color: var(--muted);
+      border-radius: 999px;
+      padding: 5px 10px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .tag.ok {
+      color: var(--green);
+      border-color: rgba(98, 211, 148, .45);
+    }
+
+    .tag.warn {
+      color: var(--yellow);
+      border-color: rgba(242, 193, 91, .45);
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(120px, 1fr));
+      gap: 10px;
+      margin: 16px 0 4px;
+    }
+
+    .flow-step {
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      min-height: 112px;
+      position: relative;
+    }
+
+    .flow-step:not(:last-child)::after {
+      content: ">";
+      position: absolute;
+      right: -10px;
+      top: 43px;
+      color: var(--cyan);
+      font-weight: 900;
+      z-index: 2;
+    }
+
+    .flow-step .num {
+      color: var(--cyan);
+      font-size: 12px;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .flow-step p {
+      font-size: 13px;
+      margin: 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      overflow: hidden;
+      border-radius: 8px;
+      background: var(--table);
+      border: 1px solid var(--line);
+    }
+
+    th, td {
+      text-align: left;
+      padding: 10px 12px;
+      border-bottom: 1px solid #26303d;
+      vertical-align: top;
+    }
+
+    th {
+      color: var(--ink);
+      background: #202733;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    td {
+      color: var(--muted);
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .bar-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .bar-row {
+      display: grid;
+      grid-template-columns: 150px minmax(0, 1fr) 112px;
+      gap: 12px;
+      align-items: center;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .bar-track {
+      height: 10px;
+      border-radius: 999px;
+      background: #10141c;
+      border: 1px solid #2b3544;
+      overflow: hidden;
+    }
+
+    .bar {
+      height: 100%;
+      background: linear-gradient(90deg, var(--cyan), var(--green));
+      border-radius: 999px;
+    }
+
+    .note {
+      border-left: 4px solid var(--yellow);
+      background: rgba(242, 193, 91, .08);
+      padding: 14px 16px;
+      border-radius: 6px;
+      margin: 16px 0;
+    }
+
+    .note p {
+      margin: 0;
+    }
+
+    .status {
+      display: grid;
+      grid-template-columns: 115px 1fr;
+      gap: 10px;
+      align-items: start;
+      padding: 10px 0;
+      border-bottom: 1px solid #293241;
+    }
+
+    .status:last-child {
+      border-bottom: 0;
+    }
+
+    .pill {
+      display: inline-flex;
+      justify-content: center;
+      width: 92px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    .pill.done {
+      background: rgba(98, 211, 148, .12);
+      color: var(--green);
+      border: 1px solid rgba(98, 211, 148, .45);
+    }
+
+    .pill.partial {
+      background: rgba(242, 193, 91, .12);
+      color: var(--yellow);
+      border: 1px solid rgba(242, 193, 91, .45);
+    }
+
+    .pill.gap {
+      background: rgba(240, 113, 120, .12);
+      color: var(--red);
+      border: 1px solid rgba(240, 113, 120, .45);
+    }
+
+    .mono {
+      font-family: "Cascadia Code", Consolas, monospace;
+      font-size: 12px;
+      color: #d7e3ff;
+    }
+
+    footer {
+      margin-top: 44px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 980px) {
+      header,
+      .grid.cols-4,
+      .grid.cols-3,
+      .grid.cols-2,
+      .flow {
+        grid-template-columns: 1fr;
+      }
+
+      .flow-step:not(:last-child)::after {
+        content: "v";
+        right: 16px;
+        top: auto;
+        bottom: -14px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        padding: 24px 14px 42px;
+      }
+
+      .bar-row {
+        grid-template-columns: 1fr;
+        gap: 5px;
+      }
+
+      th, td {
+        padding: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header>
+      <section>
+        <div class="eyebrow">Project handoff report</div>
+        <h1>Northwind to Generic Data Platform</h1>
+        <p>
+          Generated on 2026-06-20 after reading the repository structure, shared DTOs,
+          API providers, Fable UI, sync workflow, query DSL, and local SQLite databases.
+        </p>
+        <div class="tag-row">
+          <span class="tag ok">F#</span>
+          <span class="tag ok">Fable / Elmish</span>
+          <span class="tag ok">Elasticsearch</span>
+          <span class="tag ok">SQLite</span>
+          <span class="tag warn">Analytics gap in SQLite</span>
+        </div>
+      </section>
+      <aside class="summary">
+        <h3>Executive Summary</h3>
+        <p>
+          The application has moved from a Northwind-only Elasticsearch proxy toward a
+          generic multi-source query platform. The frontend emits a shared AST,
+          the API chooses a provider by domain, and providers compile the same
+          request into Elasticsearch JSON or SQLite SQL.
+        </p>
+        <p>
+          The main unfinished Phase 3 work is analytical compilation for SQLite,
+          richer UI support for range predicates, and relational JOIN-aware query
+          planning beyond the current flattened AdventureWorks view.
+        </p>
+      </aside>
+    </header>
+
+    <section>
+      <div class="grid cols-4">
+        <article class="card">
+          <div class="metric">2</div>
+          <div class="label">Live Domains</div>
+          <p>Northwind on Elasticsearch and AdventureWorks on SQLite.</p>
+        </article>
+        <article class="card">
+          <div class="metric">609,283</div>
+          <div class="label">Northwind Lines</div>
+          <p>Rows in <code>Order Details</code>, queryable through the Northwind model.</p>
+        </article>
+        <article class="card">
+          <div class="metric">60,398</div>
+          <div class="label">AdventureWorks Rows</div>
+          <p>Rows exposed through the flattened <code>AdventureWorksFlat</code> view.</p>
+        </article>
+        <article class="card">
+          <div class="metric">$448.4M</div>
+          <div class="label">Northwind Sales</div>
+          <p>Computed from local <code>northwind.db</code> line sales.</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Architecture</h2>
+      <p>
+        The important shift is not just "add SQLite." It is the split between a
+        transport-neutral client AST and provider-specific compilation at the API edge.
+      </p>
+      <div class="flow">
+        <div class="flow-step">
+          <div class="num">01</div>
+          <h3>Fable UI</h3>
+          <p>Visual Builder, Text Search, and Analytics tabs collect user intent.</p>
+        </div>
+        <div class="flow-step">
+          <div class="num">02</div>
+          <h3>Shared AST</h3>
+          <p><code>ClientPredicate</code> and <code>ClientAggregation</code> cross the wire with Thoth JSON.</p>
+        </div>
+        <div class="flow-step">
+          <div class="num">03</div>
+          <h3>Domain Routing</h3>
+          <p><code>?domain=Northwind</code> or <code>?domain=AdventureWorks</code> selects a provider.</p>
+        </div>
+        <div class="flow-step">
+          <div class="num">04</div>
+          <h3>Provider Compiler</h3>
+          <p>Elasticsearch lowers into typed query JSON. SQLite compiles parameterized SQL.</p>
+        </div>
+        <div class="flow-step">
+          <div class="num">05</div>
+          <h3>Common DTOs</h3>
+          <p>Results return as <code>OrderLineDocumentDto</code> or <code>AnalyticsResponseDto</code>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Code Map</h2>
+      <div class="grid cols-2">
+        <article class="card">
+          <h3>Runtime Platform</h3>
+          <table>
+            <thead>
+              <tr><th>File</th><th>Role</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="mono">SharedDomain/Dtos.fs</td><td>Defines DTOs, domain schema fields, <code>ClientPredicate</code>, and analytics request/response shapes.</td></tr>
+              <tr><td class="mono">PlatformApi/QueryProvider.fs</td><td>Defines <code>IQueryProvider</code>, the abstraction that decouples search and analytics execution.</td></tr>
+              <tr><td class="mono">PlatformApi/Program.fs</td><td>Registers domain configs, provider registry, schema endpoint, search endpoint, and analytics endpoint.</td></tr>
+              <tr><td class="mono">PlatformApi/ElasticQueryProvider.fs</td><td>Maps the shared AST into the typed F# Elasticsearch DSL, executes search and aggregations.</td></tr>
+              <tr><td class="mono">PlatformApi/SqliteQueryProvider.fs</td><td>Recursively compiles the shared AST into parameterized SQL over <code>AdventureWorksFlat</code>.</td></tr>
+            </tbody>
+          </table>
+        </article>
+        <article class="card">
+          <h3>Supporting Layers</h3>
+          <table>
+            <thead>
+              <tr><th>File</th><th>Role</th></tr>
+            </thead>
+            <tbody>
+              <tr><td class="mono">Frontend/App.fs</td><td>Elmish model/update/view, domain picker, schema fetch, Visual Builder, Text Search, Analytics UI.</td></tr>
+              <tr><td class="mono">Elastic.FSharp.Query/*</td><td>Schema-aware logical predicates, aggregations, lowering, and JSON rendering for Elasticsearch.</td></tr>
+              <tr><td class="mono">DataSync/*</td><td>Reads Northwind SQLite, validates simple types, shapes order-line documents, bulk indexes into Elasticsearch.</td></tr>
+              <tr><td class="mono">ingest.sql</td><td>Creates AdventureWorks tables and the flattened view consumed by the SQLite provider.</td></tr>
+              <tr><td class="mono">e2e/tests/search.spec.ts</td><td>Playwright coverage for Visual Builder, Text Search, and Analytics UI behavior.</td></tr>
+            </tbody>
+          </table>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Current Capability Matrix</h2>
+      <div class="card">
+        <div class="status">
+          <span class="pill done">Done</span>
+          <p>Frontend fetches the active schema and changes the displayed field list when the domain changes.</p>
+        </div>
+        <div class="status">
+          <span class="pill done">Done</span>
+          <p>Search endpoint accepts the shared AST and delegates to either Elasticsearch or SQLite.</p>
+        </div>
+        <div class="status">
+          <span class="pill done">Done</span>
+          <p>SQLite search supports <code>Term</code>, <code>Terms</code>, <code>Match</code>, <code>Prefix</code>, <code>Range</code>, <code>And</code>, <code>Or</code>, and <code>Not</code> with parameters.</p>
+        </div>
+        <div class="status">
+          <span class="pill done">Done</span>
+          <p>Elasticsearch analytics maps <code>Terms</code> and <code>Sum</code> aggregations through the typed aggregation DSL.</p>
+        </div>
+        <div class="status">
+          <span class="pill partial">Partial</span>
+          <p>The shared AST has <code>Range</code>, but the Visual Builder only renders Term, Prefix, and Match controls today.</p>
+        </div>
+        <div class="status">
+          <span class="pill partial">Partial</span>
+          <p>Text Search parses simple <code>field:value AND field:value</code> input; range parsing and richer boolean syntax remain MVP-level.</p>
+        </div>
+        <div class="status">
+          <span class="pill gap">Gap</span>
+          <p>SQLite <code>ExecuteAnalytics</code> returns "Analytics not fully implemented for SQLite provider yet."</p>
+        </div>
+        <div class="status">
+          <span class="pill gap">Gap</span>
+          <p>AdventureWorks relational shape is hidden behind a flattened view; JOIN planning is not yet in the generic compiler.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Northwind Data Snapshot</h2>
+      <div class="grid cols-3">
+        <article class="card">
+          <h3>Dataset Grain</h3>
+          <table>
+            <tbody>
+              <tr><td>Customers</td><td>93</td></tr>
+              <tr><td>Orders</td><td>16,282</td></tr>
+              <tr><td>Order details</td><td>609,283</td></tr>
+              <tr><td>Products</td><td>77</td></tr>
+              <tr><td>Categories</td><td>8</td></tr>
+              <tr><td>Employees</td><td>9</td></tr>
+            </tbody>
+          </table>
+        </article>
+        <article class="card">
+          <h3>Sales Window</h3>
+          <div class="metric">$448,386,633</div>
+          <p>Total line sales from <code>2012-07-10 15:40:46</code> through <code>2023-10-28 00:09:48</code>.</p>
+        </article>
+        <article class="card">
+          <h3>Top Employee</h3>
+          <div class="metric">$51,488,395</div>
+          <p>Margaret Peacock leads the local data snapshot with 1,908 distinct orders.</p>
+        </article>
+      </div>
+
+      <div class="grid cols-2" style="margin-top: 14px;">
+        <article class="card">
+          <h3>Top Countries by Revenue</h3>
+          <div class="bar-list">
+            <div class="bar-row"><span>USA</span><div class="bar-track"><div class="bar" style="width:100%"></div></div><span>$62.60M</span></div>
+            <div class="bar-row"><span>France</span><div class="bar-track"><div class="bar" style="width:85.2%"></div></div><span>$53.32M</span></div>
+            <div class="bar-row"><span>Germany</span><div class="bar-track"><div class="bar" style="width:81.8%"></div></div><span>$51.20M</span></div>
+            <div class="bar-row"><span>Brazil</span><div class="bar-track"><div class="bar" style="width:73.2%"></div></div><span>$45.80M</span></div>
+            <div class="bar-row"><span>UK</span><div class="bar-track"><div class="bar" style="width:54.3%"></div></div><span>$33.96M</span></div>
+          </div>
+        </article>
+        <article class="card">
+          <h3>Revenue by Category</h3>
+          <div class="bar-list">
+            <div class="bar-row"><span>Beverages</span><div class="bar-track"><div class="bar" style="width:100%"></div></div><span>$92.16M</span></div>
+            <div class="bar-row"><span>Confections</span><div class="bar-track"><div class="bar" style="width:72%"></div></div><span>$66.34M</span></div>
+            <div class="bar-row"><span>Meat/Poultry</span><div class="bar-track"><div class="bar" style="width:70.4%"></div></div><span>$64.88M</span></div>
+            <div class="bar-row"><span>Dairy Products</span><div class="bar-track"><div class="bar" style="width:63%"></div></div><span>$58.02M</span></div>
+            <div class="bar-row"><span>Condiments</span><div class="bar-track"><div class="bar" style="width:60.5%"></div></div><span>$55.80M</span></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Phase 3 Roadmap</h2>
+      <div class="grid cols-2">
+        <article class="card">
+          <h3>1. SQLite Analytics Compiler</h3>
+          <p>
+            Implement <code>ExecuteAnalytics</code> by compiling <code>ClientAggregation.Terms</code>
+            into <code>GROUP BY</code> queries and <code>ClientAggregation.Sum</code> into
+            <code>SUM(...)</code>. Keep the existing parameterized filter compiler and thread it
+            into the analytics query as a reusable WHERE clause.
+          </p>
+        </article>
+        <article class="card">
+          <h3>2. Range-Aware Visual Builder</h3>
+          <p>
+            The domain schema already exposes <code>SupportsRange</code>. The UI should swap the
+            single text box for min/max numeric inputs when a range-capable field and range
+            operator are selected.
+          </p>
+        </article>
+        <article class="card">
+          <h3>3. Relational Query Planning</h3>
+          <p>
+            Replace the current AdventureWorks flattening shortcut with a field catalog that
+            knows source tables, aliases, join paths, and allowed predicates. That is the path
+            from "works for one view" to true relational portability.
+          </p>
+        </article>
+        <article class="card">
+          <h3>4. Deployment Shape</h3>
+          <p>
+            Add container artifacts for the API, Elasticsearch dependency, SQLite volume, and
+            compiled frontend assets. The current scripts are local-development oriented.
+          </p>
+        </article>
+      </div>
+      <div class="note">
+        <p>
+          Recommended next task: start with SQLite analytics because it completes an existing
+          user-facing tab without changing the shared AST or frontend contract.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Implementation Notes</h2>
+      <table>
+        <thead>
+          <tr><th>Observation</th><th>Why it matters</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Northwind search depends on a live Elasticsearch instance at <code>http://localhost:9200</code>.</td>
+            <td>The report can verify database facts locally, but runtime Northwind API behavior still requires the ES index and sync flow.</td>
+          </tr>
+          <tr>
+            <td>The API uses <code>http://localhost:5004</code> in the frontend, while older request docs mention port 5000.</td>
+            <td>Developer docs should be reconciled before packaging the project for another engineer.</td>
+          </tr>
+          <tr>
+            <td><code>README.md</code> still describes the older Northwind Elasticsearch starter kit.</td>
+            <td>The README should be updated to match the generic domain routing architecture in the handoff.</td>
+          </tr>
+          <tr>
+            <td>The workspace folder is not currently a Git repository from this checkout.</td>
+            <td>Change tracking must be done from the actual repository root, if one exists above or outside this folder.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <footer>
+      Sources read: <code>README.md</code>, <code>future-take.md</code>,
+      <code>SharedDomain/Dtos.fs</code>, <code>PlatformApi/*.fs</code>,
+      <code>Frontend/App.fs</code>, <code>DataSync/*.fs</code>,
+      <code>Elastic.FSharp.Query/*</code>, <code>ingest.sql</code>,
+      <code>queries/NorthwindAnalytics.sql</code>, <code>northwind.db</code>,
+      and <code>adventureworks.db</code>.
+    </footer>
+  </main>
+</body>
+</html>

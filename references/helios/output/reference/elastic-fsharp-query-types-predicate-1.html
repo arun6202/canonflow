@@ -1,0 +1,1710 @@
+<!DOCTYPE html>
+<html lang="en" data-root="/northwind/">
+<head>
+    <meta charset="UTF-8">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Elastic.FSharp.Query" name="author">
+    <!-- Opengraph properties (https://ogp.me/) -->
+    <meta property="og:site_name" content="northwind">
+    <meta property="og:title" content="Predicate<'S> (northwind)" />
+    <meta property="og:url" content="/northwind/{{fsdocs-source-basename}}.html">
+    <meta property="og:type" content="website" />
+    <!-- Twitter cards (https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/summary-card-with-large-image) -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="/northwind/">
+    <meta name="twitter:title" content="Predicate<'S> (northwind)">
+    
+    <title>Predicate<'S> (northwind) | northwind</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link crossorigin href="https://fonts.gstatic.com" rel="preconnect">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link href="/northwind/img/favicon.ico" rel="icon" sizes="32x32" type="image/png"/>
+    <script type="application/javascript" src="/northwind/content/fsdocs-theme-set-dark.js"></script>
+    <script type="application/javascript" src="/northwind/content/fsdocs-details-set-expanded.js"></script>
+    <link href="/northwind/content/fsdocs-default.css" rel="stylesheet" type="text/css"/>
+    <link href="/northwind/content/fsdocs-theme.css" rel="stylesheet" type="text/css"/>
+    
+    
+</head>
+<body class="api-docs">
+<header>
+    <div class="start">
+        <div id="menu-toggle">
+            <iconify-icon class="icon closed" height="22" icon="eva:menu-fill" width="22"></iconify-icon>
+            <iconify-icon class="icon open" height="22" icon="mi:close" width="22"></iconify-icon>
+            <input type="checkbox" name="mobile-menu" />
+            <ul class="menu">
+                <li class="nav-header">Links</li>
+                <li class="license-menu-item builtin-menu-item nav-item"><a class="nav-link" href="{{fsdocs-license-link}}">License</a>
+                </li>
+                <li class="release-notes-menu-item builtin-menu-item nav-item"><a class="nav-link"
+                                        href="{{fsdocs-release-notes-link}}">Release
+                    Notes</a></li>
+                <li class="repository-menu-item builtin-menu-item nav-item"><a class="nav-link" href="{{fsdocs-repository-link}}">Source
+                    Repository</a></li>
+                
+                <li class="nav-header">
+  API Reference
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/northwind/reference/index.html">
+    All Namespaces
+  </a>
+</li>
+            </ul>
+        </div>
+        <a href="/northwind/">
+            <img alt="Logo" src="/northwind/img/logo.png">
+            <strong>northwind</strong>
+        </a>
+    </div>
+    <div class="end">
+        <a href="{{fsdocs-repository-link}}" target="_blank">
+            <iconify-icon icon="uil:github" width="26" height="26"></iconify-icon>
+        </a>
+        <iconify-icon id="search-btn" icon="carbon:search" class="search" width="24" height="24"></iconify-icon>
+        <fsdocs-theme-toggle></fsdocs-theme-toggle>
+    </div>
+</header>
+<aside id="fsdocs-main-menu">
+    <ul class="menu">
+        <li class="nav-header">Links</li>
+        <li class="license-menu-item builtin-menu-item nav-item"><a class="nav-link" href="{{fsdocs-license-link}}">License</a>
+        </li>
+        <li class="release-notes-menu-item builtin-menu-item nav-item"><a class="nav-link"
+                                href="{{fsdocs-release-notes-link}}">Release
+            Notes</a></li>
+        <li class="repository-menu-item builtin-menu-item nav-item"><a class="nav-link" href="{{fsdocs-repository-link}}">Source
+            Repository</a></li>
+        
+        <li class="nav-header">
+  API Reference
+</li>             
+<li class="nav-item">
+  <a class="nav-link" href="/northwind/reference/index.html">
+    All Namespaces
+  </a>
+</li>
+    </ul>
+</aside>
+<main>
+    <div id="content">
+        <div>
+  <h2>
+    Predicate<'S> Type
+  </h2>
+  <dl class="fsdocs-metadata">
+    <dt>
+      Namespace: 
+      <a href="/northwind/reference/elastic-fsharp-query-types.html">
+        Elastic.FSharp.Query.Types
+      </a>
+    </dt>
+    <dt>
+      Assembly: Elastic.FSharp.Query.dll
+    </dt>
+    <dt>
+      Base Type: 
+      <code>obj</code>
+    </dt>
+    <dt>
+      All Interfaces: 
+      <code><span><a href="https://learn.microsoft.com/dotnet/api/system.iequatable-1">IEquatable</a>&lt;<span><a href="/northwind/reference/elastic-fsharp-query-types-predicate-1.html">Predicate</a>&lt;'S&gt;</span>&gt;</span></code>
+      , 
+      <code><a href="https://learn.microsoft.com/dotnet/api/system.collections.istructuralequatable">IStructuralEquatable</a></code>
+    </dt>
+  </dl>
+  <div class="fsdocs-xmldoc">
+    <div>
+      <div class="fsdocs-summary-contents">
+        <p class="fsdocs-summary">
+          
+        </p>
+      </div>
+    </div>
+  </div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div>
+    <h3>
+      Union cases
+    </h3>
+    <table class="table outer-list fsdocs-member-list">
+      <thead>
+        <tr>
+          <td class="fsdocs-member-list-header">
+            Union case
+          </td>
+          <td class="fsdocs-member-list-header">
+            Description
+            <fsdocs-details-toggle></fsdocs-details-toggle>
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code data-fsdocs-tip="165" data-fsdocs-tip-unique="165">
+                <p>
+                  <a id="All">
+                    <a href="#All">
+                      <code><span>All&#32;<span><span><a href="/northwind/reference/elastic-fsharp-query-types-predicate-1.html">Predicate</a>&lt;'S&gt;</span>&#32;list</span></span></code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div popover="" class="fsdocs-tip" id="165">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>All&#32;<span><span><a href="/northwind/reference/elastic-fsharp-query-types-predicate-1.html">Predicate</a>&lt;'S&gt;</span>&#32;list</span></span></code>
+                  <br/>
+                  <br/>
+                  Parameters: 
+                  <ul>
+                    <span>
+                      <b>
+                        Item
+                      </b>
+                      :
+                      <code><span><span><a href="/northwind/reference/elastic-fsharp-query-types-predicate-1.html">Predicate</a>&lt;'S&gt;</span>&#32;list</span></code>
+                    </span>
+                    <br/>
+                  </ul>
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <div class="fsdocs-member-xmldoc-column">
+              <div class="icon-button-row"></div>
+              <dl class="fsdocs-params">
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    Item
+                  </span>
+                  :
+                  <code><span><span><a href="/northwind/reference/elastic-fsharp-query-types-predicate-1.html">Predicate</a>&lt;'S&gt;</span>&#32;list</span></code>
+                </dt>
+                <dd class="fsdocs-param-docs"></dd>
+              </dl>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code data-fsdocs-tip="166" data-fsdocs-tip-unique="166">
+                <p>
+                  <a id="Any">
+                    <a href="#Any">
+                      <code><span>Any(<span><span><span><a href="/northwind/reference/elastic-fsharp-query-types-predicate-1.html">Predicate</a>&lt;'S&gt;</span>&#32;list</span>,&#32;<a href="/northwind/reference/elastic-fsharp-query-types-minshouldmatch.html">MinShouldMatch</a></span>)</span></code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div popover="" class="fsdocs-tip" id="166">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>Any(<span><span><span><a href="/northwind/reference/elastic-fsharp-query-types-predicate-1.html">Predicate</a>&lt;'S&gt;</span>&#32;list</span>,&#32;<a href="/northwind/reference/elastic-fsharp-query-types-minshouldmatch.html">MinShouldMatch</a></span>)</span></code>
+                  <br/>
+                  <br/>
+                  Parameters: 
+                  <ul>
+                    <span>
+                      <b>
+                        Item1
+                      </b>
+                      :
+                      <code><span><span><a href="/northwind/reference/elastic-fsharp-query-types-predicate-1.html">Predicate</a>&lt;'S&gt;</span>&#32;list</span></code>
+                    </span>
+                    <br/>
+                    <span>
+                      <b>
+                        Item2
+                      </b>
+                      :
+                      <code><a href="/northwind/reference/elastic-fsharp-query-types-minshouldmatch.html">MinShouldMatch</a></code>
+                    </span>
+                    <br/>
+                  </ul>
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <div class="fsdocs-member-xmldoc-column">
+              <div class="icon-button-row"></div>
+              <dl class="fsdocs-params">
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    Item1
+                  </span>
+                  :
+                  <code><span><span><a href="/northwind/reference/elastic-fsharp-query-types-predicate-1.html">Predicate</a>&lt;'S&gt;</span>&#32;list</span></code>
+                </dt>
+                <dd class="fsdocs-param-docs"></dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    Item2
+                  </span>
+                  :
+                  <code><a href="/northwind/reference/elastic-fsharp-query-types-minshouldmatch.html">MinShouldMatch</a></code>
+                </dt>
+                <dd class="fsdocs-param-docs"></dd>
+              </dl>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code data-fsdocs-tip="167" data-fsdocs-tip-unique="167">
+                <p>
+                  <a id="Between">
+                    <a href="#Between">
+                      <code><span>Between(<span><span><a href="/northwind/reference/elastic-fsharp-query-types-fieldref-1.html">FieldRef</a>&lt;'S&gt;</span>,&#32;<a href="/northwind/reference/elastic-fsharp-query-types-fieldvalue.html">FieldValue</a>,&#32;<a href="/northwind/reference/elastic-fsharp-query-types-fieldvalue.html">FieldValue</a></span>)</span></code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div popover="" class="fsdocs-tip" id="167">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>Between(<span><span><a href="/northwind/reference/elastic-fsharp-query-types-fieldref-1.html">FieldRef</a>&lt;'S&gt;</span>,&#32;<a href="/northwind/reference/elastic-fsharp-query-types-fieldvalue.html">FieldValue</a>,&#32;<a href="/northwind/reference/elastic-fsharp-query-types-fieldvalue.html">FieldValue</a></span>)</span></code>
+                  <br/>
+                  <br/>
+                  Parameters: 
+                  <ul>
+                    <span>
+                      <b>
+                        Item1
+                      </b>
+                      :
+                      <code><span><a href="/northwind/reference/elastic-fsharp-query-types-fieldref-1.html">FieldRef</a>&lt;'S&gt;</span></code>
+                    </span>
+                    <br/>
+                    <span>
+                      <b>
+                        Item2
+                      </b>
+                      :
+                      <code><a href="/northwind/reference/elastic-fsharp-query-types-fieldvalue.html">FieldValue</a></code>
+                    </span>
+                    <br/>
+                    <span>
+                      <b>
+                        Item3
+                      </b>
+                      :
+                      <code><a href="/northwind/reference/elastic-fsharp-query-types-fieldvalue.html">FieldValue</a></code>
+                    </span>
+                    <br/>
+                  </ul>
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <div class="fsdocs-member-xmldoc-column">
+              <div class="icon-button-row"></div>
+              <dl class="fsdocs-params">
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    Item1
+                  </span>
+                  :
+                  <code><span><a href="/northwind/reference/elastic-fsharp-query-types-fieldref-1.html">FieldRef</a>&lt;'S&gt;</span></code>
+                </dt>
+                <dd class="fsdocs-param-docs"></dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    Item2
+                  </span>
+                  :
+                  <code><a href="/northwind/reference/elastic-fsharp-query-types-fieldvalue.html">FieldValue</a></code>
+                </dt>
+                <dd class="fsdocs-param-docs"></dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    Item3
+                  </span>
+                  :
+                  <code><a href="/northwind/reference/elastic-fsharp-query-types-fieldvalue.html">FieldValue</a></code>
+                </dt>
+                <dd class="fsdocs-param-docs"></dd>
+              </dl>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code data-fsdocs-tip="168" data-fsdocs-tip-unique="168">
+                <p>
+                  <a id="Eq">
+                    <a href="#Eq">
+                      <code><span>Eq(<span><span><a href="/northwind/reference/elastic-fsharp-query-types-fieldref-1.html">FieldRef</a>&lt;'S&gt;</span>,&#32;<a href="/northwind/reference/elastic-fsharp-query-types-fieldvalue.html">FieldValue</a></span>)</span></code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div popover="" class="fsdocs-tip" id="168">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>Eq(<span><span><a href="/northwind/reference/elastic-fsharp-query-types-fieldref-1.html">FieldRef</a>&lt;'S&gt;</span>,&#32;<a href="/northwind/reference/elastic-fsharp-query-types-fieldvalue.html">FieldValue</a></span>)</span></code>
+                  <br/>
+                  <br/>
+                  Parameters: 
+                  <ul>
+                    <span>
+                      <b>
+                        Item1
+                      </b>
+                      :
+                      <code><span><a href="/northwind/reference/elastic-fsharp-query-types-fieldref-1.html">FieldRef</a>&lt;'S&gt;</span></code>
+                    </span>
+                    <br/>
+                    <span>
+                      <b>
+                        Item2
+                      </b>
+                      :
+                      <code><a href="/northwind/reference/elastic-fsharp-query-types-fieldvalue.html">FieldValue</a></code>
+                    </span>
+                    <br/>
+                  </ul>
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <div class="fsdocs-member-xmldoc-column">
+              <div class="icon-button-row"></div>
+              <dl class="fsdocs-params">
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    Item1
+                  </span>
+                  :
+                  <code><span><a href="/northwind/reference/elastic-fsharp-query-types-fieldref-1.html">FieldRef</a>&lt;'S&gt;</span></code>
+                </dt>
+                <dd class="fsdocs-param-docs"></dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    Item2
+                  </span>
+                  :
+                  <code><a href="/northwind/reference/elastic-fsharp-query-types-fieldvalue.html">FieldValue</a></code>
+                </dt>
+                <dd class="fsdocs-param-docs"></dd>
+              </dl>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code data-fsdocs-tip="169" data-fsdocs-tip-unique="169">
+                <p>
+                  <a id="Exists">
+                    <a href="#Exists">
+                      <code><span>Exists&#32;<span><a href="/northwind/reference/elastic-fsharp-query-types-fieldref-1.html">FieldRef</a>&lt;'S&gt;</span></span></code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div popover="" class="fsdocs-tip" id="169">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>Exists&#32;<span><a href="/northwind/reference/elastic-fsharp-query-types-fieldref-1.html">FieldRef</a>&lt;'S&gt;</span></span></code>
+                  <br/>
+                  <br/>
+                  Parameters: 
+                  <ul>
+                    <span>
+                      <b>
+                        Item
+                      </b>
+                      :
+                      <code><span><a href="/northwind/reference/elastic-fsharp-query-types-fieldref-1.html">FieldRef</a>&lt;'S&gt;</span></code>
+                    </span>
+                    <br/>
+                  </ul>
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <div class="fsdocs-member-xmldoc-column">
+              <div class="icon-button-row"></div>
+              <dl class="fsdocs-params">
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    Item
+                  </span>
+                  :
+                  <code><span><a href="/northwind/reference/elastic-fsharp-query-types-fieldref-1.html">FieldRef</a>&lt;'S&gt;</span></code>
+                </dt>
+                <dd class="fsdocs-param-docs"></dd>
+              </dl>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code data-fsdocs-tip="170" data-fsdocs-tip-unique="170">
+                <p>
+                  <a id="Fuzzy">
+                    <a href="#Fuzzy">
+                      <code><span>Fuzzy(<span><span><a href="/northwind/reference/elastic-fsharp-query-types-fieldref-1.html">FieldRef</a>&lt;'S&gt;</span>,&#32;query,&#32;<a href="/northwind/reference/elastic-fsharp-query-types-fuzziness.html">Fuzziness</a></span>)</span></code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div popover="" class="fsdocs-tip" id="170">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>Fuzzy(<span><span><a href="/northwind/reference/elastic-fsharp-query-types-fieldref-1.html">FieldRef</a>&lt;'S&gt;</span>,&#32;query,&#32;<a href="/northwind/reference/elastic-fsharp-query-types-fuzziness.html">Fuzziness</a></span>)</span></code>
+                  <br/>
+                  <br/>
+                  Parameters: 
+                  <ul>
+                    <span>
+                      <b>
+                        Item1
+                      </b>
+                      :
+                      <code><span><a href="/northwind/reference/elastic-fsharp-query-types-fieldref-1.html">FieldRef</a>&lt;'S&gt;</span></code>
+                    </span>
+                    <br/>
+                    <span>
+                      <b>
+                        query
+                      </b>
+                      :
+                      <code>string</code>
+                    </span>
+                    <br/>
+                    <span>
+                      <b>
+                        Item3
+                      </b>
+                      :
+                      <code><a href="/northwind/reference/elastic-fsharp-query-types-fuzziness.html">Fuzziness</a></code>
+                    </span>
+                    <br/>
+                  </ul>
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <div class="fsdocs-member-xmldoc-column">
+              <div class="icon-button-row"></div>
+              <dl class="fsdocs-params">
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    Item1
+                  </span>
+                  :
+                  <code><span><a href="/northwind/reference/elastic-fsharp-query-types-fieldref-1.html">FieldRef</a>&lt;'S&gt;</span></code>
+                </dt>
+                <dd class="fsdocs-param-docs"></dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    query
+                  </span>
+                  :
+                  <code>string</code>
+                </dt>
+                <dd class="fsdocs-param-docs"></dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    Item3
+                  </span>
+                  :
+                  <code><a href="/northwind/reference/elastic-fsharp-query-types-fuzziness.html">Fuzziness</a></code>
+                </dt>
+                <dd class="fsdocs-param-docs"></dd>
+              </dl>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code data-fsdocs-tip="171" data-fsdocs-tip-unique="171">
+                <p>
+                  <a id="In">
+                    <a href="#In">
+                      <code><span>In(<span><span><a href="/northwind/reference/elastic-fsharp-query-types-fieldref-1.html">FieldRef</a>&lt;'S&gt;</span>,&#32;<span><a href="/northwind/reference/elastic-fsharp-query-types-fieldvalue.html">FieldValue</a>&#32;list</span></span>)</span></code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div popover="" class="fsdocs-tip" id="171">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>In(<span><span><a href="/northwind/reference/elastic-fsharp-query-types-fieldref-1.html">FieldRef</a>&lt;'S&gt;</span>,&#32;<span><a href="/northwind/reference/elastic-fsharp-query-types-fieldvalue.html">FieldValue</a>&#32;list</span></span>)</span></code>
+                  <br/>
+                  <br/>
+                  Parameters: 
+                  <ul>
+                    <span>
+                      <b>
+                        Item1
+                      </b>
+                      :
+                      <code><span><a href="/northwind/reference/elastic-fsharp-query-types-fieldref-1.html">FieldRef</a>&lt;'S&gt;</span></code>
+                    </span>
+                    <br/>
+                    <span>
+                      <b>
+                        Item2
+                      </b>
+                      :
+                      <code><span><a href="/northwind/reference/elastic-fsharp-query-types-fieldvalue.html">FieldValue</a>&#32;list</span></code>
+                    </span>
+                    <br/>
+                  </ul>
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <div class="fsdocs-member-xmldoc-column">
+              <div class="icon-button-row"></div>
+              <dl class="fsdocs-params">
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    Item1
+                  </span>
+                  :
+                  <code><span><a href="/northwind/reference/elastic-fsharp-query-types-fieldref-1.html">FieldRef</a>&lt;'S&gt;</span></code>
+                </dt>
+                <dd class="fsdocs-param-docs"></dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    Item2
+                  </span>
+                  :
+                  <code><span><a href="/northwind/reference/elastic-fsharp-query-types-fieldvalue.html">FieldValue</a>&#32;list</span></code>
+                </dt>
+                <dd class="fsdocs-param-docs"></dd>
+              </dl>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code data-fsdocs-tip="172" data-fsdocs-tip-unique="172">
+                <p>
+                  <a id="Match">
+                    <a href="#Match">
+                      <code><span>Match(<span><span><a href="/northwind/reference/elastic-fsharp-query-types-fieldref-1.html">FieldRef</a>&lt;'S&gt;</span>,&#32;query,&#32;<a href="/northwind/reference/elastic-fsharp-query-types-matchparams.html">MatchParams</a></span>)</span></code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div popover="" class="fsdocs-tip" id="172">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>Match(<span><span><a href="/northwind/reference/elastic-fsharp-query-types-fieldref-1.html">FieldRef</a>&lt;'S&gt;</span>,&#32;query,&#32;<a href="/northwind/reference/elastic-fsharp-query-types-matchparams.html">MatchParams</a></span>)</span></code>
+                  <br/>
+                  <br/>
+                  Parameters: 
+                  <ul>
+                    <span>
+                      <b>
+                        Item1
+                      </b>
+                      :
+                      <code><span><a href="/northwind/reference/elastic-fsharp-query-types-fieldref-1.html">FieldRef</a>&lt;'S&gt;</span></code>
+                    </span>
+                    <br/>
+                    <span>
+                      <b>
+                        query
+                      </b>
+                      :
+                      <code>string</code>
+                    </span>
+                    <br/>
+                    <span>
+                      <b>
+                        Item3
+                      </b>
+                      :
+                      <code><a href="/northwind/reference/elastic-fsharp-query-types-matchparams.html">MatchParams</a></code>
+                    </span>
+                    <br/>
+                  </ul>
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <div class="fsdocs-member-xmldoc-column">
+              <div class="icon-button-row"></div>
+              <dl class="fsdocs-params">
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    Item1
+                  </span>
+                  :
+                  <code><span><a href="/northwind/reference/elastic-fsharp-query-types-fieldref-1.html">FieldRef</a>&lt;'S&gt;</span></code>
+                </dt>
+                <dd class="fsdocs-param-docs"></dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    query
+                  </span>
+                  :
+                  <code>string</code>
+                </dt>
+                <dd class="fsdocs-param-docs"></dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    Item3
+                  </span>
+                  :
+                  <code><a href="/northwind/reference/elastic-fsharp-query-types-matchparams.html">MatchParams</a></code>
+                </dt>
+                <dd class="fsdocs-param-docs"></dd>
+              </dl>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code data-fsdocs-tip="173" data-fsdocs-tip-unique="173">
+                <p>
+                  <a id="Nested">
+                    <a href="#Nested">
+                      <code><span>Nested(<span>path,&#32;inner</span>)</span></code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div popover="" class="fsdocs-tip" id="173">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>Nested(<span>path,&#32;inner</span>)</span></code>
+                  <br/>
+                  <br/>
+                  Parameters: 
+                  <ul>
+                    <span>
+                      <b>
+                        path
+                      </b>
+                      :
+                      <code>string</code>
+                    </span>
+                    <br/>
+                    <span>
+                      <b>
+                        inner
+                      </b>
+                      :
+                      <code><a href="/northwind/reference/elastic-fsharp-query-types-inestedlower.html">INestedLower</a></code>
+                    </span>
+                    <br/>
+                  </ul>
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <div class="fsdocs-member-xmldoc-column">
+              <div class="icon-button-row"></div>
+              <dl class="fsdocs-params">
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    path
+                  </span>
+                  :
+                  <code>string</code>
+                </dt>
+                <dd class="fsdocs-param-docs"></dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    inner
+                  </span>
+                  :
+                  <code><a href="/northwind/reference/elastic-fsharp-query-types-inestedlower.html">INestedLower</a></code>
+                </dt>
+                <dd class="fsdocs-param-docs"></dd>
+              </dl>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code data-fsdocs-tip="174" data-fsdocs-tip-unique="174">
+                <p>
+                  <a id="Not">
+                    <a href="#Not">
+                      <code><span>Not&#32;<span><a href="/northwind/reference/elastic-fsharp-query-types-predicate-1.html">Predicate</a>&lt;'S&gt;</span></span></code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div popover="" class="fsdocs-tip" id="174">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>Not&#32;<span><a href="/northwind/reference/elastic-fsharp-query-types-predicate-1.html">Predicate</a>&lt;'S&gt;</span></span></code>
+                  <br/>
+                  <br/>
+                  Parameters: 
+                  <ul>
+                    <span>
+                      <b>
+                        Item
+                      </b>
+                      :
+                      <code><span><a href="/northwind/reference/elastic-fsharp-query-types-predicate-1.html">Predicate</a>&lt;'S&gt;</span></code>
+                    </span>
+                    <br/>
+                  </ul>
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <div class="fsdocs-member-xmldoc-column">
+              <div class="icon-button-row"></div>
+              <dl class="fsdocs-params">
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    Item
+                  </span>
+                  :
+                  <code><span><a href="/northwind/reference/elastic-fsharp-query-types-predicate-1.html">Predicate</a>&lt;'S&gt;</span></code>
+                </dt>
+                <dd class="fsdocs-param-docs"></dd>
+              </dl>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code data-fsdocs-tip="175" data-fsdocs-tip-unique="175">
+                <p>
+                  <a id="Phrase">
+                    <a href="#Phrase">
+                      <code><span>Phrase(<span><span><a href="/northwind/reference/elastic-fsharp-query-types-fieldref-1.html">FieldRef</a>&lt;'S&gt;</span>,&#32;query</span>)</span></code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div popover="" class="fsdocs-tip" id="175">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>Phrase(<span><span><a href="/northwind/reference/elastic-fsharp-query-types-fieldref-1.html">FieldRef</a>&lt;'S&gt;</span>,&#32;query</span>)</span></code>
+                  <br/>
+                  <br/>
+                  Parameters: 
+                  <ul>
+                    <span>
+                      <b>
+                        Item1
+                      </b>
+                      :
+                      <code><span><a href="/northwind/reference/elastic-fsharp-query-types-fieldref-1.html">FieldRef</a>&lt;'S&gt;</span></code>
+                    </span>
+                    <br/>
+                    <span>
+                      <b>
+                        query
+                      </b>
+                      :
+                      <code>string</code>
+                    </span>
+                    <br/>
+                  </ul>
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <div class="fsdocs-member-xmldoc-column">
+              <div class="icon-button-row"></div>
+              <dl class="fsdocs-params">
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    Item1
+                  </span>
+                  :
+                  <code><span><a href="/northwind/reference/elastic-fsharp-query-types-fieldref-1.html">FieldRef</a>&lt;'S&gt;</span></code>
+                </dt>
+                <dd class="fsdocs-param-docs"></dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    query
+                  </span>
+                  :
+                  <code>string</code>
+                </dt>
+                <dd class="fsdocs-param-docs"></dd>
+              </dl>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code data-fsdocs-tip="176" data-fsdocs-tip-unique="176">
+                <p>
+                  <a id="Prefix">
+                    <a href="#Prefix">
+                      <code><span>Prefix(<span><span><a href="/northwind/reference/elastic-fsharp-query-types-fieldref-1.html">FieldRef</a>&lt;'S&gt;</span>,&#32;query</span>)</span></code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div popover="" class="fsdocs-tip" id="176">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>Prefix(<span><span><a href="/northwind/reference/elastic-fsharp-query-types-fieldref-1.html">FieldRef</a>&lt;'S&gt;</span>,&#32;query</span>)</span></code>
+                  <br/>
+                  <br/>
+                  Parameters: 
+                  <ul>
+                    <span>
+                      <b>
+                        Item1
+                      </b>
+                      :
+                      <code><span><a href="/northwind/reference/elastic-fsharp-query-types-fieldref-1.html">FieldRef</a>&lt;'S&gt;</span></code>
+                    </span>
+                    <br/>
+                    <span>
+                      <b>
+                        query
+                      </b>
+                      :
+                      <code>string</code>
+                    </span>
+                    <br/>
+                  </ul>
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <div class="fsdocs-member-xmldoc-column">
+              <div class="icon-button-row"></div>
+              <dl class="fsdocs-params">
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    Item1
+                  </span>
+                  :
+                  <code><span><a href="/northwind/reference/elastic-fsharp-query-types-fieldref-1.html">FieldRef</a>&lt;'S&gt;</span></code>
+                </dt>
+                <dd class="fsdocs-param-docs"></dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    query
+                  </span>
+                  :
+                  <code>string</code>
+                </dt>
+                <dd class="fsdocs-param-docs"></dd>
+              </dl>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code data-fsdocs-tip="177" data-fsdocs-tip-unique="177">
+                <p>
+                  <a id="Range">
+                    <a href="#Range">
+                      <code><span>Range(<span><span><a href="/northwind/reference/elastic-fsharp-query-types-fieldref-1.html">FieldRef</a>&lt;'S&gt;</span>,&#32;<a href="/northwind/reference/elastic-fsharp-query-types-bound.html">Bound</a>,&#32;<a href="/northwind/reference/elastic-fsharp-query-types-bound.html">Bound</a></span>)</span></code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div popover="" class="fsdocs-tip" id="177">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>Range(<span><span><a href="/northwind/reference/elastic-fsharp-query-types-fieldref-1.html">FieldRef</a>&lt;'S&gt;</span>,&#32;<a href="/northwind/reference/elastic-fsharp-query-types-bound.html">Bound</a>,&#32;<a href="/northwind/reference/elastic-fsharp-query-types-bound.html">Bound</a></span>)</span></code>
+                  <br/>
+                  <br/>
+                  Parameters: 
+                  <ul>
+                    <span>
+                      <b>
+                        Item1
+                      </b>
+                      :
+                      <code><span><a href="/northwind/reference/elastic-fsharp-query-types-fieldref-1.html">FieldRef</a>&lt;'S&gt;</span></code>
+                    </span>
+                    <br/>
+                    <span>
+                      <b>
+                        Item2
+                      </b>
+                      :
+                      <code><a href="/northwind/reference/elastic-fsharp-query-types-bound.html">Bound</a></code>
+                    </span>
+                    <br/>
+                    <span>
+                      <b>
+                        Item3
+                      </b>
+                      :
+                      <code><a href="/northwind/reference/elastic-fsharp-query-types-bound.html">Bound</a></code>
+                    </span>
+                    <br/>
+                  </ul>
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <div class="fsdocs-member-xmldoc-column">
+              <div class="icon-button-row"></div>
+              <dl class="fsdocs-params">
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    Item1
+                  </span>
+                  :
+                  <code><span><a href="/northwind/reference/elastic-fsharp-query-types-fieldref-1.html">FieldRef</a>&lt;'S&gt;</span></code>
+                </dt>
+                <dd class="fsdocs-param-docs"></dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    Item2
+                  </span>
+                  :
+                  <code><a href="/northwind/reference/elastic-fsharp-query-types-bound.html">Bound</a></code>
+                </dt>
+                <dd class="fsdocs-param-docs"></dd>
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    Item3
+                  </span>
+                  :
+                  <code><a href="/northwind/reference/elastic-fsharp-query-types-bound.html">Bound</a></code>
+                </dt>
+                <dd class="fsdocs-param-docs"></dd>
+              </dl>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code data-fsdocs-tip="178" data-fsdocs-tip-unique="178">
+                <p>
+                  <a id="RawEs">
+                    <a href="#RawEs">
+                      <code><span>RawEs&#32;<a href="/northwind/reference/elastic-fsharp-query-types-querycontainer.html">QueryContainer</a></span></code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div popover="" class="fsdocs-tip" id="178">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>RawEs&#32;<a href="/northwind/reference/elastic-fsharp-query-types-querycontainer.html">QueryContainer</a></span></code>
+                  <br/>
+                  <br/>
+                  Parameters: 
+                  <ul>
+                    <span>
+                      <b>
+                        Item
+                      </b>
+                      :
+                      <code><a href="/northwind/reference/elastic-fsharp-query-types-querycontainer.html">QueryContainer</a></code>
+                    </span>
+                    <br/>
+                  </ul>
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <div class="fsdocs-member-xmldoc-column">
+              <div class="icon-button-row"></div>
+              <dl class="fsdocs-params">
+                <dt class="fsdocs-param">
+                  <span class="fsdocs-param-name">
+                    Item
+                  </span>
+                  :
+                  <code><a href="/northwind/reference/elastic-fsharp-query-types-querycontainer.html">QueryContainer</a></code>
+                </dt>
+                <dd class="fsdocs-param-docs"></dd>
+              </dl>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div>
+    <h3>
+      Instance members
+    </h3>
+    <table class="table outer-list fsdocs-member-list">
+      <thead>
+        <tr>
+          <td class="fsdocs-member-list-header">
+            Instance member
+          </td>
+          <td class="fsdocs-member-list-header">
+            Description
+            <fsdocs-details-toggle></fsdocs-details-toggle>
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code data-fsdocs-tip="179" data-fsdocs-tip-unique="179">
+                <p>
+                  <a id="IsAll">
+                    <a href="#IsAll">
+                      <code><span>this.IsAll</span></code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div popover="" class="fsdocs-tip" id="179">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>this.IsAll</span></code>
+                  <br/>
+                  <br/>
+                  <span>
+                    Returns: 
+                    <code>bool</code>
+                  </span>
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <div class="fsdocs-member-xmldoc-column">
+              <div class="icon-button-row"></div>
+              <dl class="fsdocs-returns">
+                <dt>
+                  <span class="fsdocs-return-name">
+                    Returns: 
+                  </span>
+                  <code>bool</code>
+                </dt>
+                <dd class="fsdocs-return-docs"></dd>
+              </dl>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code data-fsdocs-tip="180" data-fsdocs-tip-unique="180">
+                <p>
+                  <a id="IsAny">
+                    <a href="#IsAny">
+                      <code><span>this.IsAny</span></code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div popover="" class="fsdocs-tip" id="180">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>this.IsAny</span></code>
+                  <br/>
+                  <br/>
+                  <span>
+                    Returns: 
+                    <code>bool</code>
+                  </span>
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <div class="fsdocs-member-xmldoc-column">
+              <div class="icon-button-row"></div>
+              <dl class="fsdocs-returns">
+                <dt>
+                  <span class="fsdocs-return-name">
+                    Returns: 
+                  </span>
+                  <code>bool</code>
+                </dt>
+                <dd class="fsdocs-return-docs"></dd>
+              </dl>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code data-fsdocs-tip="181" data-fsdocs-tip-unique="181">
+                <p>
+                  <a id="IsBetween">
+                    <a href="#IsBetween">
+                      <code><span>this.IsBetween</span></code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div popover="" class="fsdocs-tip" id="181">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>this.IsBetween</span></code>
+                  <br/>
+                  <br/>
+                  <span>
+                    Returns: 
+                    <code>bool</code>
+                  </span>
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <div class="fsdocs-member-xmldoc-column">
+              <div class="icon-button-row"></div>
+              <dl class="fsdocs-returns">
+                <dt>
+                  <span class="fsdocs-return-name">
+                    Returns: 
+                  </span>
+                  <code>bool</code>
+                </dt>
+                <dd class="fsdocs-return-docs"></dd>
+              </dl>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code data-fsdocs-tip="182" data-fsdocs-tip-unique="182">
+                <p>
+                  <a id="IsEq">
+                    <a href="#IsEq">
+                      <code><span>this.IsEq</span></code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div popover="" class="fsdocs-tip" id="182">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>this.IsEq</span></code>
+                  <br/>
+                  <br/>
+                  <span>
+                    Returns: 
+                    <code>bool</code>
+                  </span>
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <div class="fsdocs-member-xmldoc-column">
+              <div class="icon-button-row"></div>
+              <dl class="fsdocs-returns">
+                <dt>
+                  <span class="fsdocs-return-name">
+                    Returns: 
+                  </span>
+                  <code>bool</code>
+                </dt>
+                <dd class="fsdocs-return-docs"></dd>
+              </dl>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code data-fsdocs-tip="183" data-fsdocs-tip-unique="183">
+                <p>
+                  <a id="IsExists">
+                    <a href="#IsExists">
+                      <code><span>this.IsExists</span></code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div popover="" class="fsdocs-tip" id="183">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>this.IsExists</span></code>
+                  <br/>
+                  <br/>
+                  <span>
+                    Returns: 
+                    <code>bool</code>
+                  </span>
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <div class="fsdocs-member-xmldoc-column">
+              <div class="icon-button-row"></div>
+              <dl class="fsdocs-returns">
+                <dt>
+                  <span class="fsdocs-return-name">
+                    Returns: 
+                  </span>
+                  <code>bool</code>
+                </dt>
+                <dd class="fsdocs-return-docs"></dd>
+              </dl>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code data-fsdocs-tip="184" data-fsdocs-tip-unique="184">
+                <p>
+                  <a id="IsFuzzy">
+                    <a href="#IsFuzzy">
+                      <code><span>this.IsFuzzy</span></code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div popover="" class="fsdocs-tip" id="184">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>this.IsFuzzy</span></code>
+                  <br/>
+                  <br/>
+                  <span>
+                    Returns: 
+                    <code>bool</code>
+                  </span>
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <div class="fsdocs-member-xmldoc-column">
+              <div class="icon-button-row"></div>
+              <dl class="fsdocs-returns">
+                <dt>
+                  <span class="fsdocs-return-name">
+                    Returns: 
+                  </span>
+                  <code>bool</code>
+                </dt>
+                <dd class="fsdocs-return-docs"></dd>
+              </dl>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code data-fsdocs-tip="185" data-fsdocs-tip-unique="185">
+                <p>
+                  <a id="IsIn">
+                    <a href="#IsIn">
+                      <code><span>this.IsIn</span></code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div popover="" class="fsdocs-tip" id="185">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>this.IsIn</span></code>
+                  <br/>
+                  <br/>
+                  <span>
+                    Returns: 
+                    <code>bool</code>
+                  </span>
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <div class="fsdocs-member-xmldoc-column">
+              <div class="icon-button-row"></div>
+              <dl class="fsdocs-returns">
+                <dt>
+                  <span class="fsdocs-return-name">
+                    Returns: 
+                  </span>
+                  <code>bool</code>
+                </dt>
+                <dd class="fsdocs-return-docs"></dd>
+              </dl>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code data-fsdocs-tip="186" data-fsdocs-tip-unique="186">
+                <p>
+                  <a id="IsMatch">
+                    <a href="#IsMatch">
+                      <code><span>this.IsMatch</span></code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div popover="" class="fsdocs-tip" id="186">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>this.IsMatch</span></code>
+                  <br/>
+                  <br/>
+                  <span>
+                    Returns: 
+                    <code>bool</code>
+                  </span>
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <div class="fsdocs-member-xmldoc-column">
+              <div class="icon-button-row"></div>
+              <dl class="fsdocs-returns">
+                <dt>
+                  <span class="fsdocs-return-name">
+                    Returns: 
+                  </span>
+                  <code>bool</code>
+                </dt>
+                <dd class="fsdocs-return-docs"></dd>
+              </dl>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code data-fsdocs-tip="187" data-fsdocs-tip-unique="187">
+                <p>
+                  <a id="IsNested">
+                    <a href="#IsNested">
+                      <code><span>this.IsNested</span></code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div popover="" class="fsdocs-tip" id="187">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>this.IsNested</span></code>
+                  <br/>
+                  <br/>
+                  <span>
+                    Returns: 
+                    <code>bool</code>
+                  </span>
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <div class="fsdocs-member-xmldoc-column">
+              <div class="icon-button-row"></div>
+              <dl class="fsdocs-returns">
+                <dt>
+                  <span class="fsdocs-return-name">
+                    Returns: 
+                  </span>
+                  <code>bool</code>
+                </dt>
+                <dd class="fsdocs-return-docs"></dd>
+              </dl>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code data-fsdocs-tip="188" data-fsdocs-tip-unique="188">
+                <p>
+                  <a id="IsNot">
+                    <a href="#IsNot">
+                      <code><span>this.IsNot</span></code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div popover="" class="fsdocs-tip" id="188">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>this.IsNot</span></code>
+                  <br/>
+                  <br/>
+                  <span>
+                    Returns: 
+                    <code>bool</code>
+                  </span>
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <div class="fsdocs-member-xmldoc-column">
+              <div class="icon-button-row"></div>
+              <dl class="fsdocs-returns">
+                <dt>
+                  <span class="fsdocs-return-name">
+                    Returns: 
+                  </span>
+                  <code>bool</code>
+                </dt>
+                <dd class="fsdocs-return-docs"></dd>
+              </dl>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code data-fsdocs-tip="189" data-fsdocs-tip-unique="189">
+                <p>
+                  <a id="IsPhrase">
+                    <a href="#IsPhrase">
+                      <code><span>this.IsPhrase</span></code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div popover="" class="fsdocs-tip" id="189">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>this.IsPhrase</span></code>
+                  <br/>
+                  <br/>
+                  <span>
+                    Returns: 
+                    <code>bool</code>
+                  </span>
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <div class="fsdocs-member-xmldoc-column">
+              <div class="icon-button-row"></div>
+              <dl class="fsdocs-returns">
+                <dt>
+                  <span class="fsdocs-return-name">
+                    Returns: 
+                  </span>
+                  <code>bool</code>
+                </dt>
+                <dd class="fsdocs-return-docs"></dd>
+              </dl>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code data-fsdocs-tip="190" data-fsdocs-tip-unique="190">
+                <p>
+                  <a id="IsPrefix">
+                    <a href="#IsPrefix">
+                      <code><span>this.IsPrefix</span></code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div popover="" class="fsdocs-tip" id="190">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>this.IsPrefix</span></code>
+                  <br/>
+                  <br/>
+                  <span>
+                    Returns: 
+                    <code>bool</code>
+                  </span>
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <div class="fsdocs-member-xmldoc-column">
+              <div class="icon-button-row"></div>
+              <dl class="fsdocs-returns">
+                <dt>
+                  <span class="fsdocs-return-name">
+                    Returns: 
+                  </span>
+                  <code>bool</code>
+                </dt>
+                <dd class="fsdocs-return-docs"></dd>
+              </dl>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code data-fsdocs-tip="191" data-fsdocs-tip-unique="191">
+                <p>
+                  <a id="IsRange">
+                    <a href="#IsRange">
+                      <code><span>this.IsRange</span></code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div popover="" class="fsdocs-tip" id="191">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>this.IsRange</span></code>
+                  <br/>
+                  <br/>
+                  <span>
+                    Returns: 
+                    <code>bool</code>
+                  </span>
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <div class="fsdocs-member-xmldoc-column">
+              <div class="icon-button-row"></div>
+              <dl class="fsdocs-returns">
+                <dt>
+                  <span class="fsdocs-return-name">
+                    Returns: 
+                  </span>
+                  <code>bool</code>
+                </dt>
+                <dd class="fsdocs-return-docs"></dd>
+              </dl>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td class="fsdocs-member-usage">
+            <div>
+              <code data-fsdocs-tip="192" data-fsdocs-tip-unique="192">
+                <p>
+                  <a id="IsRawEs">
+                    <a href="#IsRawEs">
+                      <code><span>this.IsRawEs</span></code>
+                    </a>
+                  </a>
+                </p>
+              </code>
+              <div popover="" class="fsdocs-tip" id="192">
+                <div class="member-tooltip">
+                  Full Usage: 
+                  <code><span>this.IsRawEs</span></code>
+                  <br/>
+                  <br/>
+                  <span>
+                    Returns: 
+                    <code>bool</code>
+                  </span>
+                  <br/>
+                </div>
+              </div>
+            </div>
+          </td>
+          <td class="fsdocs-member-xmldoc">
+            <div class="fsdocs-member-xmldoc-column">
+              <div class="icon-button-row"></div>
+              <dl class="fsdocs-returns">
+                <dt>
+                  <span class="fsdocs-return-name">
+                    Returns: 
+                  </span>
+                  <code>bool</code>
+                </dt>
+                <dd class="fsdocs-return-docs"></dd>
+              </dl>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div></div>
+</div>
+        
+    </div>
+</main>
+<aside id="fsdocs-page-menu">
+    <p id="on-this-page">On this page</p>
+    <div class="empty"></div>
+</aside>
+<dialog>
+    <input type="search" placeholder="Search docs" />
+    <div class="results">
+        <ul></ul>
+        <p class="empty">Type something to start searching.</p>
+    </div>
+</dialog>
+<script type="module" src="/northwind/content/fsdocs-tips.js"></script>
+<script type="module" src="/northwind/content/fsdocs-theme-toggle.js"></script>
+<script type="module" src="/northwind/content/fsdocs-details-toggle.js"></script>
+<script type="module" src="/northwind/content/fsdocs-theme.js"></script>
+<script type="module" src="/northwind/content/fsdocs-search.js"></script>
+<script type="module" src="/northwind/content/fsdocs-copy-button.js"></script>
+
+</body>
+</html>

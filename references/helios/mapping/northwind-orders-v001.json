@@ -1,0 +1,105 @@
+{
+  "settings": {
+    "analysis": {
+      "normalizer": {
+        "lowercase_keyword": {
+          "type": "custom",
+          "filter": [
+            "lowercase"
+          ]
+        }
+      }
+    }
+  },
+  "mappings": {
+    "dynamic": "strict",
+    "properties": {
+      "id": {
+        "type": "keyword"
+      },
+      "orderId": {
+        "type": "keyword"
+      },
+      "orderDate": {
+        "type": "date"
+      },
+      "customer": {
+        "properties": {
+          "customerId": {
+            "type": "keyword"
+          },
+          "companyName": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "normalizer": "lowercase_keyword"
+              }
+            }
+          },
+          "contactName": {
+            "type": "text"
+          },
+          "country": {
+            "type": "keyword",
+            "normalizer": "lowercase_keyword"
+          }
+        }
+      },
+      "employee": {
+        "properties": {
+          "employeeId": {
+            "type": "integer"
+          },
+          "firstName": {
+            "type": "text"
+          },
+          "lastName": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "normalizer": "lowercase_keyword"
+              }
+            }
+          },
+          "title": {
+            "type": "text"
+          }
+        }
+      },
+      "product": {
+        "properties": {
+          "productId": {
+            "type": "integer"
+          },
+          "productName": {
+            "type": "text",
+            "fields": {
+              "keyword": {
+                "type": "keyword",
+                "normalizer": "lowercase_keyword"
+              }
+            }
+          },
+          "categoryName": {
+            "type": "keyword",
+            "normalizer": "lowercase_keyword"
+          }
+        }
+      },
+      "unitPrice": {
+        "type": "double"
+      },
+      "quantity": {
+        "type": "integer"
+      },
+      "discount": {
+        "type": "double"
+      },
+      "lineSales": {
+        "type": "double"
+      }
+    }
+  }
+}

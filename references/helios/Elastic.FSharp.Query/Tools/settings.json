@@ -1,0 +1,21 @@
+{
+  "index": {
+    "analysis": {
+      "analyzer": {
+        "standard_english": {
+          "type": "standard"
+        },
+        "autocomplete": {
+          "type": "custom",
+          "tokenizer": "edge_ngram_tokenizer"
+        }
+      },
+      "normalizer": {
+        "lowercase_normalizer": {
+          "type": "custom",
+          "filter": ["lowercase"]
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "version": "1.0",
+  "default_policy": "deny",
+  "connectors": {
+    "trusted-read": {
+      "type": "filesystem",
+      "mode": "read_only",
+      "owner": "ai-platform",
+      "purpose": "Read trusted project documents, schemas, and reference data. Not for outsider uploads.",
+      "allowed_operations": ["read", "list", "grep"],
+      "denied_operations": ["write", "delete", "execute"],
+      "auth": {
+        "method": "oauth2.1",
+        "token_source": "vault",
+        "secret_env": "MCP_TRUSTED_READ_TOKEN"
+      },
+      "data_classification": "internal",
+      "audit_required": true,
+      "fail_closed": true
+    },
+    "artifact-store": {
+      "type": "filesystem",
+      "mode": "approved_write",
+      "owner": "ai-platform",
+      "purpose": "Write final Critic-approved artifacts. Resolver only. No reads of untrusted content.",
+      "allowed_operations": ["write"],
+      "denied_operations": ["read", "delete", "execute"],
+      "auth": {
+        "method": "oauth2.1",
+        "token_source": "vault",
+        "secret_env": "MCP_ARTIFACT_STORE_TOKEN"
+      },
+      "data_classification": "internal",
+      "audit_required": true,
+      "fail_closed": true
+    }
+  },
+  "agent_bindings": {
+    "reader": [],
+    "orchestrator": ["trusted-read"],
+    "critic": [],
+    "resolver": ["artifact-store"]
+  }
+}

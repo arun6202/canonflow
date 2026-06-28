@@ -1,0 +1,29 @@
+{
+  "handoff_id": "hnd_critic_resolver_001",
+  "from_agent": "critic",
+  "to_agent": "resolver",
+  "objective": "Write the final artifact from Critic-approved findings.",
+  "inputs": {
+    "verified_findings_ref": "artifacts/analysis_draft.md",
+    "critic_verdict": "approved",
+    "critic_report_ref": "artifacts/critic_report.json",
+    "target_path": "output/analysis-report.md",
+    "format": "markdown"
+  },
+  "constraints": [
+    "Use only Critic-verified findings.",
+    "Keep caveats visible — do not bury them in footnotes.",
+    "Do not fetch new data.",
+    "Do not consult any MCP connector.",
+    "Do not read untrusted source documents."
+  ],
+  "source_policy": {
+    "require_sources": true,
+    "flag_unsourced_as": "[UNSOURCED]",
+    "raw_untrusted_content_included": false
+  },
+  "allowed_tools": ["artifact.write"],
+  "approval_required": false,
+  "expected_deliverables": ["RESOLVER_OUTPUT"],
+  "open_questions": []
+}

@@ -1,0 +1,59 @@
+### Elasticsearch Idiomatic API Requests
+### Execute these requests using the VS Code REST Client or Visual Studio .http support.
+
+@host = http://localhost:5000
+
+### 1. Test Swagger Endpoint
+GET {{host}}/swagger/v1/swagger.json
+Accept: application/json
+
+### 2. Flavorful Use Case: Full Text Search
+# This endpoint executes a robust Multi-Match query against multiple fields 
+# (Product Name, Company Name, Employee Name) simultaneously.
+GET {{host}}/api/orders/search?q=Tofu
+Accept: application/json
+
+### 3. Flavorful Use Case: Analytics Aggregation
+# This endpoint uses Elasticsearch Terms and Sum Aggregations to 
+# dynamically calculate the top 5 customers by total order revenue.
+GET {{host}}/api/analytics/top-customers
+Accept: application/json
+
+### 4. Flavorful Use Case: Exact Match Filtering
+# Quickly retrieve all orders handled by a specific employee (EmployeeId: 1 = Nancy Davolio).
+GET {{host}}/api/orders/employee/1
+Accept: application/json
+
+### 5. Advanced Feature: Simple Query String (Fuzziness & Synonyms)
+# Retrieves records matching "cheese" with a fuzziness of 2 (matches "chees"), using the OR default operator.
+GET {{host}}/api/orders/sqs?q=chees~2
+Accept: application/json
+
+### 6. Advanced Feature: Simple Query String (Targeted Fields & Prefix)
+# Finds any order containing an item prefixed with "Tof" explicitly in the productName field.
+GET {{host}}/api/orders/sqs?q=Tof*&fields=lines.product.productName
+Accept: application/json
+
+### 7. Advanced Feature: Simple Query String Compound (NOT Operator & Filters)
+# Uses a compound query to find orders related to "seafood" but explicitly excludes anything with "crab"
+# and restricts results to only those handled by employee 1.
+GET {{host}}/api/orders/sqs/compound?q=seafood%20-crab&employeeId=1
+Accept: application/json
+
+### 8. The Ultimate Query-By-Example Custom DSL
+# Translates an arbitrary JSON array of partial objects into a deeply nested Elasticsearch Bool query.
+# This reads as: Find orders where (Customer Country is Germany AND Employee LastName is Davolio) 
+#                OR (Customer Country is France)
+POST {{host}}/api/orders/custom-dsl
+Content-Type: application/json
+Accept: application/json
+
+[
+  {
+    "customer": { "country": "Germany" },
+    "employee": { "lastName": "Davolio" }
+  },
+  {
+    "customer": { "country": "France" }
+  }
+]

@@ -1,0 +1,135 @@
+{
+    "orders":  {
+                   "mappings":  {
+                                    "properties":  {
+                                                       "customer":  {
+                                                                        "properties":  {
+                                                                                           "companyName":  {
+                                                                                                               "type":  "text",
+                                                                                                               "fields":  {
+                                                                                                                              "keyword":  {
+                                                                                                                                              "type":  "keyword",
+                                                                                                                                              "ignore_above":  256
+                                                                                                                                          }
+                                                                                                                          }
+                                                                                                           },
+                                                                                           "contactName":  {
+                                                                                                               "type":  "text",
+                                                                                                               "fields":  {
+                                                                                                                              "keyword":  {
+                                                                                                                                              "type":  "keyword",
+                                                                                                                                              "ignore_above":  256
+                                                                                                                                          }
+                                                                                                                          }
+                                                                                                           },
+                                                                                           "country":  {
+                                                                                                           "type":  "text",
+                                                                                                           "fields":  {
+                                                                                                                          "keyword":  {
+                                                                                                                                          "type":  "keyword",
+                                                                                                                                          "ignore_above":  256
+                                                                                                                                      }
+                                                                                                                      }
+                                                                                                       },
+                                                                                           "customerId":  {
+                                                                                                              "type":  "text",
+                                                                                                              "fields":  {
+                                                                                                                             "keyword":  {
+                                                                                                                                             "type":  "keyword",
+                                                                                                                                             "ignore_above":  256
+                                                                                                                                         }
+                                                                                                                         }
+                                                                                                          }
+                                                                                       }
+                                                                    },
+                                                       "employee":  {
+                                                                        "properties":  {
+                                                                                           "employeeId":  {
+                                                                                                              "type":  "long"
+                                                                                                          },
+                                                                                           "firstName":  {
+                                                                                                             "type":  "text",
+                                                                                                             "fields":  {
+                                                                                                                            "keyword":  {
+                                                                                                                                            "type":  "keyword",
+                                                                                                                                            "ignore_above":  256
+                                                                                                                                        }
+                                                                                                                        }
+                                                                                                         },
+                                                                                           "lastName":  {
+                                                                                                            "type":  "text",
+                                                                                                            "fields":  {
+                                                                                                                           "keyword":  {
+                                                                                                                                           "type":  "keyword",
+                                                                                                                                           "ignore_above":  256
+                                                                                                                                       }
+                                                                                                                       }
+                                                                                                        },
+                                                                                           "title":  {
+                                                                                                         "type":  "text",
+                                                                                                         "fields":  {
+                                                                                                                        "keyword":  {
+                                                                                                                                        "type":  "keyword",
+                                                                                                                                        "ignore_above":  256
+                                                                                                                                    }
+                                                                                                                    }
+                                                                                                     }
+                                                                                       }
+                                                                    },
+                                                       "id":  {
+                                                                  "type":  "text",
+                                                                  "fields":  {
+                                                                                 "keyword":  {
+                                                                                                 "type":  "keyword",
+                                                                                                 "ignore_above":  256
+                                                                                             }
+                                                                             }
+                                                              },
+                                                       "lines":  {
+                                                                     "properties":  {
+                                                                                        "discount":  {
+                                                                                                         "type":  "long"
+                                                                                                     },
+                                                                                        "product":  {
+                                                                                                        "properties":  {
+                                                                                                                           "categoryName":  {
+                                                                                                                                                "type":  "text",
+                                                                                                                                                "fields":  {
+                                                                                                                                                               "keyword":  {
+                                                                                                                                                                               "type":  "keyword",
+                                                                                                                                                                               "ignore_above":  256
+                                                                                                                                                                           }
+                                                                                                                                                           }
+                                                                                                                                            },
+                                                                                                                           "productId":  {
+                                                                                                                                             "type":  "long"
+                                                                                                                                         },
+                                                                                                                           "productName":  {
+                                                                                                                                               "type":  "text",
+                                                                                                                                               "fields":  {
+                                                                                                                                                              "keyword":  {
+                                                                                                                                                                              "type":  "keyword",
+                                                                                                                                                                              "ignore_above":  256
+                                                                                                                                                                          }
+                                                                                                                                                          }
+                                                                                                                                           }
+                                                                                                                       }
+                                                                                                    },
+                                                                                        "quantity":  {
+                                                                                                         "type":  "long"
+                                                                                                     },
+                                                                                        "unitPrice":  {
+                                                                                                          "type":  "float"
+                                                                                                      }
+                                                                                    }
+                                                                 },
+                                                       "orderDate":  {
+                                                                         "type":  "date"
+                                                                     },
+                                                       "totalAmount":  {
+                                                                           "type":  "float"
+                                                                       }
+                                                   }
+                                }
+               }
+}

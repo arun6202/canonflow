@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "isRoot": true,
+  "tools": {
+    "fsdocs-tool": {
+      "version": "22.1.0",
+      "commands": [
+        "fsdocs"
+      ],
+      "rollForward": false
+    },
+    "fable": {
+      "version": "5.2.0",
+      "commands": [
+        "fable"
+      ],
+      "rollForward": false
+    }
+  }
+}

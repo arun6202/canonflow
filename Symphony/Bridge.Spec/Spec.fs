@@ -94,6 +94,14 @@ type GreaterThanZero =
 type BetweenZeroAndOne =
     interface IPredicate<double> with member _.Check(v) = v >= 0.0 && v <= 1.0
 
+[<Struct>]
+type PrimaryKey =
+    interface IPredicate<int64> with member _.Check(_) = true
+    interface IPredicate<int> with member _.Check(_) = true
+    interface IPredicate<string> with member _.Check(v) = not (System.String.IsNullOrWhiteSpace(v))
+    interface IPredicate<System.Guid> with member _.Check(v) = v <> System.Guid.Empty
+
+
 type RefineTag = string // Simplified for MVP
 
 type Lossiness = Lossless | LossyPrecision | LossyTimezone | BlobRef

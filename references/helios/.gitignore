@@ -1,0 +1,45 @@
+# .NET / C# / F#
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+VisualStudioFolder/
+.vs/
+.vscode/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.userprefs
+*.mono
+*.bak
+*.log
+*.sqlite
+*.db
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+.env
+.env.*
+!.env.example
+
+# Fable / Frontend
+fable_modules/
+Frontend/bin/
+Frontend/obj/
+Frontend/node_modules/
+dist/
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Databases & local data
+northwind.db
+elasticsearch-*/
+
+.fake

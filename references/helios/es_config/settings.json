@@ -1,0 +1,23 @@
+{
+    "orders":  {
+                   "settings":  {
+                                    "index":  {
+                                                  "routing":  {
+                                                                  "allocation":  {
+                                                                                     "include":  {
+                                                                                                     "_tier_preference":  "data_content"
+                                                                                                 }
+                                                                                 }
+                                                              },
+                                                  "number_of_shards":  "1",
+                                                  "provided_name":  "orders",
+                                                  "creation_date":  "1781510122863",
+                                                  "number_of_replicas":  "1",
+                                                  "uuid":  "pf5Eag8SRJuSaFmcBRCzGg",
+                                                  "version":  {
+                                                                  "created":  "8505000"
+                                                              }
+                                              }
+                                }
+               }
+}

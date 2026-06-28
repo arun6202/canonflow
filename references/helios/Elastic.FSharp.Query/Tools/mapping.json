@@ -1,0 +1,36 @@
+{
+  "properties": {
+    "customer_id": {
+      "type": "keyword"
+    },
+    "name": {
+      "type": "text",
+      "fields": {
+        "keyword": {
+          "type": "keyword",
+          "normalizer": "lowercase_normalizer"
+        }
+      }
+    },
+    "created_at": {
+      "type": "date"
+    },
+    "total_spend": {
+      "type": "double"
+    },
+    "is_active": {
+      "type": "boolean"
+    },
+    "orders": {
+      "type": "nested",
+      "properties": {
+        "order_id": {
+          "type": "keyword"
+        },
+        "amount": {
+          "type": "double"
+        }
+      }
+    }
+  }
+}

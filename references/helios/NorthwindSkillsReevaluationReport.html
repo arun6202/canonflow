@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Northwind Skills Re-evaluation Report</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #101216;
+      --panel: #1a1f27;
+      --panel-2: #222936;
+      --ink: #f5f7fb;
+      --muted: #aeb8c8;
+      --line: #394252;
+      --cyan: #54c7ec;
+      --green: #66d69a;
+      --yellow: #f0c567;
+      --red: #f07b83;
+      --blue: #91acff;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font: 15px/1.58 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    main {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 36px 22px 64px;
+    }
+
+    header {
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 28px;
+      margin-bottom: 30px;
+    }
+
+    .eyebrow {
+      color: var(--cyan);
+      font-size: 12px;
+      font-weight: 850;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    h1, h2, h3 {
+      line-height: 1.15;
+      letter-spacing: 0;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: clamp(34px, 5vw, 58px);
+      max-width: 980px;
+    }
+
+    h2 {
+      font-size: 25px;
+      margin: 40px 0 16px;
+    }
+
+    h3 {
+      font-size: 17px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin: 0 0 12px;
+      color: var(--muted);
+    }
+
+    a { color: var(--cyan); }
+
+    code {
+      color: #d9e5ff;
+      background: #111722;
+      border: 1px solid #2b3443;
+      border-radius: 5px;
+      padding: 1px 5px;
+      font-family: "Cascadia Code", Consolas, monospace;
+      font-size: .92em;
+    }
+
+    .grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      min-width: 0;
+    }
+
+    .metric {
+      font-size: 30px;
+      line-height: 1;
+      font-weight: 900;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .label {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 850;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .tag {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 5px 10px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 800;
+      background: #151a22;
+    }
+
+    .tag.good { color: var(--green); border-color: rgba(102, 214, 154, .45); }
+    .tag.warn { color: var(--yellow); border-color: rgba(240, 197, 103, .45); }
+    .tag.risk { color: var(--red); border-color: rgba(240, 123, 131, .45); }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #151a22;
+    }
+
+    th, td {
+      text-align: left;
+      vertical-align: top;
+      padding: 10px 12px;
+      border-bottom: 1px solid #2a3342;
+    }
+
+    th {
+      background: #202838;
+      color: var(--ink);
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    td { color: var(--muted); }
+    tr:last-child td { border-bottom: 0; }
+
+    .callout {
+      border-left: 4px solid var(--cyan);
+      background: rgba(84, 199, 236, .08);
+      border-radius: 6px;
+      padding: 14px 16px;
+      margin: 18px 0;
+    }
+
+    .callout.warning {
+      border-left-color: var(--yellow);
+      background: rgba(240, 197, 103, .08);
+    }
+
+    .path {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(120px, 1fr));
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .step {
+      background: var(--panel-2);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 14px;
+      min-height: 126px;
+      position: relative;
+    }
+
+    .step:not(:last-child)::after {
+      content: ">";
+      position: absolute;
+      right: -10px;
+      top: 48px;
+      color: var(--cyan);
+      font-weight: 900;
+      z-index: 2;
+    }
+
+    .step .num {
+      color: var(--cyan);
+      font-size: 12px;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+
+    .step p {
+      font-size: 13px;
+      margin: 0;
+    }
+
+    .score {
+      display: inline-flex;
+      width: 78px;
+      justify-content: center;
+      border-radius: 999px;
+      padding: 3px 8px;
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    .score.high {
+      color: var(--green);
+      background: rgba(102, 214, 154, .12);
+      border: 1px solid rgba(102, 214, 154, .45);
+    }
+
+    .score.mid {
+      color: var(--yellow);
+      background: rgba(240, 197, 103, .12);
+      border: 1px solid rgba(240, 197, 103, .45);
+    }
+
+    .score.low {
+      color: var(--red);
+      background: rgba(240, 123, 131, .12);
+      border: 1px solid rgba(240, 123, 131, .45);
+    }
+
+    footer {
+      margin-top: 44px;
+      border-top: 1px solid var(--line);
+      padding-top: 18px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    @media (max-width: 980px) {
+      .cols-2, .cols-3, .cols-4, .path {
+        grid-template-columns: 1fr;
+      }
+
+      .step:not(:last-child)::after {
+        content: "v";
+        top: auto;
+        right: 16px;
+        bottom: -14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="eyebrow">Skills-based re-evaluation</div>
+      <h1>Northwind Should Become an OSI-Governed Semantic Data Platform</h1>
+      <p>
+        This report re-evaluates the current Northwind/AdventureWorks codebase after reading
+        the Claude skills under <code>C:\Users\arunb\.claude\skills</code> and comparing
+        their doctrine with the OSI Core Metadata Specification.
+      </p>
+      <div class="tag-row">
+        <span class="tag good">Semantic catalog first</span>
+        <span class="tag good">F# typed core</span>
+        <span class="tag good">Provider compilers stay</span>
+        <span class="tag warn">Governance missing</span>
+        <span class="tag risk">Not a pure lift-and-shift</span>
+      </div>
+    </header>
+
+    <section>
+      <div class="grid cols-4">
+        <article class="card">
+          <div class="metric">Yes</div>
+          <div class="label">Use OSI</div>
+          <p>As semantic catalog and interchange contract.</p>
+        </article>
+        <article class="card">
+          <div class="metric">No</div>
+          <div class="label">Replace AST</div>
+          <p>OSI is metadata, not the runtime predicate/query IR.</p>
+        </article>
+        <article class="card">
+          <div class="metric">High</div>
+          <div class="label">Skill Fit</div>
+          <p>The ETL and F# skills match the platform's real direction.</p>
+        </article>
+        <article class="card">
+          <div class="metric">Phase 3</div>
+          <div class="label">Mission</div>
+          <p>Move from hardcoded demos to governed semantic execution.</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Relevant Skills Read</h2>
+      <table>
+        <thead>
+          <tr><th>Skill</th><th>Applicability</th><th>Implication for this repo</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>oracle19c-to-elasticsearch-etl-sota</code></td>
+            <td><span class="score high">High</span></td>
+            <td>Even though this repo uses Northwind/AdventureWorks, the central rule transfers: business meaning must live in contracts, not chat or scattered code.</td>
+          </tr>
+          <tr>
+            <td><code>etl-source-basis-sota</code></td>
+            <td><span class="score high">High</span></td>
+            <td>Forces lifecycle thinking: source, storage, ingestion, transformation, serving, governance, security, and observability.</td>
+          </tr>
+          <tr>
+            <td><code>etl-data-quality-observability-sota</code></td>
+            <td><span class="score high">High</span></td>
+            <td>The platform needs source reports, join reports, document reports, load reports, manifests, and signoff packs.</td>
+          </tr>
+          <tr>
+            <td><code>parquet-duckdb-joinhouse-sota</code></td>
+            <td><span class="score high">High</span></td>
+            <td>Directly addresses the next architectural leap: replace flattened AdventureWorks views with join contracts and reproducible silver/gold layers.</td>
+          </tr>
+          <tr>
+            <td><code>elasticsearch-ndjson-bulk-load-sota</code></td>
+            <td><span class="score mid">Medium</span></td>
+            <td>Useful if Northwind/AdventureWorks indexing becomes rebuildable, versioned, and production-like rather than local demo sync.</td>
+          </tr>
+          <tr>
+            <td><code>fsharp-etl-implementation-sota</code></td>
+            <td><span class="score high">High</span></td>
+            <td>Suggests the missing project structure: Domain, Contracts, Quality, DuckDb, Elastic, Cli, manifests, typed config, and errors.</td>
+          </tr>
+          <tr>
+            <td><code>fsharp-bounded-pipelines-backpressure-sota</code></td>
+            <td><span class="score mid">Medium</span></td>
+            <td>Needed when ingestion/load grows beyond local demo scale. Not urgent for UI search, important for serious rebuilds.</td>
+          </tr>
+          <tr>
+            <td><code>fsharp-concurrency-library-compass-sota</code></td>
+            <td><span class="score mid">Medium</span></td>
+            <td>Use boring primitives first: task, CancellationToken, Channels/Dataflow, streaming JSON. Avoid dependency cleverness.</td>
+          </tr>
+          <tr>
+            <td><code>functional-domain-modeling</code> and <code>stylish-fsharp</code></td>
+            <td><span class="score high">High</span></td>
+            <td>Confirms the right implementation style: typed semantic domain, constrained values, Result errors, pure core, imperative shell.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Revised Verdict</h2>
+      <div class="callout">
+        <p>
+          The previous evaluation was too focused on query abstraction. The skills pack reveals the larger product:
+          this should not merely be a generic query provider demo. It should become a governed semantic data platform
+          where OSI models, field mappings, metrics, joins, quality rules, and golden samples are versioned artifacts.
+        </p>
+      </div>
+      <div class="grid cols-2">
+        <article class="card">
+          <h3>What is strong today</h3>
+          <p>The shared <code>ClientPredicate</code> AST, provider registry, Elasticsearch provider, SQLite predicate compiler, and domain picker prove the architecture can route one UI intent to multiple backends.</p>
+          <p>The typed F# Elasticsearch DSL underneath Northwind is a genuinely good foundation. It avoids the worst stringly Elasticsearch mistakes.</p>
+        </article>
+        <article class="card">
+          <h3>What is weak today</h3>
+          <p>Business meaning is still scattered across F# pattern matches, UI schema lists, SQL views, hardcoded paths, and comments. That is precisely what the skills warn against.</p>
+          <p>There is no run ledger, quality report, join contract, golden sample pack, source-to-output reconciliation, or versioned semantic model.</p>
+        </article>
+      </div>
+    </section>
+
+    <section>
+      <h2>OSI Lift/Shift Answer</h2>
+      <table>
+        <thead>
+          <tr><th>Layer</th><th>Move to OSI?</th><th>Reason</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Domain definitions</td>
+            <td><span class="score high">Yes</span></td>
+            <td>OSI has semantic models, datasets, relationships, fields, metrics, and AI context. This is exactly the missing catalog layer.</td>
+          </tr>
+          <tr>
+            <td>Field labels and synonyms</td>
+            <td><span class="score high">Yes</span></td>
+            <td>OSI <code>ai_context</code> supports synonyms and examples, which can drive better UI and future natural-language query.</td>
+          </tr>
+          <tr>
+            <td>Metrics</td>
+            <td><span class="score high">Yes</span></td>
+            <td>Move <code>total_revenue</code>, <code>order_count</code>, and <code>avg_order_value</code> from ad hoc aggregation requests to named business metrics.</td>
+          </tr>
+          <tr>
+            <td>Relationships</td>
+            <td><span class="score high">Yes</span></td>
+            <td>OSI relationship metadata can become the seed for JOIN planning and replacing <code>AdventureWorksFlat</code>.</td>
+          </tr>
+          <tr>
+            <td>Provider physical mappings</td>
+            <td><span class="score mid">Partial</span></td>
+            <td>Use OSI core fields plus <code>custom_extensions</code> for Elasticsearch paths, analyzers, SQLite expressions, and UI capabilities.</td>
+          </tr>
+          <tr>
+            <td>Runtime filters</td>
+            <td><span class="score low">No</span></td>
+            <td>Keep <code>ClientPredicate</code>. OSI describes models; it is not an execution predicate AST.</td>
+          </tr>
+          <tr>
+            <td>Provider compilers</td>
+            <td><span class="score low">No</span></td>
+            <td>Keep F# compilers. They should consume typed catalog data derived from OSI.</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="callout warning">
+        <p>
+          OSI itself is currently draft. Treat it as an aligned interchange format and internal contract seed,
+          not as a frozen production dependency. Keep a small compatibility layer so the platform can adapt.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Target Architecture</h2>
+      <div class="path">
+        <div class="step">
+          <div class="num">01</div>
+          <h3>OSI YAML</h3>
+          <p>Semantic model, datasets, relationships, fields, metrics, AI context.</p>
+        </div>
+        <div class="step">
+          <div class="num">02</div>
+          <h3>Contracts</h3>
+          <p>Custom extensions, quality rules, golden samples, mapping rules.</p>
+        </div>
+        <div class="step">
+          <div class="num">03</div>
+          <h3>Typed Catalog</h3>
+          <p>F# parsed model with constrained IDs, field kinds, capabilities, errors.</p>
+        </div>
+        <div class="step">
+          <div class="num">04</div>
+          <h3>UI Schema</h3>
+          <p>Generated domain config, controls, operators, labels, examples.</p>
+        </div>
+        <div class="step">
+          <div class="num">05</div>
+          <h3>Query AST</h3>
+          <p>Existing predicates and aggregations, now validated against catalog.</p>
+        </div>
+        <div class="step">
+          <div class="num">06</div>
+          <h3>Providers</h3>
+          <p>Elasticsearch, SQLite, DuckDB, future engines compile from one meaning layer.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Mission Proposal</h2>
+      <div class="grid cols-2">
+        <article class="card">
+          <h3>Mission Name</h3>
+          <p><strong>Northwind OSI Semantic Workbench</strong></p>
+          <p>Turn the current app into a contract-driven semantic query and BI workbench with evidence-producing ingestion and execution.</p>
+        </article>
+        <article class="card">
+          <h3>North Star</h3>
+          <p>A new domain should be added by writing or importing an OSI model plus extensions, not by editing field mappings in three places.</p>
+        </article>
+      </div>
+
+      <h2>Recommended Phases</h2>
+      <table>
+        <thead>
+          <tr><th>Phase</th><th>Deliverable</th><th>Definition of Done</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1. Semantic Catalog</td>
+            <td>Create <code>semantic-models/northwind.osi.yaml</code> and <code>semantic-models/adventureworks.osi.yaml</code>.</td>
+            <td>Catalog parser loads OSI into typed F# records and reports all validation errors.</td>
+          </tr>
+          <tr>
+            <td>2. Generate DomainConfig</td>
+            <td>Replace hardcoded schema lists in <code>Program.fs</code> with catalog-derived config.</td>
+            <td>Frontend domain picker still works; field/operator capabilities come from catalog.</td>
+          </tr>
+          <tr>
+            <td>3. SQLite Analytics</td>
+            <td>Compile OSI metrics and <code>ClientAggregation</code> into <code>GROUP BY</code> and <code>SUM</code> SQL.</td>
+            <td>AdventureWorks Analytics tab returns real BI results, not a mock/error.</td>
+          </tr>
+          <tr>
+            <td>4. Quality Pack</td>
+            <td>Add <code>quality-rules/</code>, <code>golden-samples/</code>, and <code>run-ledger/</code>.</td>
+            <td>Each ingest/build run records counts, hashes, rejects, timings, and sample checks.</td>
+          </tr>
+          <tr>
+            <td>5. Joinhouse</td>
+            <td>Move AdventureWorks from one flattened view to relationship-aware SQL generation.</td>
+            <td>Join cardinality rules are explicit; orphan/duplicate behavior is reported.</td>
+          </tr>
+          <tr>
+            <td>6. Elasticsearch Rebuild Discipline</td>
+            <td>Versioned index/mapping artifacts, deterministic IDs, bulk reports, alias cutover plan.</td>
+            <td>Northwind ES can be rebuilt and reconciled from source artifacts.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>Immediate Next Sprint</h2>
+      <div class="grid cols-3">
+        <article class="card">
+          <h3>Artifact</h3>
+          <p>Add <code>semantic-models/northwind.osi.yaml</code> with datasets for customers, orders, order_lines, products, categories, employees.</p>
+        </article>
+        <article class="card">
+          <h3>Compiler</h3>
+          <p>Add a small F# catalog loader that parses the YAML into typed records and produces the existing <code>DomainConfig</code>.</p>
+        </article>
+        <article class="card">
+          <h3>Proof</h3>
+          <p>Implement one metric end to end: <code>total_revenue</code> grouped by country on SQLite.</p>
+        </article>
+      </div>
+    </section>
+
+    <footer>
+      Local skills read from <code>C:\Users\arunb\.claude\skills</code>: README,
+      ETL governance, source basis, data quality/observability, F# ETL implementation,
+      F# runtime performance, Elasticsearch NDJSON bulk load, Parquet/DuckDB joinhouse,
+      bounded pipelines, concurrency library compass, functional domain modeling, and stylish F#.
+      OSI reference: <a href="https://github.com/open-semantic-interchange/OSI/blob/main/core-spec/spec.md">Core Metadata Specification</a>.
+    </footer>
+  </main>
+</body>
+</html>

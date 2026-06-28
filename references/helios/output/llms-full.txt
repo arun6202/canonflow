@@ -1,0 +1,1847 @@
+# northwind
+
+## API Reference
+
+### [Elastic.FSharp.Query](/northwind/reference/elastic-fsharp-query.html)
+
+Aggregations
+
+### [Elastic.FSharp.Query.Lowering](/northwind/reference/elastic-fsharp-query-lowering.html)
+
+Query
+
+### [Elastic.FSharp.Query.Operators](/northwind/reference/elastic-fsharp-query-operators.html)
+
+Comparison 
+Composition 
+Equality 
+NestedDsl 
+Text
+
+### [Elastic.FSharp.Query.Serialization](/northwind/reference/elastic-fsharp-query-serialization.html)
+
+Codec 
+CodecHelpers
+
+### [Elastic.FSharp.Query.Types](/northwind/reference/elastic-fsharp-query-types.html)
+
+MatchParams 
+NestedScope 
+Agg<'S> 
+AggContainer 
+AnalyzerRef 
+Bool 
+BoolField<'S> 
+Bound 
+ConstructionError 
+Date 
+DateField<'S> 
+DateMath 
+DateRounding 
+DateValue 
+EdgeNgram 
+EdgeNgramField<'S> 
+Field<'S, 'K, 'U> 
+FieldRef<'S> 
+FieldValue 
+Fuzziness 
+ILowerVisitor 
+INestedLower 
+IndexOptions 
+Keyword 
+KeywordField<'S> 
+MatchParams 
+MinShouldMatch 
+Nested 
+NestedField<'S, 'NS> 
+NestedScope<'NS> 
+NormalizerRef 
+Numeric 
+NumericField<'S, 'Unit> 
+Predicate<'S> 
+Query<'S> 
+QueryContainer 
+RequestContext 
+SearchAsYouType 
+Text 
+TextField<'S> 
+TextWithKeyword 
+TextWithKeywordField<'S>
+
+### [Aggregations](/northwind/reference/elastic-fsharp-query-aggregations.html)
+
+Aggregations 
+ 
+Aggregations.terms 
+terms 
+Aggregations.termsWithSub 
+termsWithSub 
+Aggregations.termsOrdered 
+termsOrdered 
+Aggregations.termsWithSubOrdered 
+termsWithSubOrdered 
+Aggregations.sum 
+sum 
+Aggregations.max 
+max 
+Aggregations.cardinality 
+cardinality 
+Aggregations.topHits 
+topHits 
+Aggregations.withAggs 
+withAggs
+
+### [Aggregations.terms](/northwind/reference/elastic-fsharp-query-aggregations.html#terms)
+
+Aggregations.terms 
+terms
+
+### [Aggregations.termsWithSub](/northwind/reference/elastic-fsharp-query-aggregations.html#termsWithSub)
+
+Aggregations.termsWithSub 
+termsWithSub
+
+### [Aggregations.termsOrdered](/northwind/reference/elastic-fsharp-query-aggregations.html#termsOrdered)
+
+Aggregations.termsOrdered 
+termsOrdered
+
+### [Aggregations.termsWithSubOrdered](/northwind/reference/elastic-fsharp-query-aggregations.html#termsWithSubOrdered)
+
+Aggregations.termsWithSubOrdered 
+termsWithSubOrdered
+
+### [Aggregations.sum](/northwind/reference/elastic-fsharp-query-aggregations.html#sum)
+
+Aggregations.sum 
+sum
+
+### [Aggregations.max](/northwind/reference/elastic-fsharp-query-aggregations.html#max)
+
+Aggregations.max 
+max
+
+### [Aggregations.cardinality](/northwind/reference/elastic-fsharp-query-aggregations.html#cardinality)
+
+Aggregations.cardinality 
+cardinality
+
+### [Aggregations.topHits](/northwind/reference/elastic-fsharp-query-aggregations.html#topHits)
+
+Aggregations.topHits 
+topHits
+
+### [Aggregations.withAggs](/northwind/reference/elastic-fsharp-query-aggregations.html#withAggs)
+
+Aggregations.withAggs 
+withAggs
+
+### [Query](/northwind/reference/elastic-fsharp-query-lowering-query.html)
+
+Query 
+ 
+Query.lower 
+lower 
+Query.where' 
+where' 
+Query.lowerAgg 
+lowerAgg 
+Query.lowerQuery 
+lowerQuery
+
+### [Query.lower](/northwind/reference/elastic-fsharp-query-lowering-query.html#lower)
+
+Query.lower 
+lower
+
+### [Query.where'](/northwind/reference/elastic-fsharp-query-lowering-query.html#where')
+
+Query.where' 
+where'
+
+### [Query.lowerAgg](/northwind/reference/elastic-fsharp-query-lowering-query.html#lowerAgg)
+
+Query.lowerAgg 
+lowerAgg
+
+### [Query.lowerQuery](/northwind/reference/elastic-fsharp-query-lowering-query.html#lowerQuery)
+
+Query.lowerQuery 
+lowerQuery
+
+### [Comparison](/northwind/reference/elastic-fsharp-query-operators-comparison.html)
+
+Comparison 
+ 
+Comparison.(>.) 
+(>.) 
+Comparison.(<.) 
+(<.)
+
+### [Comparison.(>.)](/northwind/reference/elastic-fsharp-query-operators-comparison.html#(>.))
+
+Comparison.(>.) 
+(>.)
+
+### [Comparison.(<.)](/northwind/reference/elastic-fsharp-query-operators-comparison.html#(<.))
+
+Comparison.(<.) 
+(<.)
+
+### [Composition](/northwind/reference/elastic-fsharp-query-operators-composition.html)
+
+Composition 
+ 
+Composition.(&&.) 
+(&&.) 
+Composition.(||.) 
+(||.) 
+Composition.not' 
+not' 
+Composition.exists 
+exists
+
+### [Composition.(&&.)](/northwind/reference/elastic-fsharp-query-operators-composition.html#(&&.))
+
+Composition.(&&.) 
+(&&.)
+
+### [Composition.(||.)](/northwind/reference/elastic-fsharp-query-operators-composition.html#(||.))
+
+Composition.(||.) 
+(||.)
+
+### [Composition.not'](/northwind/reference/elastic-fsharp-query-operators-composition.html#not')
+
+Composition.not' 
+not'
+
+### [Composition.exists](/northwind/reference/elastic-fsharp-query-operators-composition.html#exists)
+
+Composition.exists 
+exists
+
+### [Equality](/northwind/reference/elastic-fsharp-query-operators-equality.html)
+
+Equality 
+ 
+Equality.(=.) 
+(=.) 
+Equality.(=.!) 
+(=.!) 
+Equality.(=.?) 
+(=.?)
+
+### [Equality.(=.)](/northwind/reference/elastic-fsharp-query-operators-equality.html#(=.))
+
+Equality.(=.) 
+(=.)
+
+### [Equality.(=.!)](/northwind/reference/elastic-fsharp-query-operators-equality.html#(=.!))
+
+Equality.(=.!) 
+(=.!)
+
+### [Equality.(=.?)](/northwind/reference/elastic-fsharp-query-operators-equality.html#(=.?))
+
+Equality.(=.?) 
+(=.?)
+
+### [NestedDsl](/northwind/reference/elastic-fsharp-query-operators-nesteddsl.html)
+
+NestedDsl 
+ 
+NestedDsl.nested 
+nested
+
+### [NestedDsl.nested](/northwind/reference/elastic-fsharp-query-operators-nesteddsl.html#nested)
+
+NestedDsl.nested 
+nested
+
+### [Text](/northwind/reference/elastic-fsharp-query-operators-text.html)
+
+Text 
+ 
+Text.match' 
+match' 
+Text.matchWith 
+matchWith 
+Text.matchWK 
+matchWK 
+Text.matchWithWK 
+matchWithWK 
+Text.phrase 
+phrase 
+Text.phraseWK 
+phraseWK 
+Text.prefix 
+prefix 
+Text.prefixWK 
+prefixWK 
+Text.fuzzy 
+fuzzy 
+Text.fuzzyWK 
+fuzzyWK
+
+### [Text.match'](/northwind/reference/elastic-fsharp-query-operators-text.html#match')
+
+Text.match' 
+match'
+
+### [Text.matchWith](/northwind/reference/elastic-fsharp-query-operators-text.html#matchWith)
+
+Text.matchWith 
+matchWith
+
+### [Text.matchWK](/northwind/reference/elastic-fsharp-query-operators-text.html#matchWK)
+
+Text.matchWK 
+matchWK
+
+### [Text.matchWithWK](/northwind/reference/elastic-fsharp-query-operators-text.html#matchWithWK)
+
+Text.matchWithWK 
+matchWithWK
+
+### [Text.phrase](/northwind/reference/elastic-fsharp-query-operators-text.html#phrase)
+
+Text.phrase 
+phrase
+
+### [Text.phraseWK](/northwind/reference/elastic-fsharp-query-operators-text.html#phraseWK)
+
+Text.phraseWK 
+phraseWK
+
+### [Text.prefix](/northwind/reference/elastic-fsharp-query-operators-text.html#prefix)
+
+Text.prefix 
+prefix
+
+### [Text.prefixWK](/northwind/reference/elastic-fsharp-query-operators-text.html#prefixWK)
+
+Text.prefixWK 
+prefixWK
+
+### [Text.fuzzy](/northwind/reference/elastic-fsharp-query-operators-text.html#fuzzy)
+
+Text.fuzzy 
+fuzzy
+
+### [Text.fuzzyWK](/northwind/reference/elastic-fsharp-query-operators-text.html#fuzzyWK)
+
+Text.fuzzyWK 
+fuzzyWK
+
+### [Codec](/northwind/reference/elastic-fsharp-query-serialization-codec.html)
+
+Codec 
+ 
+Codec.encodeDateMath 
+encodeDateMath 
+Codec.encodeDateValue 
+encodeDateValue 
+Codec.encodeValue 
+encodeValue 
+Codec.encode 
+encode 
+Codec.encodeAgg 
+encodeAgg 
+Codec.encodeAggs 
+encodeAggs
+
+### [Codec.encodeDateMath](/northwind/reference/elastic-fsharp-query-serialization-codec.html#encodeDateMath)
+
+Codec.encodeDateMath 
+encodeDateMath
+
+### [Codec.encodeDateValue](/northwind/reference/elastic-fsharp-query-serialization-codec.html#encodeDateValue)
+
+Codec.encodeDateValue 
+encodeDateValue
+
+### [Codec.encodeValue](/northwind/reference/elastic-fsharp-query-serialization-codec.html#encodeValue)
+
+Codec.encodeValue 
+encodeValue
+
+### [Codec.encode](/northwind/reference/elastic-fsharp-query-serialization-codec.html#encode)
+
+Codec.encode 
+encode
+
+### [Codec.encodeAgg](/northwind/reference/elastic-fsharp-query-serialization-codec.html#encodeAgg)
+
+Codec.encodeAgg 
+encodeAgg
+
+### [Codec.encodeAggs](/northwind/reference/elastic-fsharp-query-serialization-codec.html#encodeAggs)
+
+Codec.encodeAggs 
+encodeAggs
+
+### [CodecHelpers](/northwind/reference/elastic-fsharp-query-serialization-codechelpers.html)
+
+CodecHelpers 
+ 
+CodecHelpers.jString 
+jString 
+CodecHelpers.jInt 
+jInt 
+CodecHelpers.jFloat 
+jFloat 
+CodecHelpers.jBool 
+jBool 
+CodecHelpers.jObj 
+jObj 
+CodecHelpers.jArr 
+jArr
+
+### [CodecHelpers.jString](/northwind/reference/elastic-fsharp-query-serialization-codechelpers.html#jString)
+
+CodecHelpers.jString 
+jString
+
+### [CodecHelpers.jInt](/northwind/reference/elastic-fsharp-query-serialization-codechelpers.html#jInt)
+
+CodecHelpers.jInt 
+jInt
+
+### [CodecHelpers.jFloat](/northwind/reference/elastic-fsharp-query-serialization-codechelpers.html#jFloat)
+
+CodecHelpers.jFloat 
+jFloat
+
+### [CodecHelpers.jBool](/northwind/reference/elastic-fsharp-query-serialization-codechelpers.html#jBool)
+
+CodecHelpers.jBool 
+jBool
+
+### [CodecHelpers.jObj](/northwind/reference/elastic-fsharp-query-serialization-codechelpers.html#jObj)
+
+CodecHelpers.jObj 
+jObj
+
+### [CodecHelpers.jArr](/northwind/reference/elastic-fsharp-query-serialization-codechelpers.html#jArr)
+
+CodecHelpers.jArr 
+jArr
+
+### [MatchParams](/northwind/reference/elastic-fsharp-query-types-matchparamsmodule.html)
+
+MatchParams 
+ 
+MatchParams.empty 
+empty
+
+### [MatchParams.empty](/northwind/reference/elastic-fsharp-query-types-matchparamsmodule.html#empty)
+
+MatchParams.empty 
+empty
+
+### [NestedScope](/northwind/reference/elastic-fsharp-query-types-nestedscope.html)
+
+NestedScope
+
+### [Agg<'S>](/northwind/reference/elastic-fsharp-query-types-agg-1.html)
+
+Agg<'S> 
+ 
+Agg<'S>.IsTopHits 
+IsTopHits 
+Agg<'S>.IsCardinality 
+IsCardinality 
+Agg<'S>.IsSum 
+IsSum 
+Agg<'S>.IsTerms 
+IsTerms 
+Agg<'S>.IsMax 
+IsMax 
+Agg<'S>.Terms 
+Terms 
+Agg<'S>.Sum 
+Sum 
+Agg<'S>.Max 
+Max 
+Agg<'S>.Cardinality 
+Cardinality 
+Agg<'S>.TopHits 
+TopHits
+
+### [Agg<'S>.IsTopHits](/northwind/reference/elastic-fsharp-query-types-agg-1.html#IsTopHits)
+
+Agg<'S>.IsTopHits 
+IsTopHits
+
+### [Agg<'S>.IsCardinality](/northwind/reference/elastic-fsharp-query-types-agg-1.html#IsCardinality)
+
+Agg<'S>.IsCardinality 
+IsCardinality
+
+### [Agg<'S>.IsSum](/northwind/reference/elastic-fsharp-query-types-agg-1.html#IsSum)
+
+Agg<'S>.IsSum 
+IsSum
+
+### [Agg<'S>.IsTerms](/northwind/reference/elastic-fsharp-query-types-agg-1.html#IsTerms)
+
+Agg<'S>.IsTerms 
+IsTerms
+
+### [Agg<'S>.IsMax](/northwind/reference/elastic-fsharp-query-types-agg-1.html#IsMax)
+
+Agg<'S>.IsMax 
+IsMax
+
+### [Agg<'S>.Terms](/northwind/reference/elastic-fsharp-query-types-agg-1.html#Terms)
+
+Agg<'S>.Terms 
+Terms
+
+### [Agg<'S>.Sum](/northwind/reference/elastic-fsharp-query-types-agg-1.html#Sum)
+
+Agg<'S>.Sum 
+Sum
+
+### [Agg<'S>.Max](/northwind/reference/elastic-fsharp-query-types-agg-1.html#Max)
+
+Agg<'S>.Max 
+Max
+
+### [Agg<'S>.Cardinality](/northwind/reference/elastic-fsharp-query-types-agg-1.html#Cardinality)
+
+Agg<'S>.Cardinality 
+Cardinality
+
+### [Agg<'S>.TopHits](/northwind/reference/elastic-fsharp-query-types-agg-1.html#TopHits)
+
+Agg<'S>.TopHits 
+TopHits
+
+### [AggContainer](/northwind/reference/elastic-fsharp-query-types-aggcontainer.html)
+
+AggContainer 
+ 
+AggContainer.IsTopHits 
+IsTopHits 
+AggContainer.IsCardinality 
+IsCardinality 
+AggContainer.IsSum 
+IsSum 
+AggContainer.IsTerms 
+IsTerms 
+AggContainer.IsMax 
+IsMax 
+AggContainer.Terms 
+Terms 
+AggContainer.Sum 
+Sum 
+AggContainer.Max 
+Max 
+AggContainer.Cardinality 
+Cardinality 
+AggContainer.TopHits 
+TopHits
+
+### [AggContainer.IsTopHits](/northwind/reference/elastic-fsharp-query-types-aggcontainer.html#IsTopHits)
+
+AggContainer.IsTopHits 
+IsTopHits
+
+### [AggContainer.IsCardinality](/northwind/reference/elastic-fsharp-query-types-aggcontainer.html#IsCardinality)
+
+AggContainer.IsCardinality 
+IsCardinality
+
+### [AggContainer.IsSum](/northwind/reference/elastic-fsharp-query-types-aggcontainer.html#IsSum)
+
+AggContainer.IsSum 
+IsSum
+
+### [AggContainer.IsTerms](/northwind/reference/elastic-fsharp-query-types-aggcontainer.html#IsTerms)
+
+AggContainer.IsTerms 
+IsTerms
+
+### [AggContainer.IsMax](/northwind/reference/elastic-fsharp-query-types-aggcontainer.html#IsMax)
+
+AggContainer.IsMax 
+IsMax
+
+### [AggContainer.Terms](/northwind/reference/elastic-fsharp-query-types-aggcontainer.html#Terms)
+
+AggContainer.Terms 
+Terms
+
+### [AggContainer.Sum](/northwind/reference/elastic-fsharp-query-types-aggcontainer.html#Sum)
+
+AggContainer.Sum 
+Sum
+
+### [AggContainer.Max](/northwind/reference/elastic-fsharp-query-types-aggcontainer.html#Max)
+
+AggContainer.Max 
+Max
+
+### [AggContainer.Cardinality](/northwind/reference/elastic-fsharp-query-types-aggcontainer.html#Cardinality)
+
+AggContainer.Cardinality 
+Cardinality
+
+### [AggContainer.TopHits](/northwind/reference/elastic-fsharp-query-types-aggcontainer.html#TopHits)
+
+AggContainer.TopHits 
+TopHits
+
+### [AnalyzerRef](/northwind/reference/elastic-fsharp-query-types-analyzerref.html)
+
+AnalyzerRef 
+ 
+AnalyzerRef.AnalyzerRef 
+AnalyzerRef
+
+### [AnalyzerRef.AnalyzerRef](/northwind/reference/elastic-fsharp-query-types-analyzerref.html#AnalyzerRef)
+
+AnalyzerRef.AnalyzerRef 
+AnalyzerRef
+
+### [Bool](/northwind/reference/elastic-fsharp-query-types-bool.html)
+
+Bool
+
+### [BoolField<'S>](/northwind/reference/elastic-fsharp-query-types-boolfield-1.html)
+
+BoolField<'S>
+
+### [Bound](/northwind/reference/elastic-fsharp-query-types-bound.html)
+
+Bound 
+ 
+Bound.IsLte 
+IsLte 
+Bound.IsLt 
+IsLt 
+Bound.IsUnbounded 
+IsUnbounded 
+Bound.IsGt 
+IsGt 
+Bound.IsGte 
+IsGte 
+Bound.Gt 
+Gt 
+Bound.Gte 
+Gte 
+Bound.Lt 
+Lt 
+Bound.Lte 
+Lte 
+Bound.Unbounded 
+Unbounded
+
+### [Bound.IsLte](/northwind/reference/elastic-fsharp-query-types-bound.html#IsLte)
+
+Bound.IsLte 
+IsLte
+
+### [Bound.IsLt](/northwind/reference/elastic-fsharp-query-types-bound.html#IsLt)
+
+Bound.IsLt 
+IsLt
+
+### [Bound.IsUnbounded](/northwind/reference/elastic-fsharp-query-types-bound.html#IsUnbounded)
+
+Bound.IsUnbounded 
+IsUnbounded
+
+### [Bound.IsGt](/northwind/reference/elastic-fsharp-query-types-bound.html#IsGt)
+
+Bound.IsGt 
+IsGt
+
+### [Bound.IsGte](/northwind/reference/elastic-fsharp-query-types-bound.html#IsGte)
+
+Bound.IsGte 
+IsGte
+
+### [Bound.Gt](/northwind/reference/elastic-fsharp-query-types-bound.html#Gt)
+
+Bound.Gt 
+Gt
+
+### [Bound.Gte](/northwind/reference/elastic-fsharp-query-types-bound.html#Gte)
+
+Bound.Gte 
+Gte
+
+### [Bound.Lt](/northwind/reference/elastic-fsharp-query-types-bound.html#Lt)
+
+Bound.Lt 
+Lt
+
+### [Bound.Lte](/northwind/reference/elastic-fsharp-query-types-bound.html#Lte)
+
+Bound.Lte 
+Lte
+
+### [Bound.Unbounded](/northwind/reference/elastic-fsharp-query-types-bound.html#Unbounded)
+
+Bound.Unbounded 
+Unbounded
+
+### [ConstructionError](/northwind/reference/elastic-fsharp-query-types-constructionerror.html)
+
+ConstructionError 
+ 
+ConstructionError.IsUnresolvedFieldAlias 
+IsUnresolvedFieldAlias 
+ConstructionError.IsEmptyFieldList 
+IsEmptyFieldList 
+ConstructionError.IsRawEsDecodeFailure 
+IsRawEsDecodeFailure 
+ConstructionError.IsUnknownAnalyzer 
+IsUnknownAnalyzer 
+ConstructionError.IsIncompatibleParams 
+IsIncompatibleParams 
+ConstructionError.EmptyFieldList 
+EmptyFieldList 
+ConstructionError.IncompatibleParams 
+IncompatibleParams 
+ConstructionError.UnresolvedFieldAlias 
+UnresolvedFieldAlias 
+ConstructionError.UnknownAnalyzer 
+UnknownAnalyzer 
+ConstructionError.RawEsDecodeFailure 
+RawEsDecodeFailure
+
+### [ConstructionError.IsUnresolvedFieldAlias](/northwind/reference/elastic-fsharp-query-types-constructionerror.html#IsUnresolvedFieldAlias)
+
+ConstructionError.IsUnresolvedFieldAlias 
+IsUnresolvedFieldAlias
+
+### [ConstructionError.IsEmptyFieldList](/northwind/reference/elastic-fsharp-query-types-constructionerror.html#IsEmptyFieldList)
+
+ConstructionError.IsEmptyFieldList 
+IsEmptyFieldList
+
+### [ConstructionError.IsRawEsDecodeFailure](/northwind/reference/elastic-fsharp-query-types-constructionerror.html#IsRawEsDecodeFailure)
+
+ConstructionError.IsRawEsDecodeFailure 
+IsRawEsDecodeFailure
+
+### [ConstructionError.IsUnknownAnalyzer](/northwind/reference/elastic-fsharp-query-types-constructionerror.html#IsUnknownAnalyzer)
+
+ConstructionError.IsUnknownAnalyzer 
+IsUnknownAnalyzer
+
+### [ConstructionError.IsIncompatibleParams](/northwind/reference/elastic-fsharp-query-types-constructionerror.html#IsIncompatibleParams)
+
+ConstructionError.IsIncompatibleParams 
+IsIncompatibleParams
+
+### [ConstructionError.EmptyFieldList](/northwind/reference/elastic-fsharp-query-types-constructionerror.html#EmptyFieldList)
+
+ConstructionError.EmptyFieldList 
+EmptyFieldList
+
+### [ConstructionError.IncompatibleParams](/northwind/reference/elastic-fsharp-query-types-constructionerror.html#IncompatibleParams)
+
+ConstructionError.IncompatibleParams 
+IncompatibleParams
+
+### [ConstructionError.UnresolvedFieldAlias](/northwind/reference/elastic-fsharp-query-types-constructionerror.html#UnresolvedFieldAlias)
+
+ConstructionError.UnresolvedFieldAlias 
+UnresolvedFieldAlias
+
+### [ConstructionError.UnknownAnalyzer](/northwind/reference/elastic-fsharp-query-types-constructionerror.html#UnknownAnalyzer)
+
+ConstructionError.UnknownAnalyzer 
+UnknownAnalyzer
+
+### [ConstructionError.RawEsDecodeFailure](/northwind/reference/elastic-fsharp-query-types-constructionerror.html#RawEsDecodeFailure)
+
+ConstructionError.RawEsDecodeFailure 
+RawEsDecodeFailure
+
+### [Date](/northwind/reference/elastic-fsharp-query-types-date.html)
+
+Date
+
+### [DateField<'S>](/northwind/reference/elastic-fsharp-query-types-datefield-1.html)
+
+DateField<'S>
+
+### [DateMath](/northwind/reference/elastic-fsharp-query-types-datemath.html)
+
+DateMath 
+ 
+DateMath.IsToday 
+IsToday 
+DateMath.IsHoursAgo 
+IsHoursAgo 
+DateMath.IsAnchor 
+IsAnchor 
+DateMath.IsNow 
+IsNow 
+DateMath.IsDaysAgo 
+IsDaysAgo 
+DateMath.IsRoundedTo 
+IsRoundedTo 
+DateMath.Now 
+Now 
+DateMath.Today 
+Today 
+DateMath.DaysAgo 
+DaysAgo 
+DateMath.HoursAgo 
+HoursAgo 
+DateMath.RoundedTo 
+RoundedTo 
+DateMath.Anchor 
+Anchor
+
+### [DateMath.IsToday](/northwind/reference/elastic-fsharp-query-types-datemath.html#IsToday)
+
+DateMath.IsToday 
+IsToday
+
+### [DateMath.IsHoursAgo](/northwind/reference/elastic-fsharp-query-types-datemath.html#IsHoursAgo)
+
+DateMath.IsHoursAgo 
+IsHoursAgo
+
+### [DateMath.IsAnchor](/northwind/reference/elastic-fsharp-query-types-datemath.html#IsAnchor)
+
+DateMath.IsAnchor 
+IsAnchor
+
+### [DateMath.IsNow](/northwind/reference/elastic-fsharp-query-types-datemath.html#IsNow)
+
+DateMath.IsNow 
+IsNow
+
+### [DateMath.IsDaysAgo](/northwind/reference/elastic-fsharp-query-types-datemath.html#IsDaysAgo)
+
+DateMath.IsDaysAgo 
+IsDaysAgo
+
+### [DateMath.IsRoundedTo](/northwind/reference/elastic-fsharp-query-types-datemath.html#IsRoundedTo)
+
+DateMath.IsRoundedTo 
+IsRoundedTo
+
+### [DateMath.Now](/northwind/reference/elastic-fsharp-query-types-datemath.html#Now)
+
+DateMath.Now 
+Now
+
+### [DateMath.Today](/northwind/reference/elastic-fsharp-query-types-datemath.html#Today)
+
+DateMath.Today 
+Today
+
+### [DateMath.DaysAgo](/northwind/reference/elastic-fsharp-query-types-datemath.html#DaysAgo)
+
+DateMath.DaysAgo 
+DaysAgo
+
+### [DateMath.HoursAgo](/northwind/reference/elastic-fsharp-query-types-datemath.html#HoursAgo)
+
+DateMath.HoursAgo 
+HoursAgo
+
+### [DateMath.RoundedTo](/northwind/reference/elastic-fsharp-query-types-datemath.html#RoundedTo)
+
+DateMath.RoundedTo 
+RoundedTo
+
+### [DateMath.Anchor](/northwind/reference/elastic-fsharp-query-types-datemath.html#Anchor)
+
+DateMath.Anchor 
+Anchor
+
+### [DateRounding](/northwind/reference/elastic-fsharp-query-types-daterounding.html)
+
+DateRounding 
+ 
+DateRounding.IsYear 
+IsYear 
+DateRounding.IsWeek 
+IsWeek 
+DateRounding.IsHour 
+IsHour 
+DateRounding.IsMinute 
+IsMinute 
+DateRounding.IsDay 
+IsDay 
+DateRounding.IsSecond 
+IsSecond 
+DateRounding.IsMonth 
+IsMonth 
+DateRounding.Year 
+Year 
+DateRounding.Month 
+Month 
+DateRounding.Week 
+Week 
+DateRounding.Day 
+Day 
+DateRounding.Hour 
+Hour 
+DateRounding.Minute 
+Minute 
+DateRounding.Second 
+Second
+
+### [DateRounding.IsYear](/northwind/reference/elastic-fsharp-query-types-daterounding.html#IsYear)
+
+DateRounding.IsYear 
+IsYear
+
+### [DateRounding.IsWeek](/northwind/reference/elastic-fsharp-query-types-daterounding.html#IsWeek)
+
+DateRounding.IsWeek 
+IsWeek
+
+### [DateRounding.IsHour](/northwind/reference/elastic-fsharp-query-types-daterounding.html#IsHour)
+
+DateRounding.IsHour 
+IsHour
+
+### [DateRounding.IsMinute](/northwind/reference/elastic-fsharp-query-types-daterounding.html#IsMinute)
+
+DateRounding.IsMinute 
+IsMinute
+
+### [DateRounding.IsDay](/northwind/reference/elastic-fsharp-query-types-daterounding.html#IsDay)
+
+DateRounding.IsDay 
+IsDay
+
+### [DateRounding.IsSecond](/northwind/reference/elastic-fsharp-query-types-daterounding.html#IsSecond)
+
+DateRounding.IsSecond 
+IsSecond
+
+### [DateRounding.IsMonth](/northwind/reference/elastic-fsharp-query-types-daterounding.html#IsMonth)
+
+DateRounding.IsMonth 
+IsMonth
+
+### [DateRounding.Year](/northwind/reference/elastic-fsharp-query-types-daterounding.html#Year)
+
+DateRounding.Year 
+Year
+
+### [DateRounding.Month](/northwind/reference/elastic-fsharp-query-types-daterounding.html#Month)
+
+DateRounding.Month 
+Month
+
+### [DateRounding.Week](/northwind/reference/elastic-fsharp-query-types-daterounding.html#Week)
+
+DateRounding.Week 
+Week
+
+### [DateRounding.Day](/northwind/reference/elastic-fsharp-query-types-daterounding.html#Day)
+
+DateRounding.Day 
+Day
+
+### [DateRounding.Hour](/northwind/reference/elastic-fsharp-query-types-daterounding.html#Hour)
+
+DateRounding.Hour 
+Hour
+
+### [DateRounding.Minute](/northwind/reference/elastic-fsharp-query-types-daterounding.html#Minute)
+
+DateRounding.Minute 
+Minute
+
+### [DateRounding.Second](/northwind/reference/elastic-fsharp-query-types-daterounding.html#Second)
+
+DateRounding.Second 
+Second
+
+### [DateValue](/northwind/reference/elastic-fsharp-query-types-datevalue.html)
+
+DateValue 
+ 
+DateValue.IsDMath 
+IsDMath 
+DateValue.IsDAbsolute 
+IsDAbsolute 
+DateValue.IsDEpochMs 
+IsDEpochMs 
+DateValue.DAbsolute 
+DAbsolute 
+DateValue.DMath 
+DMath 
+DateValue.DEpochMs 
+DEpochMs
+
+### [DateValue.IsDMath](/northwind/reference/elastic-fsharp-query-types-datevalue.html#IsDMath)
+
+DateValue.IsDMath 
+IsDMath
+
+### [DateValue.IsDAbsolute](/northwind/reference/elastic-fsharp-query-types-datevalue.html#IsDAbsolute)
+
+DateValue.IsDAbsolute 
+IsDAbsolute
+
+### [DateValue.IsDEpochMs](/northwind/reference/elastic-fsharp-query-types-datevalue.html#IsDEpochMs)
+
+DateValue.IsDEpochMs 
+IsDEpochMs
+
+### [DateValue.DAbsolute](/northwind/reference/elastic-fsharp-query-types-datevalue.html#DAbsolute)
+
+DateValue.DAbsolute 
+DAbsolute
+
+### [DateValue.DMath](/northwind/reference/elastic-fsharp-query-types-datevalue.html#DMath)
+
+DateValue.DMath 
+DMath
+
+### [DateValue.DEpochMs](/northwind/reference/elastic-fsharp-query-types-datevalue.html#DEpochMs)
+
+DateValue.DEpochMs 
+DEpochMs
+
+### [EdgeNgram](/northwind/reference/elastic-fsharp-query-types-edgengram.html)
+
+EdgeNgram
+
+### [EdgeNgramField<'S>](/northwind/reference/elastic-fsharp-query-types-edgengramfield-1.html)
+
+EdgeNgramField<'S>
+
+### [Field<'S, 'K, 'U>](/northwind/reference/elastic-fsharp-query-types-field-3.html)
+
+Field<'S, 'K, 'U> 
+ 
+Field<'S, 'K, 'U>.Path 
+Path 
+Field<'S, 'K, 'U>.Kind 
+Kind
+
+### [Field<'S, 'K, 'U>.Path](/northwind/reference/elastic-fsharp-query-types-field-3.html#Path)
+
+Field<'S, 'K, 'U>.Path 
+Path
+
+### [Field<'S, 'K, 'U>.Kind](/northwind/reference/elastic-fsharp-query-types-field-3.html#Kind)
+
+Field<'S, 'K, 'U>.Kind 
+Kind
+
+### [FieldRef<'S>](/northwind/reference/elastic-fsharp-query-types-fieldref-1.html)
+
+FieldRef<'S> 
+ 
+FieldRef<'S>.IsNUM 
+IsNUM 
+FieldRef<'S>.IsTX 
+IsTX 
+FieldRef<'S>.IsKW 
+IsKW 
+FieldRef<'S>.IsTWK 
+IsTWK 
+FieldRef<'S>.IsBL 
+IsBL 
+FieldRef<'S>.IsDT 
+IsDT 
+FieldRef<'S>.KW 
+KW 
+FieldRef<'S>.TX 
+TX 
+FieldRef<'S>.TWK 
+TWK 
+FieldRef<'S>.DT 
+DT 
+FieldRef<'S>.NUM 
+NUM 
+FieldRef<'S>.BL 
+BL
+
+### [FieldRef<'S>.IsNUM](/northwind/reference/elastic-fsharp-query-types-fieldref-1.html#IsNUM)
+
+FieldRef<'S>.IsNUM 
+IsNUM
+
+### [FieldRef<'S>.IsTX](/northwind/reference/elastic-fsharp-query-types-fieldref-1.html#IsTX)
+
+FieldRef<'S>.IsTX 
+IsTX
+
+### [FieldRef<'S>.IsKW](/northwind/reference/elastic-fsharp-query-types-fieldref-1.html#IsKW)
+
+FieldRef<'S>.IsKW 
+IsKW
+
+### [FieldRef<'S>.IsTWK](/northwind/reference/elastic-fsharp-query-types-fieldref-1.html#IsTWK)
+
+FieldRef<'S>.IsTWK 
+IsTWK
+
+### [FieldRef<'S>.IsBL](/northwind/reference/elastic-fsharp-query-types-fieldref-1.html#IsBL)
+
+FieldRef<'S>.IsBL 
+IsBL
+
+### [FieldRef<'S>.IsDT](/northwind/reference/elastic-fsharp-query-types-fieldref-1.html#IsDT)
+
+FieldRef<'S>.IsDT 
+IsDT
+
+### [FieldRef<'S>.KW](/northwind/reference/elastic-fsharp-query-types-fieldref-1.html#KW)
+
+FieldRef<'S>.KW 
+KW
+
+### [FieldRef<'S>.TX](/northwind/reference/elastic-fsharp-query-types-fieldref-1.html#TX)
+
+FieldRef<'S>.TX 
+TX
+
+### [FieldRef<'S>.TWK](/northwind/reference/elastic-fsharp-query-types-fieldref-1.html#TWK)
+
+FieldRef<'S>.TWK 
+TWK
+
+### [FieldRef<'S>.DT](/northwind/reference/elastic-fsharp-query-types-fieldref-1.html#DT)
+
+FieldRef<'S>.DT 
+DT
+
+### [FieldRef<'S>.NUM](/northwind/reference/elastic-fsharp-query-types-fieldref-1.html#NUM)
+
+FieldRef<'S>.NUM 
+NUM
+
+### [FieldRef<'S>.BL](/northwind/reference/elastic-fsharp-query-types-fieldref-1.html#BL)
+
+FieldRef<'S>.BL 
+BL
+
+### [FieldValue](/northwind/reference/elastic-fsharp-query-types-fieldvalue.html)
+
+FieldValue 
+ 
+FieldValue.IsVDate 
+IsVDate 
+FieldValue.IsVBool 
+IsVBool 
+FieldValue.IsVFloat 
+IsVFloat 
+FieldValue.IsVInt 
+IsVInt 
+FieldValue.IsVNull 
+IsVNull 
+FieldValue.IsVString 
+IsVString 
+FieldValue.VString 
+VString 
+FieldValue.VInt 
+VInt 
+FieldValue.VFloat 
+VFloat 
+FieldValue.VBool 
+VBool 
+FieldValue.VDate 
+VDate 
+FieldValue.VNull 
+VNull
+
+### [FieldValue.IsVDate](/northwind/reference/elastic-fsharp-query-types-fieldvalue.html#IsVDate)
+
+FieldValue.IsVDate 
+IsVDate
+
+### [FieldValue.IsVBool](/northwind/reference/elastic-fsharp-query-types-fieldvalue.html#IsVBool)
+
+FieldValue.IsVBool 
+IsVBool
+
+### [FieldValue.IsVFloat](/northwind/reference/elastic-fsharp-query-types-fieldvalue.html#IsVFloat)
+
+FieldValue.IsVFloat 
+IsVFloat
+
+### [FieldValue.IsVInt](/northwind/reference/elastic-fsharp-query-types-fieldvalue.html#IsVInt)
+
+FieldValue.IsVInt 
+IsVInt
+
+### [FieldValue.IsVNull](/northwind/reference/elastic-fsharp-query-types-fieldvalue.html#IsVNull)
+
+FieldValue.IsVNull 
+IsVNull
+
+### [FieldValue.IsVString](/northwind/reference/elastic-fsharp-query-types-fieldvalue.html#IsVString)
+
+FieldValue.IsVString 
+IsVString
+
+### [FieldValue.VString](/northwind/reference/elastic-fsharp-query-types-fieldvalue.html#VString)
+
+FieldValue.VString 
+VString
+
+### [FieldValue.VInt](/northwind/reference/elastic-fsharp-query-types-fieldvalue.html#VInt)
+
+FieldValue.VInt 
+VInt
+
+### [FieldValue.VFloat](/northwind/reference/elastic-fsharp-query-types-fieldvalue.html#VFloat)
+
+FieldValue.VFloat 
+VFloat
+
+### [FieldValue.VBool](/northwind/reference/elastic-fsharp-query-types-fieldvalue.html#VBool)
+
+FieldValue.VBool 
+VBool
+
+### [FieldValue.VDate](/northwind/reference/elastic-fsharp-query-types-fieldvalue.html#VDate)
+
+FieldValue.VDate 
+VDate
+
+### [FieldValue.VNull](/northwind/reference/elastic-fsharp-query-types-fieldvalue.html#VNull)
+
+FieldValue.VNull 
+VNull
+
+### [Fuzziness](/northwind/reference/elastic-fsharp-query-types-fuzziness.html)
+
+Fuzziness 
+ 
+Fuzziness.IsAuto 
+IsAuto 
+Fuzziness.IsEdits 
+IsEdits 
+Fuzziness.Auto 
+Auto 
+Fuzziness.Edits 
+Edits
+
+### [Fuzziness.IsAuto](/northwind/reference/elastic-fsharp-query-types-fuzziness.html#IsAuto)
+
+Fuzziness.IsAuto 
+IsAuto
+
+### [Fuzziness.IsEdits](/northwind/reference/elastic-fsharp-query-types-fuzziness.html#IsEdits)
+
+Fuzziness.IsEdits 
+IsEdits
+
+### [Fuzziness.Auto](/northwind/reference/elastic-fsharp-query-types-fuzziness.html#Auto)
+
+Fuzziness.Auto 
+Auto
+
+### [Fuzziness.Edits](/northwind/reference/elastic-fsharp-query-types-fuzziness.html#Edits)
+
+Fuzziness.Edits 
+Edits
+
+### [ILowerVisitor](/northwind/reference/elastic-fsharp-query-types-ilowervisitor.html)
+
+ILowerVisitor 
+ 
+ILowerVisitor.Visit 
+Visit
+
+### [ILowerVisitor.Visit](/northwind/reference/elastic-fsharp-query-types-ilowervisitor.html#Visit)
+
+ILowerVisitor.Visit 
+Visit
+
+### [INestedLower](/northwind/reference/elastic-fsharp-query-types-inestedlower.html)
+
+INestedLower 
+ 
+INestedLower.Accept 
+Accept
+
+### [INestedLower.Accept](/northwind/reference/elastic-fsharp-query-types-inestedlower.html#Accept)
+
+INestedLower.Accept 
+Accept
+
+### [IndexOptions](/northwind/reference/elastic-fsharp-query-types-indexoptions.html)
+
+IndexOptions 
+ 
+IndexOptions.IndexOptions 
+IndexOptions
+
+### [IndexOptions.IndexOptions](/northwind/reference/elastic-fsharp-query-types-indexoptions.html#IndexOptions)
+
+IndexOptions.IndexOptions 
+IndexOptions
+
+### [Keyword](/northwind/reference/elastic-fsharp-query-types-keyword.html)
+
+Keyword
+
+### [KeywordField<'S>](/northwind/reference/elastic-fsharp-query-types-keywordfield-1.html)
+
+KeywordField<'S>
+
+### [MatchParams](/northwind/reference/elastic-fsharp-query-types-matchparams.html)
+
+MatchParams 
+ 
+MatchParams.Analyzer 
+Analyzer 
+MatchParams.Fuzziness 
+Fuzziness 
+MatchParams.MinimumShouldMatch 
+MinimumShouldMatch 
+MatchParams.ZeroTermsQuery 
+ZeroTermsQuery
+
+### [MatchParams.Analyzer](/northwind/reference/elastic-fsharp-query-types-matchparams.html#Analyzer)
+
+MatchParams.Analyzer 
+Analyzer
+
+### [MatchParams.Fuzziness](/northwind/reference/elastic-fsharp-query-types-matchparams.html#Fuzziness)
+
+MatchParams.Fuzziness 
+Fuzziness
+
+### [MatchParams.MinimumShouldMatch](/northwind/reference/elastic-fsharp-query-types-matchparams.html#MinimumShouldMatch)
+
+MatchParams.MinimumShouldMatch 
+MinimumShouldMatch
+
+### [MatchParams.ZeroTermsQuery](/northwind/reference/elastic-fsharp-query-types-matchparams.html#ZeroTermsQuery)
+
+MatchParams.ZeroTermsQuery 
+ZeroTermsQuery
+
+### [MinShouldMatch](/northwind/reference/elastic-fsharp-query-types-minshouldmatch.html)
+
+MinShouldMatch 
+ 
+MinShouldMatch.IsPercent 
+IsPercent 
+MinShouldMatch.IsCount 
+IsCount 
+MinShouldMatch.IsExpr 
+IsExpr 
+MinShouldMatch.Count 
+Count 
+MinShouldMatch.Percent 
+Percent 
+MinShouldMatch.Expr 
+Expr
+
+### [MinShouldMatch.IsPercent](/northwind/reference/elastic-fsharp-query-types-minshouldmatch.html#IsPercent)
+
+MinShouldMatch.IsPercent 
+IsPercent
+
+### [MinShouldMatch.IsCount](/northwind/reference/elastic-fsharp-query-types-minshouldmatch.html#IsCount)
+
+MinShouldMatch.IsCount 
+IsCount
+
+### [MinShouldMatch.IsExpr](/northwind/reference/elastic-fsharp-query-types-minshouldmatch.html#IsExpr)
+
+MinShouldMatch.IsExpr 
+IsExpr
+
+### [MinShouldMatch.Count](/northwind/reference/elastic-fsharp-query-types-minshouldmatch.html#Count)
+
+MinShouldMatch.Count 
+Count
+
+### [MinShouldMatch.Percent](/northwind/reference/elastic-fsharp-query-types-minshouldmatch.html#Percent)
+
+MinShouldMatch.Percent 
+Percent
+
+### [MinShouldMatch.Expr](/northwind/reference/elastic-fsharp-query-types-minshouldmatch.html#Expr)
+
+MinShouldMatch.Expr 
+Expr
+
+### [Nested](/northwind/reference/elastic-fsharp-query-types-nested.html)
+
+Nested
+
+### [NestedField<'S, 'NS>](/northwind/reference/elastic-fsharp-query-types-nestedfield-2.html)
+
+NestedField<'S, 'NS>
+
+### [NestedScope<'NS>](/northwind/reference/elastic-fsharp-query-types-nestedscope-1.html)
+
+NestedScope<'NS> 
+ 
+NestedScope<'NS>._marker 
+_marker
+
+### [NestedScope<'NS>._marker](/northwind/reference/elastic-fsharp-query-types-nestedscope-1.html#_marker)
+
+NestedScope<'NS>._marker 
+_marker
+
+### [NormalizerRef](/northwind/reference/elastic-fsharp-query-types-normalizerref.html)
+
+NormalizerRef 
+ 
+NormalizerRef.NormalizerRef 
+NormalizerRef
+
+### [NormalizerRef.NormalizerRef](/northwind/reference/elastic-fsharp-query-types-normalizerref.html#NormalizerRef)
+
+NormalizerRef.NormalizerRef 
+NormalizerRef
+
+### [Numeric](/northwind/reference/elastic-fsharp-query-types-numeric.html)
+
+Numeric
+
+### [NumericField<'S, 'Unit>](/northwind/reference/elastic-fsharp-query-types-numericfield-2.html)
+
+NumericField<'S, 'Unit>
+
+### [Predicate<'S>](/northwind/reference/elastic-fsharp-query-types-predicate-1.html)
+
+Predicate<'S> 
+ 
+Predicate<'S>.IsBetween 
+IsBetween 
+Predicate<'S>.IsPhrase 
+IsPhrase 
+Predicate<'S>.IsRange 
+IsRange 
+Predicate<'S>.IsEq 
+IsEq 
+Predicate<'S>.IsAny 
+IsAny 
+Predicate<'S>.IsExists 
+IsExists 
+Predicate<'S>.IsIn 
+IsIn 
+Predicate<'S>.IsNot 
+IsNot 
+Predicate<'S>.IsFuzzy 
+IsFuzzy 
+Predicate<'S>.IsNested 
+IsNested 
+Predicate<'S>.IsAll 
+IsAll 
+Predicate<'S>.IsRawEs 
+IsRawEs 
+Predicate<'S>.IsMatch 
+IsMatch 
+Predicate<'S>.IsPrefix 
+IsPrefix 
+Predicate<'S>.Eq 
+Eq 
+Predicate<'S>.In 
+In 
+Predicate<'S>.Exists 
+Exists 
+Predicate<'S>.Range 
+Range 
+Predicate<'S>.Between 
+Between 
+Predicate<'S>.Not 
+Not 
+Predicate<'S>.All 
+All 
+Predicate<'S>.Any 
+Any 
+Predicate<'S>.Nested 
+Nested 
+Predicate<'S>.Match 
+Match 
+Predicate<'S>.Phrase 
+Phrase 
+Predicate<'S>.Prefix 
+Prefix 
+Predicate<'S>.Fuzzy 
+Fuzzy 
+Predicate<'S>.RawEs 
+RawEs
+
+### [Predicate<'S>.IsBetween](/northwind/reference/elastic-fsharp-query-types-predicate-1.html#IsBetween)
+
+Predicate<'S>.IsBetween 
+IsBetween
+
+### [Predicate<'S>.IsPhrase](/northwind/reference/elastic-fsharp-query-types-predicate-1.html#IsPhrase)
+
+Predicate<'S>.IsPhrase 
+IsPhrase
+
+### [Predicate<'S>.IsRange](/northwind/reference/elastic-fsharp-query-types-predicate-1.html#IsRange)
+
+Predicate<'S>.IsRange 
+IsRange
+
+### [Predicate<'S>.IsEq](/northwind/reference/elastic-fsharp-query-types-predicate-1.html#IsEq)
+
+Predicate<'S>.IsEq 
+IsEq
+
+### [Predicate<'S>.IsAny](/northwind/reference/elastic-fsharp-query-types-predicate-1.html#IsAny)
+
+Predicate<'S>.IsAny 
+IsAny
+
+### [Predicate<'S>.IsExists](/northwind/reference/elastic-fsharp-query-types-predicate-1.html#IsExists)
+
+Predicate<'S>.IsExists 
+IsExists
+
+### [Predicate<'S>.IsIn](/northwind/reference/elastic-fsharp-query-types-predicate-1.html#IsIn)
+
+Predicate<'S>.IsIn 
+IsIn
+
+### [Predicate<'S>.IsNot](/northwind/reference/elastic-fsharp-query-types-predicate-1.html#IsNot)
+
+Predicate<'S>.IsNot 
+IsNot
+
+### [Predicate<'S>.IsFuzzy](/northwind/reference/elastic-fsharp-query-types-predicate-1.html#IsFuzzy)
+
+Predicate<'S>.IsFuzzy 
+IsFuzzy
+
+### [Predicate<'S>.IsNested](/northwind/reference/elastic-fsharp-query-types-predicate-1.html#IsNested)
+
+Predicate<'S>.IsNested 
+IsNested
+
+### [Predicate<'S>.IsAll](/northwind/reference/elastic-fsharp-query-types-predicate-1.html#IsAll)
+
+Predicate<'S>.IsAll 
+IsAll
+
+### [Predicate<'S>.IsRawEs](/northwind/reference/elastic-fsharp-query-types-predicate-1.html#IsRawEs)
+
+Predicate<'S>.IsRawEs 
+IsRawEs
+
+### [Predicate<'S>.IsMatch](/northwind/reference/elastic-fsharp-query-types-predicate-1.html#IsMatch)
+
+Predicate<'S>.IsMatch 
+IsMatch
+
+### [Predicate<'S>.IsPrefix](/northwind/reference/elastic-fsharp-query-types-predicate-1.html#IsPrefix)
+
+Predicate<'S>.IsPrefix 
+IsPrefix
+
+### [Predicate<'S>.Eq](/northwind/reference/elastic-fsharp-query-types-predicate-1.html#Eq)
+
+Predicate<'S>.Eq 
+Eq
+
+### [Predicate<'S>.In](/northwind/reference/elastic-fsharp-query-types-predicate-1.html#In)
+
+Predicate<'S>.In 
+In
+
+### [Predicate<'S>.Exists](/northwind/reference/elastic-fsharp-query-types-predicate-1.html#Exists)
+
+Predicate<'S>.Exists 
+Exists
+
+### [Predicate<'S>.Range](/northwind/reference/elastic-fsharp-query-types-predicate-1.html#Range)
+
+Predicate<'S>.Range 
+Range
+
+### [Predicate<'S>.Between](/northwind/reference/elastic-fsharp-query-types-predicate-1.html#Between)
+
+Predicate<'S>.Between 
+Between
+
+### [Predicate<'S>.Not](/northwind/reference/elastic-fsharp-query-types-predicate-1.html#Not)
+
+Predicate<'S>.Not 
+Not
+
+### [Predicate<'S>.All](/northwind/reference/elastic-fsharp-query-types-predicate-1.html#All)
+
+Predicate<'S>.All 
+All
+
+### [Predicate<'S>.Any](/northwind/reference/elastic-fsharp-query-types-predicate-1.html#Any)
+
+Predicate<'S>.Any 
+Any
+
+### [Predicate<'S>.Nested](/northwind/reference/elastic-fsharp-query-types-predicate-1.html#Nested)
+
+Predicate<'S>.Nested 
+Nested
+
+### [Predicate<'S>.Match](/northwind/reference/elastic-fsharp-query-types-predicate-1.html#Match)
+
+Predicate<'S>.Match 
+Match
+
+### [Predicate<'S>.Phrase](/northwind/reference/elastic-fsharp-query-types-predicate-1.html#Phrase)
+
+Predicate<'S>.Phrase 
+Phrase
+
+### [Predicate<'S>.Prefix](/northwind/reference/elastic-fsharp-query-types-predicate-1.html#Prefix)
+
+Predicate<'S>.Prefix 
+Prefix
+
+### [Predicate<'S>.Fuzzy](/northwind/reference/elastic-fsharp-query-types-predicate-1.html#Fuzzy)
+
+Predicate<'S>.Fuzzy 
+Fuzzy
+
+### [Predicate<'S>.RawEs](/northwind/reference/elastic-fsharp-query-types-predicate-1.html#RawEs)
+
+Predicate<'S>.RawEs 
+RawEs
+
+### [Query<'S>](/northwind/reference/elastic-fsharp-query-types-query-1.html)
+
+Query<'S> 
+ 
+Query<'S>.Filter 
+Filter 
+Query<'S>.RankBy 
+RankBy 
+Query<'S>.Aggs 
+Aggs
+
+### [Query<'S>.Filter](/northwind/reference/elastic-fsharp-query-types-query-1.html#Filter)
+
+Query<'S>.Filter 
+Filter
+
+### [Query<'S>.RankBy](/northwind/reference/elastic-fsharp-query-types-query-1.html#RankBy)
+
+Query<'S>.RankBy 
+RankBy
+
+### [Query<'S>.Aggs](/northwind/reference/elastic-fsharp-query-types-query-1.html#Aggs)
+
+Query<'S>.Aggs 
+Aggs
+
+### [QueryContainer](/northwind/reference/elastic-fsharp-query-types-querycontainer.html)
+
+QueryContainer 
+ 
+QueryContainer.IsRange 
+IsRange 
+QueryContainer.IsMatchAll 
+IsMatchAll 
+QueryContainer.IsFuzzy 
+IsFuzzy 
+QueryContainer.IsPrefix 
+IsPrefix 
+QueryContainer.IsTerms 
+IsTerms 
+QueryContainer.IsNested 
+IsNested 
+QueryContainer.IsBool 
+IsBool 
+QueryContainer.IsMatch 
+IsMatch 
+QueryContainer.IsMatchNone 
+IsMatchNone 
+QueryContainer.IsTerm 
+IsTerm 
+QueryContainer.IsExists 
+IsExists 
+QueryContainer.IsMatchPhrase 
+IsMatchPhrase 
+QueryContainer.MatchAll 
+MatchAll 
+QueryContainer.MatchNone 
+MatchNone 
+QueryContainer.Term 
+Term 
+QueryContainer.Terms 
+Terms 
+QueryContainer.MatchPhrase 
+MatchPhrase 
+QueryContainer.Match 
+Match 
+QueryContainer.Prefix 
+Prefix 
+QueryContainer.Fuzzy 
+Fuzzy 
+QueryContainer.Range 
+Range 
+QueryContainer.Exists 
+Exists 
+QueryContainer.Bool 
+Bool 
+QueryContainer.Nested 
+Nested
+
+### [QueryContainer.IsRange](/northwind/reference/elastic-fsharp-query-types-querycontainer.html#IsRange)
+
+QueryContainer.IsRange 
+IsRange
+
+### [QueryContainer.IsMatchAll](/northwind/reference/elastic-fsharp-query-types-querycontainer.html#IsMatchAll)
+
+QueryContainer.IsMatchAll 
+IsMatchAll
+
+### [QueryContainer.IsFuzzy](/northwind/reference/elastic-fsharp-query-types-querycontainer.html#IsFuzzy)
+
+QueryContainer.IsFuzzy 
+IsFuzzy
+
+### [QueryContainer.IsPrefix](/northwind/reference/elastic-fsharp-query-types-querycontainer.html#IsPrefix)
+
+QueryContainer.IsPrefix 
+IsPrefix
+
+### [QueryContainer.IsTerms](/northwind/reference/elastic-fsharp-query-types-querycontainer.html#IsTerms)
+
+QueryContainer.IsTerms 
+IsTerms
+
+### [QueryContainer.IsNested](/northwind/reference/elastic-fsharp-query-types-querycontainer.html#IsNested)
+
+QueryContainer.IsNested 
+IsNested
+
+### [QueryContainer.IsBool](/northwind/reference/elastic-fsharp-query-types-querycontainer.html#IsBool)
+
+QueryContainer.IsBool 
+IsBool
+
+### [QueryContainer.IsMatch](/northwind/reference/elastic-fsharp-query-types-querycontainer.html#IsMatch)
+
+QueryContainer.IsMatch 
+IsMatch
+
+### [QueryContainer.IsMatchNone](/northwind/reference/elastic-fsharp-query-types-querycontainer.html#IsMatchNone)
+
+QueryContainer.IsMatchNone 
+IsMatchNone
+
+### [QueryContainer.IsTerm](/northwind/reference/elastic-fsharp-query-types-querycontainer.html#IsTerm)
+
+QueryContainer.IsTerm 
+IsTerm
+
+### [QueryContainer.IsExists](/northwind/reference/elastic-fsharp-query-types-querycontainer.html#IsExists)
+
+QueryContainer.IsExists 
+IsExists
+
+### [QueryContainer.IsMatchPhrase](/northwind/reference/elastic-fsharp-query-types-querycontainer.html#IsMatchPhrase)
+
+QueryContainer.IsMatchPhrase 
+IsMatchPhrase
+
+### [QueryContainer.MatchAll](/northwind/reference/elastic-fsharp-query-types-querycontainer.html#MatchAll)
+
+QueryContainer.MatchAll 
+MatchAll
+
+### [QueryContainer.MatchNone](/northwind/reference/elastic-fsharp-query-types-querycontainer.html#MatchNone)
+
+QueryContainer.MatchNone 
+MatchNone
+
+### [QueryContainer.Term](/northwind/reference/elastic-fsharp-query-types-querycontainer.html#Term)
+
+QueryContainer.Term 
+Term
+
+### [QueryContainer.Terms](/northwind/reference/elastic-fsharp-query-types-querycontainer.html#Terms)
+
+QueryContainer.Terms 
+Terms
+
+### [QueryContainer.MatchPhrase](/northwind/reference/elastic-fsharp-query-types-querycontainer.html#MatchPhrase)
+
+QueryContainer.MatchPhrase 
+MatchPhrase
+
+### [QueryContainer.Match](/northwind/reference/elastic-fsharp-query-types-querycontainer.html#Match)
+
+QueryContainer.Match 
+Match
+
+### [QueryContainer.Prefix](/northwind/reference/elastic-fsharp-query-types-querycontainer.html#Prefix)
+
+QueryContainer.Prefix 
+Prefix
+
+### [QueryContainer.Fuzzy](/northwind/reference/elastic-fsharp-query-types-querycontainer.html#Fuzzy)
+
+QueryContainer.Fuzzy 
+Fuzzy
+
+### [QueryContainer.Range](/northwind/reference/elastic-fsharp-query-types-querycontainer.html#Range)
+
+QueryContainer.Range 
+Range
+
+### [QueryContainer.Exists](/northwind/reference/elastic-fsharp-query-types-querycontainer.html#Exists)
+
+QueryContainer.Exists 
+Exists
+
+### [QueryContainer.Bool](/northwind/reference/elastic-fsharp-query-types-querycontainer.html#Bool)
+
+QueryContainer.Bool 
+Bool
+
+### [QueryContainer.Nested](/northwind/reference/elastic-fsharp-query-types-querycontainer.html#Nested)
+
+QueryContainer.Nested 
+Nested
+
+### [RequestContext](/northwind/reference/elastic-fsharp-query-types-requestcontext.html)
+
+RequestContext 
+ 
+RequestContext.TimeZone 
+TimeZone
+
+### [RequestContext.TimeZone](/northwind/reference/elastic-fsharp-query-types-requestcontext.html#TimeZone)
+
+RequestContext.TimeZone 
+TimeZone
+
+### [SearchAsYouType](/northwind/reference/elastic-fsharp-query-types-searchasyoutype.html)
+
+SearchAsYouType
+
+### [Text](/northwind/reference/elastic-fsharp-query-types-text.html)
+
+Text
+
+### [TextField<'S>](/northwind/reference/elastic-fsharp-query-types-textfield-1.html)
+
+TextField<'S>
+
+### [TextWithKeyword](/northwind/reference/elastic-fsharp-query-types-textwithkeyword.html)
+
+TextWithKeyword
+
+### [TextWithKeywordField<'S>](/northwind/reference/elastic-fsharp-query-types-textwithkeywordfield-1.html)
+
+TextWithKeywordField<'S>
+

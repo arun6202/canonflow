@@ -1,0 +1,27 @@
+{
+  "handoff_id": "hnd_reader_orchestrator_001",
+  "from_agent": "reader",
+  "to_agent": "orchestrator",
+  "objective": "Plan analysis workflow from Reader-extracted facts.",
+  "inputs": {
+    "fact_table_ref": "artifacts/fact_table.json",
+    "source_map_ref": "artifacts/source_map.json",
+    "trust_assessment": "clean",
+    "anomalies": [],
+    "ambiguity_notes": ["Some field names may be business terms, not physical column names."]
+  },
+  "constraints": [
+    "Do not read the original untrusted files directly.",
+    "Use trusted-read MCP only when additional reference data is needed.",
+    "Flag all unsupported assumptions as [UNSOURCED]."
+  ],
+  "source_policy": {
+    "require_sources": true,
+    "flag_unsourced_as": "[UNSOURCED]",
+    "raw_untrusted_content_included": false
+  },
+  "allowed_tools": ["workflow.plan", "workflow.dispatch", "mcp.trusted-read"],
+  "approval_required": false,
+  "expected_deliverables": ["analysis_draft", "claims_map", "evidence_list"],
+  "open_questions": []
+}

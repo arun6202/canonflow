@@ -11,6 +11,9 @@ module Version =
 
 module main =
 
+    module ``Alphabetical list of products_Constraints`` =
+        let _dummy = 0
+
     type ``Alphabetical list of products`` =
         { ProductID: Option<int64>
           ProductName: Option<string>
@@ -24,33 +27,79 @@ module main =
           Discontinued: Option<string>
           CategoryName: Option<string> }
 
+    module Categories_Constraints =
+        [<Struct>]
+        type CategoryID =
+            interface global.Symphony.Bridge.Spec.IPredicate<int64> with
+                member _.Check(v) =
+                    global.Symphony.Bridge.Spec.PrimaryKey().Check(v)
+
     type Categories =
-        { CategoryID: int64
+        { CategoryID: global.Symphony.Bridge.Spec.Refined<int64, Categories_Constraints.CategoryID>
           CategoryName: Option<string>
           Description: Option<string>
           Picture: Option<byte[]> }
 
+    module ``Category Sales for 1997_Constraints`` =
+        let _dummy = 0
+
     type ``Category Sales for 1997`` = { CategoryName: Option<string> }
+
+    module ``Current Product List_Constraints`` =
+        let _dummy = 0
 
     type ``Current Product List`` =
         { ProductID: Option<int64>
           ProductName: Option<string> }
+
+    module ``Customer and Suppliers by City_Constraints`` =
+        let _dummy = 0
 
     type ``Customer and Suppliers by City`` =
         { City: Option<string>
           CompanyName: Option<string>
           ContactName: Option<string> }
 
+    module CustomerCustomerDemo_Constraints =
+        [<Struct>]
+        type CustomerID =
+            interface global.Symphony.Bridge.Spec.IPredicate<string> with
+                member _.Check(v) =
+                    global.Symphony.Bridge.Spec.PrimaryKey().Check(v)
+                    && (not (System.String.IsNullOrWhiteSpace(v)))
+
+        [<Struct>]
+        type CustomerTypeID =
+            interface global.Symphony.Bridge.Spec.IPredicate<string> with
+                member _.Check(v) =
+                    global.Symphony.Bridge.Spec.PrimaryKey().Check(v)
+                    && (not (System.String.IsNullOrWhiteSpace(v)))
+
     type CustomerCustomerDemo =
-        { CustomerID: string
-          CustomerTypeID: string }
+        { CustomerID: global.Symphony.Bridge.Spec.Refined<string, CustomerCustomerDemo_Constraints.CustomerID>
+          CustomerTypeID: global.Symphony.Bridge.Spec.Refined<string, CustomerCustomerDemo_Constraints.CustomerTypeID> }
+
+    module CustomerDemographics_Constraints =
+        [<Struct>]
+        type CustomerTypeID =
+            interface global.Symphony.Bridge.Spec.IPredicate<string> with
+                member _.Check(v) =
+                    global.Symphony.Bridge.Spec.PrimaryKey().Check(v)
+                    && (not (System.String.IsNullOrWhiteSpace(v)))
 
     type CustomerDemographics =
-        { CustomerTypeID: string
+        { CustomerTypeID: global.Symphony.Bridge.Spec.Refined<string, CustomerDemographics_Constraints.CustomerTypeID>
           CustomerDesc: Option<string> }
 
+    module Customers_Constraints =
+        [<Struct>]
+        type CustomerID =
+            interface global.Symphony.Bridge.Spec.IPredicate<string> with
+                member _.Check(v) =
+                    global.Symphony.Bridge.Spec.PrimaryKey().Check(v)
+
     type Customers =
-        { CustomerID: Option<string>
+        { CustomerID: Option<global.Symphony.Bridge.Spec.Refined<string, Customers_Constraints.CustomerID>>
           CompanyName: Option<string>
           ContactName: Option<string>
           ContactTitle: Option<string>
@@ -62,12 +111,33 @@ module main =
           Phone: Option<string>
           Fax: Option<string> }
 
+    module EmployeeTerritories_Constraints =
+        [<Struct>]
+        type EmployeeID =
+            interface global.Symphony.Bridge.Spec.IPredicate<int64> with
+                member _.Check(v) =
+                    global.Symphony.Bridge.Spec.PrimaryKey().Check(v)
+
+        [<Struct>]
+        type TerritoryID =
+            interface global.Symphony.Bridge.Spec.IPredicate<string> with
+                member _.Check(v) =
+                    global.Symphony.Bridge.Spec.PrimaryKey().Check(v)
+                    && (not (System.String.IsNullOrWhiteSpace(v)))
+
     type EmployeeTerritories =
-        { EmployeeID: int64
-          TerritoryID: string }
+        { EmployeeID: global.Symphony.Bridge.Spec.Refined<int64, EmployeeTerritories_Constraints.EmployeeID>
+          TerritoryID: global.Symphony.Bridge.Spec.Refined<string, EmployeeTerritories_Constraints.TerritoryID> }
+
+    module Employees_Constraints =
+        [<Struct>]
+        type EmployeeID =
+            interface global.Symphony.Bridge.Spec.IPredicate<int64> with
+                member _.Check(v) =
+                    global.Symphony.Bridge.Spec.PrimaryKey().Check(v)
 
     type Employees =
-        { EmployeeID: int64
+        { EmployeeID: global.Symphony.Bridge.Spec.Refined<int64, Employees_Constraints.EmployeeID>
           LastName: Option<string>
           FirstName: Option<string>
           Title: Option<string>
@@ -85,6 +155,9 @@ module main =
           Notes: Option<string>
           ReportsTo: Option<int64>
           PhotoPath: Option<string> }
+
+    module Invoices_Constraints =
+        let _dummy = 0
 
     type Invoices =
         { ShipName: Option<string>
@@ -112,12 +185,46 @@ module main =
           Discount: Option<double>
           Freight: Option<decimal> }
 
+    module ``Order Details_Constraints`` =
+        [<Struct>]
+        type OrderID =
+            interface global.Symphony.Bridge.Spec.IPredicate<int64> with
+                member _.Check(v) =
+                    global.Symphony.Bridge.Spec.PrimaryKey().Check(v)
+
+        [<Struct>]
+        type ProductID =
+            interface global.Symphony.Bridge.Spec.IPredicate<int64> with
+                member _.Check(v) =
+                    global.Symphony.Bridge.Spec.PrimaryKey().Check(v)
+
+        [<Struct>]
+        type UnitPrice =
+            interface global.Symphony.Bridge.Spec.IPredicate<decimal> with
+                member _.Check(v) =
+                    global.Symphony.Bridge.Spec.GreaterThanOrEqualToZero().Check(v)
+
+        [<Struct>]
+        type Quantity =
+            interface global.Symphony.Bridge.Spec.IPredicate<int64> with
+                member _.Check(v) =
+                    global.Symphony.Bridge.Spec.GreaterThanZero().Check(v)
+
+        [<Struct>]
+        type Discount =
+            interface global.Symphony.Bridge.Spec.IPredicate<double> with
+                member _.Check(v) =
+                    global.Symphony.Bridge.Spec.BetweenZeroAndOne().Check(v)
+
     type ``Order Details`` =
-        { OrderID: int64
-          ProductID: int64
-          UnitPrice: global.Symphony.Bridge.Spec.Refined<decimal, global.Symphony.Bridge.Spec.GreaterThanOrEqualToZero>
-          Quantity: global.Symphony.Bridge.Spec.Refined<int64, global.Symphony.Bridge.Spec.GreaterThanZero>
-          Discount: global.Symphony.Bridge.Spec.Refined<double, global.Symphony.Bridge.Spec.BetweenZeroAndOne> }
+        { OrderID: global.Symphony.Bridge.Spec.Refined<int64, ``Order Details_Constraints``.OrderID>
+          ProductID: global.Symphony.Bridge.Spec.Refined<int64, ``Order Details_Constraints``.ProductID>
+          UnitPrice: global.Symphony.Bridge.Spec.Refined<decimal, ``Order Details_Constraints``.UnitPrice>
+          Quantity: global.Symphony.Bridge.Spec.Refined<int64, ``Order Details_Constraints``.Quantity>
+          Discount: global.Symphony.Bridge.Spec.Refined<double, ``Order Details_Constraints``.Discount> }
+
+    module ``Order Details Extended_Constraints`` =
+        let _dummy = 0
 
     type ``Order Details Extended`` =
         { OrderID: Option<int64>
@@ -127,10 +234,20 @@ module main =
           Quantity: Option<int64>
           Discount: Option<double> }
 
+    module ``Order Subtotals_Constraints`` =
+        let _dummy = 0
+
     type ``Order Subtotals`` = { OrderID: Option<int64> }
 
+    module Orders_Constraints =
+        [<Struct>]
+        type OrderID =
+            interface global.Symphony.Bridge.Spec.IPredicate<int64> with
+                member _.Check(v) =
+                    global.Symphony.Bridge.Spec.PrimaryKey().Check(v)
+
     type Orders =
-        { OrderID: int64
+        { OrderID: global.Symphony.Bridge.Spec.Refined<int64, Orders_Constraints.OrderID>
           CustomerID: Option<string>
           EmployeeID: Option<int64>
           OrderDate: Option<System.DateTime>
@@ -144,6 +261,9 @@ module main =
           ShipRegion: Option<string>
           ShipPostalCode: Option<string>
           ShipCountry: Option<string> }
+
+    module ``Orders Qry_Constraints`` =
+        let _dummy = 0
 
     type ``Orders Qry`` =
         { OrderID: Option<int64>
@@ -167,9 +287,15 @@ module main =
           PostalCode: Option<string>
           Country: Option<string> }
 
+    module ``Product Sales for 1997_Constraints`` =
+        let _dummy = 0
+
     type ``Product Sales for 1997`` =
         { CategoryName: Option<string>
           ProductName: Option<string> }
+
+    module ProductDetails_V_Constraints =
+        let _dummy = 0
 
     type ProductDetails_V =
         { ProductID: Option<int64>
@@ -187,25 +313,70 @@ module main =
           SupplierName: Option<string>
           SupplierRegion: Option<string> }
 
+    module Products_Constraints =
+        [<Struct>]
+        type ProductID =
+            interface global.Symphony.Bridge.Spec.IPredicate<int64> with
+                member _.Check(v) =
+                    global.Symphony.Bridge.Spec.PrimaryKey().Check(v)
+
+        [<Struct>]
+        type ProductName =
+            interface global.Symphony.Bridge.Spec.IPredicate<string> with
+                member _.Check(v) =
+                    (not (System.String.IsNullOrWhiteSpace(v)))
+
+        [<Struct>]
+        type UnitPrice =
+            interface global.Symphony.Bridge.Spec.IPredicate<decimal> with
+                member _.Check(v) =
+                    global.Symphony.Bridge.Spec.GreaterThanOrEqualToZero().Check(v)
+
+        [<Struct>]
+        type UnitsInStock =
+            interface global.Symphony.Bridge.Spec.IPredicate<int64> with
+                member _.Check(v) =
+                    global.Symphony.Bridge.Spec.GreaterThanOrEqualToZero().Check(v)
+
+        [<Struct>]
+        type UnitsOnOrder =
+            interface global.Symphony.Bridge.Spec.IPredicate<int64> with
+                member _.Check(v) =
+                    global.Symphony.Bridge.Spec.GreaterThanOrEqualToZero().Check(v)
+
+        [<Struct>]
+        type ReorderLevel =
+            interface global.Symphony.Bridge.Spec.IPredicate<int64> with
+                member _.Check(v) =
+                    global.Symphony.Bridge.Spec.GreaterThanOrEqualToZero().Check(v)
+
+        [<Struct>]
+        type Discontinued =
+            interface global.Symphony.Bridge.Spec.IPredicate<string> with
+                member _.Check(v) =
+                    (not (System.String.IsNullOrWhiteSpace(v)))
+
     type Products =
-        { ProductID: int64
-          ProductName: string
+        { ProductID: global.Symphony.Bridge.Spec.Refined<int64, Products_Constraints.ProductID>
+          ProductName: global.Symphony.Bridge.Spec.Refined<string, Products_Constraints.ProductName>
           SupplierID: Option<int64>
           CategoryID: Option<int64>
           QuantityPerUnit: Option<string>
-          UnitPrice:
-              Option<global.Symphony.Bridge.Spec.Refined<decimal, global.Symphony.Bridge.Spec.GreaterThanOrEqualToZero>>
-          UnitsInStock:
-              Option<global.Symphony.Bridge.Spec.Refined<int64, global.Symphony.Bridge.Spec.GreaterThanOrEqualToZero>>
-          UnitsOnOrder:
-              Option<global.Symphony.Bridge.Spec.Refined<int64, global.Symphony.Bridge.Spec.GreaterThanOrEqualToZero>>
-          ReorderLevel:
-              Option<global.Symphony.Bridge.Spec.Refined<int64, global.Symphony.Bridge.Spec.GreaterThanOrEqualToZero>>
-          Discontinued: string }
+          UnitPrice: Option<global.Symphony.Bridge.Spec.Refined<decimal, Products_Constraints.UnitPrice>>
+          UnitsInStock: Option<global.Symphony.Bridge.Spec.Refined<int64, Products_Constraints.UnitsInStock>>
+          UnitsOnOrder: Option<global.Symphony.Bridge.Spec.Refined<int64, Products_Constraints.UnitsOnOrder>>
+          ReorderLevel: Option<global.Symphony.Bridge.Spec.Refined<int64, Products_Constraints.ReorderLevel>>
+          Discontinued: global.Symphony.Bridge.Spec.Refined<string, Products_Constraints.Discontinued> }
+
+    module ``Products Above Average Price_Constraints`` =
+        let _dummy = 0
 
     type ``Products Above Average Price`` =
         { ProductName: Option<string>
           UnitPrice: Option<decimal> }
+
+    module ``Products by Category_Constraints`` =
+        let _dummy = 0
 
     type ``Products by Category`` =
         { CategoryName: Option<string>
@@ -214,42 +385,96 @@ module main =
           UnitsInStock: Option<int64>
           Discontinued: Option<string> }
 
+    module ``Quarterly Orders_Constraints`` =
+        let _dummy = 0
+
     type ``Quarterly Orders`` =
         { CustomerID: Option<string>
           CompanyName: Option<string>
           City: Option<string>
           Country: Option<string> }
 
+    module Regions_Constraints =
+        [<Struct>]
+        type RegionID =
+            interface global.Symphony.Bridge.Spec.IPredicate<int64> with
+                member _.Check(v) =
+                    global.Symphony.Bridge.Spec.PrimaryKey().Check(v)
+
+        [<Struct>]
+        type RegionDescription =
+            interface global.Symphony.Bridge.Spec.IPredicate<string> with
+                member _.Check(v) =
+                    (not (System.String.IsNullOrWhiteSpace(v)))
+
     type Regions =
-        { RegionID: int64
-          RegionDescription: string }
+        { RegionID: global.Symphony.Bridge.Spec.Refined<int64, Regions_Constraints.RegionID>
+          RegionDescription: global.Symphony.Bridge.Spec.Refined<string, Regions_Constraints.RegionDescription> }
+
+    module ``Sales Totals by Amount_Constraints`` =
+        let _dummy = 0
 
     type ``Sales Totals by Amount`` =
         { OrderID: Option<int64>
           CompanyName: Option<string>
           ShippedDate: Option<System.DateTime> }
 
+    module ``Sales by Category_Constraints`` =
+        let _dummy = 0
+
     type ``Sales by Category`` =
         { CategoryID: Option<int64>
           CategoryName: Option<string>
           ProductName: Option<string> }
 
+    module Shippers_Constraints =
+        [<Struct>]
+        type ShipperID =
+            interface global.Symphony.Bridge.Spec.IPredicate<int64> with
+                member _.Check(v) =
+                    global.Symphony.Bridge.Spec.PrimaryKey().Check(v)
+
+        [<Struct>]
+        type CompanyName =
+            interface global.Symphony.Bridge.Spec.IPredicate<string> with
+                member _.Check(v) =
+                    (not (System.String.IsNullOrWhiteSpace(v)))
+
     type Shippers =
-        { ShipperID: int64
-          CompanyName: string
+        { ShipperID: global.Symphony.Bridge.Spec.Refined<int64, Shippers_Constraints.ShipperID>
+          CompanyName: global.Symphony.Bridge.Spec.Refined<string, Shippers_Constraints.CompanyName>
           Phone: Option<string> }
+
+    module ``Summary of Sales by Quarter_Constraints`` =
+        let _dummy = 0
 
     type ``Summary of Sales by Quarter`` =
         { ShippedDate: Option<System.DateTime>
           OrderID: Option<int64> }
 
+    module ``Summary of Sales by Year_Constraints`` =
+        let _dummy = 0
+
     type ``Summary of Sales by Year`` =
         { ShippedDate: Option<System.DateTime>
           OrderID: Option<int64> }
 
+    module Suppliers_Constraints =
+        [<Struct>]
+        type SupplierID =
+            interface global.Symphony.Bridge.Spec.IPredicate<int64> with
+                member _.Check(v) =
+                    global.Symphony.Bridge.Spec.PrimaryKey().Check(v)
+
+        [<Struct>]
+        type CompanyName =
+            interface global.Symphony.Bridge.Spec.IPredicate<string> with
+                member _.Check(v) =
+                    (not (System.String.IsNullOrWhiteSpace(v)))
+
     type Suppliers =
-        { SupplierID: int64
-          CompanyName: string
+        { SupplierID: global.Symphony.Bridge.Spec.Refined<int64, Suppliers_Constraints.SupplierID>
+          CompanyName: global.Symphony.Bridge.Spec.Refined<string, Suppliers_Constraints.CompanyName>
           ContactName: Option<string>
           ContactTitle: Option<string>
           Address: Option<string>
@@ -261,9 +486,24 @@ module main =
           Fax: Option<string>
           HomePage: Option<string> }
 
+    module Territories_Constraints =
+        [<Struct>]
+        type TerritoryID =
+            interface global.Symphony.Bridge.Spec.IPredicate<string> with
+                member _.Check(v) =
+                    global.Symphony.Bridge.Spec.PrimaryKey().Check(v)
+                    && (not (System.String.IsNullOrWhiteSpace(v)))
+
+        [<Struct>]
+        type TerritoryDescription =
+            interface global.Symphony.Bridge.Spec.IPredicate<string> with
+                member _.Check(v) =
+                    (not (System.String.IsNullOrWhiteSpace(v)))
+
     type Territories =
-        { TerritoryID: string
-          TerritoryDescription: string
+        { TerritoryID: global.Symphony.Bridge.Spec.Refined<string, Territories_Constraints.TerritoryID>
+          TerritoryDescription:
+              global.Symphony.Bridge.Spec.Refined<string, Territories_Constraints.TerritoryDescription>
           RegionID: int64 }
 
 

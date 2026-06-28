@@ -1,0 +1,45 @@
+{
+  "domainId": "AdventureWorks",
+  "request": {
+    "filter": null,
+    "aggregations": [
+      {
+        "case": "Terms",
+        "fields": [
+          "countryAgg",
+          "Country",
+          10
+        ]
+      },
+      {
+        "case": "Sum",
+        "fields": [
+          "salesTotal",
+          "LineSales"
+        ]
+      }
+    ]
+  },
+  "expected": [
+    {
+      "aggName": "countryAgg",
+      "buckets": [
+        {
+          "key": "USA",
+          "docCount": 60398,
+          "subValue": null
+        }
+      ]
+    },
+    {
+      "aggName": "salesTotal",
+      "buckets": [
+        {
+          "key": "Sum",
+          "docCount": 60398,
+          "subValue": 29358677.22
+        }
+      ]
+    }
+  ]
+}

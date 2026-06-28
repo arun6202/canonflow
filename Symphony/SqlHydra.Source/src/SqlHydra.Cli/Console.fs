@@ -1,4 +1,4 @@
-﻿module SqlHydra.Console
+module SqlHydra.Console
 
 open System
 open System.IO
@@ -115,11 +115,15 @@ let getOrCreateConfig (args: Args) =
 open Fantomas.Core
 
 let formatCodeWithFantomas (code: string) =
-    let cfg = FormatConfig.Default
-
-    CodeFormatter.FormatDocumentAsync(false, code, cfg) 
-    |> Async.RunSynchronously
-    |> _.Code
+    let config = FormatConfig.Default
+    try 
+        Fantomas.Core.CodeFormatter.FormatDocumentAsync(false, code, config) 
+        |> Async.RunSynchronously
+        |> _.Code
+    with ex ->
+        System.IO.File.WriteAllText("unformatted_code.fs", code)
+        printfn "Unhandled exception: %A" ex
+        reraise()
 
 /// Runs code generation for a given database provider.
 let run (args: Args) = 

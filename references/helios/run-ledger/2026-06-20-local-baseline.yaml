@@ -1,0 +1,48 @@
+run_id: 2026-06-20-local-baseline
+created_at: 2026-06-20
+stage: semantic-baseline
+status: succeeded
+notes:
+  - Local baseline captured from northwind.db and adventureworks.db.
+  - This is a human-readable seed ledger. Later milestones should generate ledgers automatically.
+
+domains:
+  - domain_id: Northwind
+    source_database: northwind.db
+    checks:
+      - name: customers_count
+        value: 93
+      - name: orders_count
+        value: 16282
+      - name: order_details_count
+        value: 609283
+      - name: products_count
+        value: 77
+      - name: categories_count
+        value: 8
+      - name: employees_count
+        value: 9
+      - name: total_line_sales
+        value: 448386633.17
+      - name: min_order_date
+        value: "2012-07-10 15:40:46"
+      - name: max_order_date
+        value: "2023-10-28 00:09:48"
+
+  - domain_id: AdventureWorks
+    source_database: adventureworks.db
+    checks:
+      - name: adventureworks_flat_count
+        value: 60398
+      - name: dim_customer_count
+        value: 18484
+      - name: dim_product_count
+        value: 606
+      - name: fact_internet_sales_count
+        value: 60398
+      - name: total_line_sales
+        value: 29358677.22
+      - name: min_order_date
+        value: "2010-12-29 00:00:00"
+      - name: max_order_date
+        value: "2014-01-28 00:00:00"

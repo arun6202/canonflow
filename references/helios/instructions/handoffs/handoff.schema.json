@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Agent Handoff",
+  "description": "Structured contract passed between pipeline stages. Enforces trust boundaries and declares permissions at each transition.",
+  "type": "object",
+  "required": [
+    "handoff_id",
+    "from_agent",
+    "to_agent",
+    "objective",
+    "inputs",
+    "constraints",
+    "source_policy"
+  ],
+  "properties": {
+    "handoff_id": {
+      "type": "string",
+      "description": "Unique ID for this handoff, used in audit logs."
+    },
+    "from_agent": {
+      "type": "string",
+      "enum": ["reader", "orchestrator", "critic", "resolver"]
+    },
+    "to_agent": {
+      "type": "string",
+      "enum": ["reader", "orchestrator", "critic", "resolver"]
+    },
+    "objective": {
+      "type": "string",
+      "description": "What the receiving agent is expected to accomplish."
+    },
+    "inputs": {
+      "type": "object",
+      "description": "Payload — may include refs to artifact files, not raw untrusted content."
+    },
+    "constraints": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Explicit rules the receiving agent must respect for this handoff."
+    },
+    "source_policy": {
+      "type": "object",
+      "required": ["require_sources", "flag_unsourced_as", "raw_untrusted_content_included"],
+      "properties": {
+        "require_sources": { "type": "boolean" },
+        "flag_unsourced_as": { "type": "string" },
+        "raw_untrusted_content_included": {
+          "type": "boolean",
+          "description": "Must be false for all handoffs except Reader input."
+        }
+      }
+    },
+    "allowed_tools": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Tools the receiving agent may use for this handoff only."
+    },
+    "approval_required": {
+      "type": "boolean",
+      "description": "If true, a human approval gate must be passed before the receiving agent acts."
+    },
+    "expected_deliverables": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Output artifacts or blocks the receiving agent must produce."
+    },
+    "open_questions": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Unresolved questions the receiving agent should surface in its output."
+    }
+  }
+}

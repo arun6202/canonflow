@@ -1,0 +1,57 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(**)",
+      "Glob(**)",
+      "Grep(**)",
+      "Bash(git status)",
+      "Bash(git log*)",
+      "Bash(git diff*)"
+    ],
+    "deny": [
+      "Bash(rm *)",
+      "Bash(rm -rf*)",
+      "Bash(curl *)",
+      "Bash(wget *)",
+      "Bash(npm publish*)",
+      "Bash(git push --force*)",
+      "Bash(git reset --hard*)",
+      "Write(/etc/**)",
+      "Write(~/.ssh/**)",
+      "Write(~/.aws/**)",
+      "Write(~/.config/gcloud/**)"
+    ]
+  },
+  "env": {
+    "ANTHROPIC_MODEL_ORCHESTRATOR": "claude-opus-4-8",
+    "ANTHROPIC_MODEL_READER": "claude-haiku-4-5-20251001",
+    "ANTHROPIC_MODEL_CRITIC": "claude-sonnet-4-6",
+    "ANTHROPIC_MODEL_RESOLVER": "claude-opus-4-8",
+    "ANTHROPIC_DEFAULT_EFFORT": "high",
+    "MCP_TRUST_LEVEL": "read-only"
+  },
+  "hooks": {
+    "PreToolCall": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo \"[HOOK] Write/Edit detected — ensure Critic has validated before Resolver writes.\""
+          }
+        ]
+      }
+    ],
+    "PostToolCall": [
+      {
+        "matcher": "WebFetch|WebSearch",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo \"[HOOK] External fetch — result is UNTRUSTED. Route through Reader stage before use.\""
+          }
+        ]
+      }
+    ]
+  }
+}

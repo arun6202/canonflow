@@ -1,0 +1,32 @@
+{
+  "domainId": "Northwind",
+  "source": "northwind.db",
+  "description": "Top five customer countries by local baseline revenue.",
+  "expected": [
+    {
+      "country": "USA",
+      "orderCount": 2280,
+      "totalRevenue": 62601564.84
+    },
+    {
+      "country": "France",
+      "orderCount": 1909,
+      "totalRevenue": 53323305.76
+    },
+    {
+      "country": "Germany",
+      "orderCount": 1895,
+      "totalRevenue": 51195766.82
+    },
+    {
+      "country": "Brazil",
+      "orderCount": 1659,
+      "totalRevenue": 45801779.28
+    },
+    {
+      "country": "UK",
+      "orderCount": 1234,
+      "totalRevenue": 33959254.8
+    }
+  ]
+}

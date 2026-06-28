@@ -1,0 +1,549 @@
+{
+    "took":  50,
+    "timed_out":  false,
+    "_shards":  {
+                    "total":  1,
+                    "successful":  1,
+                    "skipped":  0,
+                    "failed":  0
+                },
+    "hits":  {
+                 "total":  {
+                               "value":  10000,
+                               "relation":  "gte"
+                           },
+                 "max_score":  1.0,
+                 "hits":  [
+                              {
+                                  "_index":  "orders",
+                                  "_id":  "10249",
+                                  "_score":  1.0,
+                                  "_source":  {
+                                                  "id":  "10249",
+                                                  "orderDate":  "2016-07-05",
+                                                  "customer":  {
+                                                                   "customerId":  "TOMSP",
+                                                                   "companyName":  "Toms Spezialitäten",
+                                                                   "contactName":  "Karin Josephs",
+                                                                   "country":  "Germany"
+                                                               },
+                                                  "employee":  {
+                                                                   "employeeId":  6,
+                                                                   "firstName":  "Michael",
+                                                                   "lastName":  "Suyama",
+                                                                   "title":  "Sales Representative"
+                                                               },
+                                                  "lines":  [
+                                                                {
+                                                                    "product":  {
+                                                                                    "productId":  14,
+                                                                                    "productName":  "Tofu",
+                                                                                    "categoryName":  "Produce"
+                                                                                },
+                                                                    "unitPrice":  18.6,
+                                                                    "quantity":  9,
+                                                                    "discount":  0
+                                                                },
+                                                                {
+                                                                    "product":  {
+                                                                                    "productId":  51,
+                                                                                    "productName":  "Manjimup Dried Apples",
+                                                                                    "categoryName":  "Produce"
+                                                                                },
+                                                                    "unitPrice":  42.4,
+                                                                    "quantity":  40,
+                                                                    "discount":  0
+                                                                }
+                                                            ],
+                                                  "totalAmount":  1863.4
+                                              }
+                              },
+                              {
+                                  "_index":  "orders",
+                                  "_id":  "10250",
+                                  "_score":  1.0,
+                                  "_source":  {
+                                                  "id":  "10250",
+                                                  "orderDate":  "2016-07-08",
+                                                  "customer":  {
+                                                                   "customerId":  "HANAR",
+                                                                   "companyName":  "Hanari Carnes",
+                                                                   "contactName":  "Mario Pontes",
+                                                                   "country":  "Brazil"
+                                                               },
+                                                  "employee":  {
+                                                                   "employeeId":  4,
+                                                                   "firstName":  "Margaret",
+                                                                   "lastName":  "Peacock",
+                                                                   "title":  "Sales Representative"
+                                                               },
+                                                  "lines":  [
+                                                                {
+                                                                    "product":  {
+                                                                                    "productId":  41,
+                                                                                    "productName":  "Jack\u0027s New England Clam Chowder",
+                                                                                    "categoryName":  "Seafood"
+                                                                                },
+                                                                    "unitPrice":  7.7,
+                                                                    "quantity":  10,
+                                                                    "discount":  0
+                                                                },
+                                                                {
+                                                                    "product":  {
+                                                                                    "productId":  51,
+                                                                                    "productName":  "Manjimup Dried Apples",
+                                                                                    "categoryName":  "Produce"
+                                                                                },
+                                                                    "unitPrice":  42.4,
+                                                                    "quantity":  35,
+                                                                    "discount":  0.15
+                                                                },
+                                                                {
+                                                                    "product":  {
+                                                                                    "productId":  65,
+                                                                                    "productName":  "Louisiana Fiery Hot Pepper Sauce",
+                                                                                    "categoryName":  "Condiments"
+                                                                                },
+                                                                    "unitPrice":  16.8,
+                                                                    "quantity":  15,
+                                                                    "discount":  0.15
+                                                                }
+                                                            ],
+                                                  "totalAmount":  1552.60
+                                              }
+                              },
+                              {
+                                  "_index":  "orders",
+                                  "_id":  "10251",
+                                  "_score":  1.0,
+                                  "_source":  {
+                                                  "id":  "10251",
+                                                  "orderDate":  "2016-07-08",
+                                                  "customer":  {
+                                                                   "customerId":  "VICTE",
+                                                                   "companyName":  "Victuailles en stock",
+                                                                   "contactName":  "Mary Saveley",
+                                                                   "country":  "France"
+                                                               },
+                                                  "employee":  {
+                                                                   "employeeId":  3,
+                                                                   "firstName":  "Janet",
+                                                                   "lastName":  "Leverling",
+                                                                   "title":  "Sales Representative"
+                                                               },
+                                                  "lines":  [
+                                                                {
+                                                                    "product":  {
+                                                                                    "productId":  22,
+                                                                                    "productName":  "Gustaf\u0027s Knäckebröd",
+                                                                                    "categoryName":  "Grains/Cereals"
+                                                                                },
+                                                                    "unitPrice":  16.8,
+                                                                    "quantity":  6,
+                                                                    "discount":  0.05
+                                                                },
+                                                                {
+                                                                    "product":  {
+                                                                                    "productId":  57,
+                                                                                    "productName":  "Ravioli Angelo",
+                                                                                    "categoryName":  "Grains/Cereals"
+                                                                                },
+                                                                    "unitPrice":  15.6,
+                                                                    "quantity":  15,
+                                                                    "discount":  0.05
+                                                                },
+                                                                {
+                                                                    "product":  {
+                                                                                    "productId":  65,
+                                                                                    "productName":  "Louisiana Fiery Hot Pepper Sauce",
+                                                                                    "categoryName":  "Condiments"
+                                                                                },
+                                                                    "unitPrice":  16.8,
+                                                                    "quantity":  20,
+                                                                    "discount":  0
+                                                                }
+                                                            ],
+                                                  "totalAmount":  654.06
+                                              }
+                              },
+                              {
+                                  "_index":  "orders",
+                                  "_id":  "10252",
+                                  "_score":  1.0,
+                                  "_source":  {
+                                                  "id":  "10252",
+                                                  "orderDate":  "2016-07-09",
+                                                  "customer":  {
+                                                                   "customerId":  "SUPRD",
+                                                                   "companyName":  "Suprêmes délices",
+                                                                   "contactName":  "Pascale Cartrain",
+                                                                   "country":  "Belgium"
+                                                               },
+                                                  "employee":  {
+                                                                   "employeeId":  4,
+                                                                   "firstName":  "Margaret",
+                                                                   "lastName":  "Peacock",
+                                                                   "title":  "Sales Representative"
+                                                               },
+                                                  "lines":  [
+                                                                {
+                                                                    "product":  {
+                                                                                    "productId":  20,
+                                                                                    "productName":  "Sir Rodney\u0027s Marmalade",
+                                                                                    "categoryName":  "Confections"
+                                                                                },
+                                                                    "unitPrice":  64.8,
+                                                                    "quantity":  40,
+                                                                    "discount":  0.05
+                                                                },
+                                                                {
+                                                                    "product":  {
+                                                                                    "productId":  33,
+                                                                                    "productName":  "Geitost",
+                                                                                    "categoryName":  "Dairy Products"
+                                                                                },
+                                                                    "unitPrice":  2,
+                                                                    "quantity":  25,
+                                                                    "discount":  0.05
+                                                                },
+                                                                {
+                                                                    "product":  {
+                                                                                    "productId":  60,
+                                                                                    "productName":  "Camembert Pierrot",
+                                                                                    "categoryName":  "Dairy Products"
+                                                                                },
+                                                                    "unitPrice":  27.2,
+                                                                    "quantity":  40,
+                                                                    "discount":  0
+                                                                }
+                                                            ],
+                                                  "totalAmount":  3597.90
+                                              }
+                              },
+                              {
+                                  "_index":  "orders",
+                                  "_id":  "10253",
+                                  "_score":  1.0,
+                                  "_source":  {
+                                                  "id":  "10253",
+                                                  "orderDate":  "2016-07-10",
+                                                  "customer":  {
+                                                                   "customerId":  "HANAR",
+                                                                   "companyName":  "Hanari Carnes",
+                                                                   "contactName":  "Mario Pontes",
+                                                                   "country":  "Brazil"
+                                                               },
+                                                  "employee":  {
+                                                                   "employeeId":  3,
+                                                                   "firstName":  "Janet",
+                                                                   "lastName":  "Leverling",
+                                                                   "title":  "Sales Representative"
+                                                               },
+                                                  "lines":  [
+                                                                {
+                                                                    "product":  {
+                                                                                    "productId":  31,
+                                                                                    "productName":  "Gorgonzola Telino",
+                                                                                    "categoryName":  "Dairy Products"
+                                                                                },
+                                                                    "unitPrice":  10,
+                                                                    "quantity":  20,
+                                                                    "discount":  0
+                                                                },
+                                                                {
+                                                                    "product":  {
+                                                                                    "productId":  39,
+                                                                                    "productName":  "Chartreuse verte",
+                                                                                    "categoryName":  "Beverages"
+                                                                                },
+                                                                    "unitPrice":  14.4,
+                                                                    "quantity":  42,
+                                                                    "discount":  0
+                                                                },
+                                                                {
+                                                                    "product":  {
+                                                                                    "productId":  49,
+                                                                                    "productName":  "Maxilaku",
+                                                                                    "categoryName":  "Confections"
+                                                                                },
+                                                                    "unitPrice":  16,
+                                                                    "quantity":  40,
+                                                                    "discount":  0
+                                                                }
+                                                            ],
+                                                  "totalAmount":  1444.8
+                                              }
+                              },
+                              {
+                                  "_index":  "orders",
+                                  "_id":  "10254",
+                                  "_score":  1.0,
+                                  "_source":  {
+                                                  "id":  "10254",
+                                                  "orderDate":  "2016-07-11",
+                                                  "customer":  {
+                                                                   "customerId":  "CHOPS",
+                                                                   "companyName":  "Chop-suey Chinese",
+                                                                   "contactName":  "Yang Wang",
+                                                                   "country":  "Switzerland"
+                                                               },
+                                                  "employee":  {
+                                                                   "employeeId":  5,
+                                                                   "firstName":  "Steven",
+                                                                   "lastName":  "Buchanan",
+                                                                   "title":  "Sales Manager"
+                                                               },
+                                                  "lines":  [
+                                                                {
+                                                                    "product":  {
+                                                                                    "productId":  24,
+                                                                                    "productName":  "Guaraná Fantástica",
+                                                                                    "categoryName":  "Beverages"
+                                                                                },
+                                                                    "unitPrice":  3.6,
+                                                                    "quantity":  15,
+                                                                    "discount":  0.15
+                                                                },
+                                                                {
+                                                                    "product":  {
+                                                                                    "productId":  55,
+                                                                                    "productName":  "Pâté chinois",
+                                                                                    "categoryName":  "Meat/Poultry"
+                                                                                },
+                                                                    "unitPrice":  19.2,
+                                                                    "quantity":  21,
+                                                                    "discount":  0.15
+                                                                },
+                                                                {
+                                                                    "product":  {
+                                                                                    "productId":  74,
+                                                                                    "productName":  "Longlife Tofu",
+                                                                                    "categoryName":  "Produce"
+                                                                                },
+                                                                    "unitPrice":  8,
+                                                                    "quantity":  21,
+                                                                    "discount":  0
+                                                                }
+                                                            ],
+                                                  "totalAmount":  556.62
+                                              }
+                              },
+                              {
+                                  "_index":  "orders",
+                                  "_id":  "10255",
+                                  "_score":  1.0,
+                                  "_source":  {
+                                                  "id":  "10255",
+                                                  "orderDate":  "2016-07-12",
+                                                  "customer":  {
+                                                                   "customerId":  "RICSU",
+                                                                   "companyName":  "Richter Supermarkt",
+                                                                   "contactName":  "Michael Holz",
+                                                                   "country":  "Switzerland"
+                                                               },
+                                                  "employee":  {
+                                                                   "employeeId":  9,
+                                                                   "firstName":  "Anne",
+                                                                   "lastName":  "Dodsworth",
+                                                                   "title":  "Sales Representative"
+                                                               },
+                                                  "lines":  [
+                                                                {
+                                                                    "product":  {
+                                                                                    "productId":  2,
+                                                                                    "productName":  "Chang",
+                                                                                    "categoryName":  "Beverages"
+                                                                                },
+                                                                    "unitPrice":  15.2,
+                                                                    "quantity":  20,
+                                                                    "discount":  0
+                                                                },
+                                                                {
+                                                                    "product":  {
+                                                                                    "productId":  16,
+                                                                                    "productName":  "Pavlova",
+                                                                                    "categoryName":  "Confections"
+                                                                                },
+                                                                    "unitPrice":  13.9,
+                                                                    "quantity":  35,
+                                                                    "discount":  0
+                                                                },
+                                                                {
+                                                                    "product":  {
+                                                                                    "productId":  36,
+                                                                                    "productName":  "Inlagd Sill",
+                                                                                    "categoryName":  "Seafood"
+                                                                                },
+                                                                    "unitPrice":  15.2,
+                                                                    "quantity":  25,
+                                                                    "discount":  0
+                                                                },
+                                                                {
+                                                                    "product":  {
+                                                                                    "productId":  59,
+                                                                                    "productName":  "Raclette Courdavault",
+                                                                                    "categoryName":  "Dairy Products"
+                                                                                },
+                                                                    "unitPrice":  44,
+                                                                    "quantity":  30,
+                                                                    "discount":  0
+                                                                }
+                                                            ],
+                                                  "totalAmount":  2490.5
+                                              }
+                              },
+                              {
+                                  "_index":  "orders",
+                                  "_id":  "10256",
+                                  "_score":  1.0,
+                                  "_source":  {
+                                                  "id":  "10256",
+                                                  "orderDate":  "2016-07-15",
+                                                  "customer":  {
+                                                                   "customerId":  "WELLI",
+                                                                   "companyName":  "Wellington Importadora",
+                                                                   "contactName":  "Paula Parente",
+                                                                   "country":  "Brazil"
+                                                               },
+                                                  "employee":  {
+                                                                   "employeeId":  3,
+                                                                   "firstName":  "Janet",
+                                                                   "lastName":  "Leverling",
+                                                                   "title":  "Sales Representative"
+                                                               },
+                                                  "lines":  [
+                                                                {
+                                                                    "product":  {
+                                                                                    "productId":  53,
+                                                                                    "productName":  "Perth Pasties",
+                                                                                    "categoryName":  "Meat/Poultry"
+                                                                                },
+                                                                    "unitPrice":  26.2,
+                                                                    "quantity":  15,
+                                                                    "discount":  0
+                                                                },
+                                                                {
+                                                                    "product":  {
+                                                                                    "productId":  77,
+                                                                                    "productName":  "Original Frankfurter grüne Soße",
+                                                                                    "categoryName":  "Condiments"
+                                                                                },
+                                                                    "unitPrice":  10.4,
+                                                                    "quantity":  12,
+                                                                    "discount":  0
+                                                                }
+                                                            ],
+                                                  "totalAmount":  517.8
+                                              }
+                              },
+                              {
+                                  "_index":  "orders",
+                                  "_id":  "10257",
+                                  "_score":  1.0,
+                                  "_source":  {
+                                                  "id":  "10257",
+                                                  "orderDate":  "2016-07-16",
+                                                  "customer":  {
+                                                                   "customerId":  "HILAA",
+                                                                   "companyName":  "HILARION-Abastos",
+                                                                   "contactName":  "Carlos Hernández",
+                                                                   "country":  "Venezuela"
+                                                               },
+                                                  "employee":  {
+                                                                   "employeeId":  4,
+                                                                   "firstName":  "Margaret",
+                                                                   "lastName":  "Peacock",
+                                                                   "title":  "Sales Representative"
+                                                               },
+                                                  "lines":  [
+                                                                {
+                                                                    "product":  {
+                                                                                    "productId":  27,
+                                                                                    "productName":  "Schoggi Schokolade",
+                                                                                    "categoryName":  "Confections"
+                                                                                },
+                                                                    "unitPrice":  35.1,
+                                                                    "quantity":  25,
+                                                                    "discount":  0
+                                                                },
+                                                                {
+                                                                    "product":  {
+                                                                                    "productId":  39,
+                                                                                    "productName":  "Chartreuse verte",
+                                                                                    "categoryName":  "Beverages"
+                                                                                },
+                                                                    "unitPrice":  14.4,
+                                                                    "quantity":  6,
+                                                                    "discount":  0
+                                                                },
+                                                                {
+                                                                    "product":  {
+                                                                                    "productId":  77,
+                                                                                    "productName":  "Original Frankfurter grüne Soße",
+                                                                                    "categoryName":  "Condiments"
+                                                                                },
+                                                                    "unitPrice":  10.4,
+                                                                    "quantity":  15,
+                                                                    "discount":  0
+                                                                }
+                                                            ],
+                                                  "totalAmount":  1119.9
+                                              }
+                              },
+                              {
+                                  "_index":  "orders",
+                                  "_id":  "10258",
+                                  "_score":  1.0,
+                                  "_source":  {
+                                                  "id":  "10258",
+                                                  "orderDate":  "2016-07-17",
+                                                  "customer":  {
+                                                                   "customerId":  "ERNSH",
+                                                                   "companyName":  "Ernst Handel",
+                                                                   "contactName":  "Roland Mendel",
+                                                                   "country":  "Austria"
+                                                               },
+                                                  "employee":  {
+                                                                   "employeeId":  1,
+                                                                   "firstName":  "Nancy",
+                                                                   "lastName":  "Davolio",
+                                                                   "title":  "Sales Representative"
+                                                               },
+                                                  "lines":  [
+                                                                {
+                                                                    "product":  {
+                                                                                    "productId":  2,
+                                                                                    "productName":  "Chang",
+                                                                                    "categoryName":  "Beverages"
+                                                                                },
+                                                                    "unitPrice":  15.2,
+                                                                    "quantity":  50,
+                                                                    "discount":  0.2
+                                                                },
+                                                                {
+                                                                    "product":  {
+                                                                                    "productId":  5,
+                                                                                    "productName":  "Chef Anton\u0027s Gumbo Mix",
+                                                                                    "categoryName":  "Condiments"
+                                                                                },
+                                                                    "unitPrice":  17,
+                                                                    "quantity":  65,
+                                                                    "discount":  0.2
+                                                                },
+                                                                {
+                                                                    "product":  {
+                                                                                    "productId":  32,
+                                                                                    "productName":  "Mascarpone Fabioli",
+                                                                                    "categoryName":  "Dairy Products"
+                                                                                },
+                                                                    "unitPrice":  25.6,
+                                                                    "quantity":  6,
+                                                                    "discount":  0.2
+                                                                }
+                                                            ],
+                                                  "totalAmount":  1614.88
+                                              }
+                              }
+                          ]
+             }
+}
