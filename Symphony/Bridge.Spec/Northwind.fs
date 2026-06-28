@@ -97,9 +97,10 @@ module main =
             interface global.Symphony.Bridge.Spec.IPredicate<string> with
                 member _.Check(v) =
                     global.Symphony.Bridge.Spec.PrimaryKey().Check(v)
+                    && (not (System.String.IsNullOrWhiteSpace(v)))
 
     type Customers =
-        { CustomerID: Option<global.Symphony.Bridge.Spec.Refined<string, Customers_Constraints.CustomerID>>
+        { CustomerID: global.Symphony.Bridge.Spec.Refined<string, Customers_Constraints.CustomerID>
           CompanyName: Option<string>
           ContactName: Option<string>
           ContactTitle: Option<string>

@@ -46,7 +46,8 @@ let mkTable cfg db (table: Table) schema tableName columnName = stringBuffer {
 
             let isString = col.TypeMapping.ClrType = "string"
             let maxLength = getMaxLength col.TypeMapping.ColumnTypeAlias
-            let notNullStr = isString && not col.IsNullable
+            let isColNullable = col.IsNullable && not col.IsPK
+            let notNullStr = isString && not isColNullable
             
             let checks = [
                 if col.IsPK then yield "global.Symphony.Bridge.Spec.PrimaryKey().Check(v)"
@@ -94,7 +95,8 @@ let mkTable cfg db (table: Table) schema tableName columnName = stringBuffer {
 
                 let isString = col.TypeMapping.ClrType = "string"
                 let maxLength = getMaxLength col.TypeMapping.ColumnTypeAlias
-                let notNullStr = isString && not col.IsNullable
+                let isColNullable = col.IsNullable && not col.IsPK
+                let notNullStr = isString && not isColNullable
                 
                 let hasConstraints = col.IsPK || col.Constraint.IsSome || maxLength.IsSome || notNullStr
 
@@ -115,7 +117,7 @@ let mkTable cfg db (table: Table) schema tableName columnName = stringBuffer {
                         baseType
 
                 let columnPropertyType =
-                    if col.IsNullable then
+                    if isColNullable then
                         match cfg.NullablePropertyType with
                         | NullablePropertyType.Option ->
                             $"Option<{propertyType}>"
