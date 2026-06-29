@@ -32,16 +32,25 @@ let buildSpec () =
       Detected = [] }
 
 let extractData () =
-    use conn = new Microsoft.Data.Sqlite.SqliteConnection("Data Source=E:/github/symphony/references/helios/northwind.db")
+    use conn = new DuckDB.NET.Data.DuckDBConnection("Data Source=:memory:")
     conn.Open()
+    
+    use cmdInit = conn.CreateCommand()
+    cmdInit.CommandText <- "INSTALL sqlite; LOAD sqlite;"
+    cmdInit.ExecuteNonQuery() |> ignore
+    
+    use cmdAttach = conn.CreateCommand()
+    cmdAttach.CommandText <- "ATTACH 'E:/github/symphony/references/helios/northwind.db' AS sqlite_db (TYPE SQLITE);"
+    cmdAttach.ExecuteNonQuery() |> ignore
+
     use cmd = conn.CreateCommand()
     cmd.CommandText <- """
         SELECT 
             c.CustomerID, c.CompanyName, c.Country, 
             o.OrderID, od.UnitPrice, od.Quantity, od.Discount
-        FROM Customers c
-        JOIN Orders o ON c.CustomerID = o.CustomerID
-        JOIN "Order Details" od ON o.OrderID = od.OrderID
+        FROM sqlite_db.Customers c
+        JOIN sqlite_db.Orders o ON c.CustomerID = o.CustomerID
+        JOIN sqlite_db."Order Details" od ON o.OrderID = od.OrderID
     """
     use reader = cmd.ExecuteReader()
     

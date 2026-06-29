@@ -7,10 +7,10 @@
 - **AST Generation Hooks:** Mapped those SQLite string constraints directly into the Fantomas code generation pipeline, successfully generating strictly typed constraints in `Northwind.fs` (e.g., `Refined<decimal, GreaterThanOrEqualToZero>`).
 - **Established Documentation:** Built a rich HTML/CSS Material 3 site showcasing the architecture and deployed it seamlessly to GitHub pages via a custom GitHub Action workflow.
 - **Repository Cleanup:** Cleaned up the repository by stripping out large `bin`/`obj` folders, established a solid `.gitignore`, and successfully pushed to main.
+- **DuckDB Staging:** Wired `Bridge.Cli` pipeline to process extractions directly through DuckDB by dynamically mounting the SQLite file (`sqlite_scanner`), eliminating the need for ADO.NET SQLite connections.
 
 ## 🚀 What is Pending / What's Next
 - **Dynamic String Constraints:** Add custom constraint mappers for things like `StartsWithP` (`CHECK (CustomerID LIKE 'P%')`) and other business-logic specific string validations.
-- **DuckDB Staging:** We scaffolded `SqlHydra.DuckDb` during the MVP phase, but it isn't wired into the live CLI bridging pipeline yet. We need to finalize how data will flow from SQLite -> DuckDB.
 - **Elasticsearch Pipeline:** The final goal of "Symphony" is pushing these rigid types into Elasticsearch. We still need to write and test the translation layer mapping F# `Refined` structs to Elasticsearch JSON indices.
 - **Expanded Refined Types:** Currently, we only mapped basic numeric constraints (`GreaterThanZero`, `BetweenZeroAndOne`). We need to map `string` length limits, regex, and date boundaries.
 
