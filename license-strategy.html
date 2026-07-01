@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>License Strategy - Symphony and Helios</title>
+  <link rel="stylesheet" href="material.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand"><span class="mark">L</span><span>License Strategy</span></div>
+      <nav class="nav">
+        <a href="index.html">Vision</a>
+        <a href="architecture.html">Architecture</a>
+        <a href="new-mvp.html">New MVP</a>
+        <a href="oracle-tsv-duckdb.html">Oracle Path</a>
+        <a href="polyglot-export.html">Polyglot</a>
+        <a class="active" href="license-strategy.html">License</a>
+        <a href="fsharp-core-csharp.html">F# Core</a>
+        <a href="canonflow-brand.html">Brand</a>
+        <a href="sota.html">SOTA</a>
+        <a href="blind-spots.html">Blind Spots</a>
+        <a href="feature-directions.html">Features</a>
+        <a href="development-schools.html">Two Schools</a>
+        <a href="helios.html">Helios</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="quality.html">Quality</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">OSS posture</p>
+        <h1>Apache 2.0 at the root. MIT for embedded SqlHydra.</h1>
+        <p class="lead">This is a strong enterprise posture: permissive use, commercial adoption, modification, redistribution, and patent comfort at the root license level.</p>
+      </div>
+      <aside class="panel">
+        <h2>Architect signal</h2>
+        <p class="lead">The treasure is not just the code. It is an inspectable, forkable, evidence-driven compiler layer that teams can safely build around.</p>
+      </aside>
+    </section>
+
+    <section class="section">
+      <div class="grid three">
+        <article class="card emphasis"><h3>Apache 2.0</h3><p>Enterprise-friendly root license with explicit patent grant and commercial use permission.</p></article>
+        <article class="card blue"><h3>MIT Dependency</h3><p>Embedded SqlHydra source is MIT. Preserve copyright and license notices.</p></article>
+        <article class="card gold"><h3>Open-Core Ready</h3><p>Good fit for platform adoption, services, internal tools, and a hosted workbench later.</p></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <table class="table">
+        <thead><tr><th>Rule</th><th>Reason</th></tr></thead>
+        <tbody>
+          <tr><td>Keep root Apache 2.0 visible</td><td>Preserves enterprise confidence and compliance clarity.</td></tr>
+          <tr><td>Preserve SqlHydra MIT license</td><td>Embedded third-party source must carry its original notice.</td></tr>
+          <tr><td>Track modified third-party files</td><td>Prevents the embedded source from becoming a mystery fork.</td></tr>
+          <tr><td>Avoid copyleft dependencies in core</td><td>Keeps adoption and productization options open.</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+  <footer class="footer">Markdown source: ../md/27-license-and-oss-strategy.md</footer>
+</body>
+</html>

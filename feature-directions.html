@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Feature Directions - Symphony and Helios</title>
+  <link rel="stylesheet" href="material.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand"><span class="mark">F</span><span>Feature Directions</span></div>
+      <nav class="nav">
+        <a href="index.html">Vision</a>
+        <a href="architecture.html">Architecture</a>
+        <a href="new-mvp.html">New MVP</a>
+        <a href="oracle-tsv-duckdb.html">Oracle Path</a>
+        <a href="polyglot-export.html">Polyglot</a>
+        <a href="license-strategy.html">License</a>
+        <a href="fsharp-core-csharp.html">F# Core</a>
+        <a href="canonflow-brand.html">Brand</a>
+        <a href="sota.html">SOTA</a>
+        <a href="blind-spots.html">Blind Spots</a>
+        <a class="active" href="feature-directions.html">Features</a>
+        <a href="development-schools.html">Two Schools</a>
+        <a href="helios.html">Helios</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="quality.html">Quality</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Frontier features</p>
+        <h1>Build the product around trust, not just generation.</h1>
+        <p class="lead">The platform should help humans design projections, review diffs, understand field trust, improve search, replay safely, and hand off work to other engineers or agents.</p>
+      </div>
+      <aside class="panel">
+        <h2>Most important upgrade</h2>
+        <p class="lead">Introduce a first-class ProjectionSpec that can be produced from database-first harvesting or functional DDD declarations.</p>
+      </aside>
+    </section>
+
+    <section class="section">
+      <div class="grid three">
+        <article class="card emphasis"><h3>Projection Workbench</h3><p>Review source tables, document grain, transforms, lineage, mapping preview, and generated tests in one place.</p></article>
+        <article class="card blue"><h3>Evidence Graph</h3><p>Connect fields to spec hash, source columns, mapping paths, tests, validation runs, and catalog entities.</p></article>
+        <article class="card gold"><h3>Run Ledger</h3><p>Make every extract/load/validate run durable, comparable, auditable, and linkable from docs.</p></article>
+        <article class="card"><h3>Query Playground</h3><p>Show user query, typed predicate, lowered ES JSON, validation result, response sample, and field explanations.</p></article>
+        <article class="card"><h3>Search Quality Loop</h3><p>Track top queries, zero-result queries, slow queries, relevance judgments, synonyms, and analyzer experiments.</p></article>
+        <article class="card"><h3>Replay Simulator</h3><p>Simulate duplicate events, out-of-order events, parent changes, deletes, and batch-vs-stream convergence.</p></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <h2>SOTA Elevation Levels</h2>
+        <p>Each level has an exit gate. That is what keeps the architecture from becoming only a vision.</p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item"><strong>Level 1 - Deterministic artifacts</strong><p>Stable hashes, deterministic IDs, artifact tests, structured validation output.</p></div>
+        <div class="timeline-item"><strong>Level 2 - Evidence-backed quality</strong><p>Generated quality suite, coverage dials, ES smoke queries, OpenMetadata validation.</p></div>
+        <div class="timeline-item"><strong>Level 3 - Dual ingress</strong><p>Database-first SourceCatalog and domain-first DomainProjection converge into ProjectionSpec.</p></div>
+        <div class="timeline-item"><strong>Level 4 - Operational search lifecycle</strong><p>Versioned indices, alias swap, rollback, reindex planning, run ledger.</p></div>
+        <div class="timeline-item"><strong>Level 5 - Helios product surface</strong><p>Query playground, semantic catalog browser, field trust page, relevance loop.</p></div>
+        <div class="timeline-item"><strong>Level 6 - CDC convergence</strong><p>Capture, projector, BulkOp algebra, tombstones, version guards, batch-vs-stream reconciliation.</p></div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">Markdown sources: ../md/20-frontier-feature-directions.md and ../md/21-sota-elevation-plan.md</footer>
+</body>
+</html>

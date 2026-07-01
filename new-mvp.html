@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>New MVP Direction - Symphony and Helios</title>
+  <link rel="stylesheet" href="material.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand"><span class="mark">M</span><span>New MVP Direction</span></div>
+      <nav class="nav">
+        <a href="index.html">Vision</a>
+        <a href="architecture.html">Architecture</a>
+        <a class="active" href="new-mvp.html">New MVP</a>
+        <a href="oracle-tsv-duckdb.html">Oracle Path</a>
+        <a href="polyglot-export.html">Polyglot</a>
+        <a href="license-strategy.html">License</a>
+        <a href="fsharp-core-csharp.html">F# Core</a>
+        <a href="canonflow-brand.html">Brand</a>
+        <a href="sota.html">SOTA</a>
+        <a href="blind-spots.html">Blind Spots</a>
+        <a href="feature-directions.html">Features</a>
+        <a href="development-schools.html">Two Schools</a>
+        <a href="helios.html">Helios</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="quality.html">Quality</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">MVP pivot</p>
+        <h1>SQLite is the miniature. Oracle is the production repeat.</h1>
+        <p class="lead">The MVP should prove one unified compiler path cheaply with SQLite, then run the same architecture through Oracle end-to-end: harvest, ProjectionSpec, TSV, DuckDB, ETL, Elasticsearch, validation, docs, run ledger, and polyglot contracts.</p>
+      </div>
+      <aside class="panel">
+        <h2>The product claim</h2>
+        <p class="lead">Given a source system or a domain model, generate a governed search/read model with executable evidence and portable client models.</p>
+      </aside>
+    </section>
+
+    <section class="section">
+      <div class="grid three">
+        <article class="card emphasis"><h3>SQLite Miniature</h3><p>Northwind proves the entire path with low operational cost and fast iteration.</p></article>
+        <article class="card blue"><h3>Oracle End-To-End</h3><p>Oracle repeats the same path with data dictionary harvest, SCN extract, type fidelity, and run evidence.</p></article>
+        <article class="card gold"><h3>Polyglot Output</h3><p>DomainIR generates TypeScript, JavaScript, Kotlin, Swift, and C# OneOf/sealed-record adapters with validators and codecs.</p></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="diagram">MVP loop:
+  harvest
+    -> compile
+    -> extract
+    -> stage as TSV
+    -> load into DuckDB
+    -> project documents
+    -> write Elasticsearch bulk
+    -> validate
+    -> document
+    -> export client models</div>
+    </section>
+
+    <section class="section">
+      <table class="table">
+        <thead><tr><th>Phase</th><th>SQLite miniature</th><th>Oracle repeat</th></tr></thead>
+        <tbody>
+          <tr><td>Harvest</td><td>SQLite schema and Northwind constraints.</td><td>Oracle dictionary, comments, keys, indexes, constraints.</td></tr>
+          <tr><td>Extract</td><td>SQLite to typed TSV.</td><td>SCN-stamped Oracle extract to typed TSV.</td></tr>
+          <tr><td>Stage</td><td>DuckDB loads TSV and runs projection query.</td><td>DuckDB loads Oracle TSV and runs same projection semantics.</td></tr>
+          <tr><td>Serve</td><td>Strict ES mapping and local validation.</td><td>Versioned index, validation, alias swap, rollback.</td></tr>
+          <tr><td>Evidence</td><td>Run ledger proves miniature.</td><td>Run ledger proves production path.</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+  <footer class="footer">Markdown source: ../md/23-new-mvp-direction.md</footer>
+</body>
+</html>

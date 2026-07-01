@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Helios Deep Dive</title>
+  <link rel="stylesheet" href="material.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand"><span class="mark">H</span><span>Helios Deep Dive</span></div>
+      <nav class="nav">
+        <a href="index.html">Vision</a>
+        <a href="architecture.html">Architecture</a>
+        <a href="new-mvp.html">New MVP</a>
+        <a href="oracle-tsv-duckdb.html">Oracle Path</a>
+        <a href="polyglot-export.html">Polyglot</a>
+        <a href="license-strategy.html">License</a>
+        <a href="fsharp-core-csharp.html">F# Core</a>
+        <a href="canonflow-brand.html">Brand</a>
+        <a href="sota.html">SOTA</a>
+        <a href="blind-spots.html">Blind Spots</a>
+        <a href="feature-directions.html">Features</a>
+        <a href="development-schools.html">Two Schools</a>
+        <a class="active" href="helios.html">Helios</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="quality.html">Quality</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Helios</p>
+        <h1>The query, semantic, and product surface.</h1>
+        <p class="lead">Helios turns generated Elasticsearch indices into safe typed queries, API workflows, semantic models, frontend controls, and quality evidence.</p>
+      </div>
+      <div class="panel">
+        <h2>Library Direction</h2>
+        <p class="lead">Layer a type-safe F# authoring DSL over the official Elasticsearch client. Keep Elastic's transport and admin APIs; replace fragile query construction with typed algebra.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="grid three">
+        <article class="card emphasis"><h3>Typed Fields</h3><p>Keyword, text, text-with-keyword, date, numeric, bool, nested, edge-ngram, and search-as-you-type should drive legal operations.</p></article>
+        <article class="card blue"><h3>Semantic Catalog</h3><p>OSI-style artifacts provide labels, descriptions, relationships, metrics, UI hints, provider extensions, and synonyms.</p></article>
+        <article class="card gold"><h3>Provider Compilers</h3><p>Client predicates and aggregations lower into Elasticsearch, SQLite, or future engines without the UI knowing physical details.</p></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <h2>Query DSL Shape</h2>
+        <p>The lowering pass is the high-value part. It turns typed intent into correct Elasticsearch JSON.</p>
+      </div>
+      <pre><code>let q =
+    Shipments.Carrier =. "BlueDart"
+    &&. Shipments.ShippedAt .between (DateMath.daysAgo 7, DateMath.today)
+    &&. nested Shipments.Packages (fun p -> p.WeightKg >. 5.0&lt;kg&gt;)
+    |> Query.where'
+    |> Query.rankBy (Shipments.Notes |> phrase "fragile handling")</code></pre>
+    </section>
+
+    <section class="section">
+      <table class="table">
+        <thead><tr><th>Risky ES behavior</th><th>Helios answer</th></tr></thead>
+        <tbody>
+          <tr><td>Term query on analyzed text</td><td>Lower to keyword sub-field or make it unrepresentable.</td></tr>
+          <tr><td>Nested cross-object contamination</td><td>Use phantom nested scopes.</td></tr>
+          <tr><td>Date math as magic strings</td><td>Use a date-math DU and render at the edge.</td></tr>
+          <tr><td>Range on non-orderable field</td><td>Expose range operators only on date/numeric handles.</td></tr>
+          <tr><td>Raw JSON escape hatch</td><td>Require a name, reason, and telemetry warning.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <div class="diagram">Symphony mapping
+  -> generated schema metadata
+  -> Helios field handles
+  -> typed Predicate&lt;'Schema&gt;
+  -> lowering Result&lt;QueryContainer, ConstructionError&gt;
+  -> JSON renderer
+  -> official Elasticsearch transport</div>
+    </section>
+  </main>
+  <footer class="footer">See ../md/05-helios-deep-dive.md and ../md/08-elastic-fsharp-query-library.md.</footer>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Blind Spots - Symphony and Helios</title>
+  <link rel="stylesheet" href="material.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand"><span class="mark">B</span><span>Blind Spots</span></div>
+      <nav class="nav">
+        <a href="index.html">Vision</a>
+        <a href="architecture.html">Architecture</a>
+        <a href="new-mvp.html">New MVP</a>
+        <a href="oracle-tsv-duckdb.html">Oracle Path</a>
+        <a href="polyglot-export.html">Polyglot</a>
+        <a href="license-strategy.html">License</a>
+        <a href="fsharp-core-csharp.html">F# Core</a>
+        <a href="canonflow-brand.html">Brand</a>
+        <a href="sota.html">SOTA</a>
+        <a class="active" href="blind-spots.html">Blind Spots</a>
+        <a href="feature-directions.html">Features</a>
+        <a href="development-schools.html">Two Schools</a>
+        <a href="helios.html">Helios</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="quality.html">Quality</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Hard truths</p>
+        <h1>The idea fails if semantics and evidence are treated as optional.</h1>
+        <p class="lead">The hidden risks are not exotic. They are parent-change semantics, false metadata confidence, weak reconciliation, PII leakage, backfill complexity, and documentation drift.</p>
+      </div>
+      <aside class="panel">
+        <h2>Primary warning</h2>
+        <p class="lead">CDC is not the hard part. Denormalized document correctness is the hard part.</p>
+      </aside>
+    </section>
+
+    <section class="section">
+      <div class="grid three">
+        <article class="card emphasis"><h3>Parent Changes</h3><p>If customer, product, or category changes, do historical order documents update, preserve history, or trigger rebuild?</p></article>
+        <article class="card blue"><h3>False Confidence</h3><p>Draft OpenMetadata can look official before validation. Label, validate, and separate internal bundle from API payload.</p></article>
+        <article class="card gold"><h3>Type Limits</h3><p>Types prevent local shape errors. They do not prove foreign keys, secondary uniqueness, aggregates, or stream ordering.</p></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <table class="table">
+        <thead><tr><th>Blind spot</th><th>Why it matters</th><th>Mitigation</th></tr></thead>
+        <tbody>
+          <tr><td>Spec drift</td><td>The spec can become another stale artifact.</td><td>Harvest proposes diffs; CI classifies; humans review.</td></tr>
+          <tr><td>Search relevance</td><td>Strict mappings do not create good search UX.</td><td>Capture query telemetry, synonyms, boosts, zero-result analysis.</td></tr>
+          <tr><td>PII/security</td><td>Catalogs and docs can leak sensitive meaning.</td><td>Classification, owners, scrub policy, export controls.</td></tr>
+          <tr><td>Backfills</td><td>First load is easier than replay, resume, rollback, and partial reindex.</td><td>Run ledger, checkpointable chunks, alias lifecycle.</td></tr>
+          <tr><td>Query DSL sprawl</td><td>Elasticsearch surface is too large to model all at once.</td><td>Own the safe 80 percent; named raw escape hatch.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <div class="diagram">Hard truth:
+  without evidence -> elegant architecture
+  with evidence    -> trustworthy data product compiler</div>
+    </section>
+  </main>
+  <footer class="footer">Markdown source: ../md/19-blind-spots-and-hard-truths.md</footer>
+</body>
+</html>

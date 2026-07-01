@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quality Strategy - Symphony and Helios</title>
+  <link rel="stylesheet" href="material.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand"><span class="mark">Q</span><span>Quality Strategy</span></div>
+      <nav class="nav">
+        <a href="index.html">Vision</a>
+        <a href="architecture.html">Architecture</a>
+        <a href="new-mvp.html">New MVP</a>
+        <a href="oracle-tsv-duckdb.html">Oracle Path</a>
+        <a href="polyglot-export.html">Polyglot</a>
+        <a href="license-strategy.html">License</a>
+        <a href="fsharp-core-csharp.html">F# Core</a>
+        <a href="canonflow-brand.html">Brand</a>
+        <a href="sota.html">SOTA</a>
+        <a href="blind-spots.html">Blind Spots</a>
+        <a href="feature-directions.html">Features</a>
+        <a href="development-schools.html">Two Schools</a>
+        <a href="helios.html">Helios</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a class="active" href="quality.html">Quality</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Tests and evidence</p>
+        <h1>Make every claim executable.</h1>
+        <p class="lead">The docs should not only explain the platform. They should point to tests, generated artifacts, validation output, run ledgers, and acceptance gates.</p>
+      </div>
+      <div class="panel">
+        <h2>Core Gate</h2>
+        <p class="lead">No governed serving field should ship with Opaque lineage, unapproved lossiness, or unvalidated mapping behavior.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="grid two">
+        <article class="card">
+          <h3>Symphony Artifact Tests</h3>
+          <ul>
+            <li>Mapping JSON parses and uses dynamic strict.</li>
+            <li>All spec fields exist in mapping.</li>
+            <li>Bulk chunks contain balanced action/source pairs.</li>
+            <li>Manifest count equals emitted documents.</li>
+            <li>OpenMetadata bundle contains expected entity types.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Helios Query Tests</h3>
+          <ul>
+            <li>Golden JSON for every lowering rule.</li>
+            <li>Negative compilation tests for illegal operators.</li>
+            <li>Property tests for bool flattening and codec round-trip.</li>
+            <li>Elasticsearch `_validate/query` integration checks.</li>
+            <li>Mutation tests around lowering.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="grid three">
+        <article class="card emphasis"><h3>Lineage</h3><p>Exact, Declared, and Opaque are coverage dials. Gates decide where each grade is acceptable.</p></article>
+        <article class="card blue"><h3>Constraints</h3><p>Prevented, Inherited, and Detected classify what is proven, what is carried, and what is reconciled.</p></article>
+        <article class="card gold"><h3>Lossiness</h3><p>Precision, timezone, blob, and text-analysis loss should be explicit and reviewable.</p></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <table class="table">
+        <thead><tr><th>Gate</th><th>Why it matters</th><th>Artifact</th></tr></thead>
+        <tbody>
+          <tr><td>No Opaque governed lineage</td><td>Prevents unexplained serving fields.</td><td>Lineage coverage report</td></tr>
+          <tr><td>Strict mapping validation</td><td>Catches unknown fields and incompatible types.</td><td>ES validation JSON</td></tr>
+          <tr><td>Bulk pair integrity</td><td>Prevents malformed load files.</td><td>Bulk manifest and NDJSON checks</td></tr>
+          <tr><td>Spec diff review</td><td>Separates additive, breaking, lossy, and neutral changes.</td><td>Diff report</td></tr>
+          <tr><td>CDC convergence</td><td>Prevents replay and ordering bugs.</td><td>Property tests and replay simulations</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+  <footer class="footer">See ../md/10-quality-and-test-strategy.md for the complete test strategy.</footer>
+</body>
+</html>

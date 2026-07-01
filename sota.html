@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SOTA Evaluation - Symphony and Helios</title>
+  <link rel="stylesheet" href="material.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand"><span class="mark">S</span><span>SOTA Evaluation</span></div>
+      <nav class="nav">
+        <a href="index.html">Vision</a>
+        <a href="architecture.html">Architecture</a>
+        <a href="new-mvp.html">New MVP</a>
+        <a href="oracle-tsv-duckdb.html">Oracle Path</a>
+        <a href="polyglot-export.html">Polyglot</a>
+        <a href="license-strategy.html">License</a>
+        <a href="fsharp-core-csharp.html">F# Core</a>
+        <a href="canonflow-brand.html">Brand</a>
+        <a class="active" href="sota.html">SOTA</a>
+        <a href="blind-spots.html">Blind Spots</a>
+        <a href="feature-directions.html">Features</a>
+        <a href="development-schools.html">Two Schools</a>
+        <a href="helios.html">Helios</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="quality.html">Quality</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">How this fares</p>
+        <h1>A type-driven data product compiler is the right category.</h1>
+        <p class="lead">The idea is strongest when it refuses to be only an ETL tool, ORM, query DSL, catalog, or CDC pipeline. Its power is the bridge: typed intent in, governed search surface out, evidence attached.</p>
+      </div>
+      <aside class="panel">
+        <h2>Strategic wedge</h2>
+        <p class="lead">Turn an existing relational system into a governed Elasticsearch search surface with generated mappings, lineage, quality checks, contracts, and docs.</p>
+      </aside>
+    </section>
+
+    <section class="section">
+      <div class="grid three">
+        <article class="card emphasis"><h3>Beyond ETL</h3><p>Do not stop at moving data. Compile meaning, constraints, lineage, tests, docs, and query affordances.</p></article>
+        <article class="card blue"><h3>Beyond Catalog</h3><p>Do not document assets manually first. Generate catalog evidence from executable specs, then let humans enrich.</p></article>
+        <article class="card gold"><h3>Beyond Client DSL</h3><p>Use Helios for safe query authoring, but keep the official Elasticsearch client for transport and operations.</p></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <h2>Maturity Score</h2>
+        <p>The architecture is strong; the evidence loop is still young. That is the place to invest.</p>
+      </div>
+      <table class="table">
+        <thead><tr><th>Axis</th><th>Current</th><th>Target</th><th>Upgrade</th></tr></thead>
+        <tbody>
+          <tr><td>Typed projection core</td><td>6/10</td><td>9/10</td><td>Generalize TableSpec into ProjectionSpec.</td></tr>
+          <tr><td>ES artifact generation</td><td>7/10</td><td>9/10</td><td>Add spec/mapping hashes and artifact tests.</td></tr>
+          <tr><td>Quality evidence</td><td>3/10</td><td>9/10</td><td>Generate executable quality suites and run ledgers.</td></tr>
+          <tr><td>Oracle readiness</td><td>2/10</td><td>8/10</td><td>Build harvester, type fidelity table, SCN snapshot path.</td></tr>
+          <tr><td>Helios DSL</td><td>4/10</td><td>8/10</td><td>Result-based lowering, negative compile tests, ES validation.</td></tr>
+          <tr><td>Product surface</td><td>3/10</td><td>8/10</td><td>Projection workbench, catalog browser, query playground.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <div class="diagram">The winning category:
+  type-driven data product compiler
+
+Inputs:
+  database-first harvest
+  functional DDD domain model
+
+Compiler:
+  ProjectionSpec + folds + policies
+
+Outputs:
+  ES index + query handles + catalog + lineage + quality + docs + run ledger</div>
+    </section>
+  </main>
+  <footer class="footer">Markdown source: ../md/18-sota-evaluation.md</footer>
+</body>
+</html>

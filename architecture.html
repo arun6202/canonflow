@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unified Architecture - Symphony and Helios</title>
+  <link rel="stylesheet" href="material.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand"><span class="mark">A</span><span>Unified Architecture</span></div>
+      <nav class="nav">
+        <a href="index.html">Vision</a>
+        <a class="active" href="architecture.html">Architecture</a>
+        <a href="new-mvp.html">New MVP</a>
+        <a href="oracle-tsv-duckdb.html">Oracle Path</a>
+        <a href="polyglot-export.html">Polyglot</a>
+        <a href="license-strategy.html">License</a>
+        <a href="fsharp-core-csharp.html">F# Core</a>
+        <a href="canonflow-brand.html">Brand</a>
+        <a href="sota.html">SOTA</a>
+        <a href="blind-spots.html">Blind Spots</a>
+        <a href="feature-directions.html">Features</a>
+        <a href="development-schools.html">Two Schools</a>
+        <a href="helios.html">Helios</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="quality.html">Quality</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Architecture</p>
+        <h1>SourceCatalog and DomainIR converge into ProjectionSpec.</h1>
+        <p class="lead">The core system should describe source truth, domain truth, projection grain, transforms, constraints, lossiness, lineage, quality, and target fields. Every runtime or document output should be a fold over that model.</p>
+      </div>
+      <div class="panel">
+        <h2>Boundary Rule</h2>
+        <p class="lead">Pure core owns decisions. Shells own effects. If a module opens network, file, or database APIs, it should not also invent projection semantics.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="grid two">
+        <article class="card">
+          <h3>Pure Core</h3>
+          <ul>
+            <li>SourceCatalog, DomainIR, and ProjectionSpec.</li>
+            <li>Column witnesses, field handles, and expression algebra.</li>
+            <li>Lineage, constraint, lossiness, and enforcement models.</li>
+            <li>Folds to mapping, TSV contracts, metadata, tests, docs, polyglot models, and contracts.</li>
+          </ul>
+        </article>
+        <article class="card">
+          <h3>Imperative Shell</h3>
+          <ul>
+            <li>Oracle, SQLite, TSV, DuckDB, and Kafka/Debezium I/O.</li>
+            <li>Elasticsearch validation and bulk loading.</li>
+            <li>OpenMetadata API push and file emission.</li>
+            <li>API endpoints, frontend delivery, and run logging.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-header">
+        <h2>Integrated Flow</h2>
+        <p>Each step should leave a machine-readable artifact and a human-readable explanation.</p>
+      </div>
+      <div class="flow">
+        <div class="flow-step"><span class="num">1</span><div><strong>Choose ingress</strong><br>Brownfield source harvest or greenfield F# domain model.</div></div>
+        <div class="flow-step"><span class="num">2</span><div><strong>Build common truth</strong><br>SourceCatalog and DomainIR converge into ProjectionSpec.</div></div>
+        <div class="flow-step"><span class="num">3</span><div><strong>Extract and stage</strong><br>SQLite or Oracle emits typed TSV, then DuckDB loads and reconciles.</div></div>
+        <div class="flow-step"><span class="num">4</span><div><strong>Compile outputs</strong><br>Elasticsearch mapping, bulk, OpenMetadata, OKF, quality, contracts, docs, and polyglot models come from the same spec.</div></div>
+        <div class="flow-step"><span class="num">5</span><div><strong>Validate and operate</strong><br>Versioned index, strict mapping checks, run ledger, alias swap, Helios query surface, and spec diff review.</div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="diagram">Brownfield DB harvest       Greenfield F# DDD
+        |                         |
+        v                         v
+  SourceCatalog                DomainIR
+        \                         /
+         v                       v
+              ProjectionSpec
+                    |
+       typed TSV -> DuckDB -> projector
+                    |
+        ES mapping + bulk + validation
+                    |
+   catalog + quality + docs + run ledger
+                    |
+  Helios query handles + polyglot contracts</div>
+    </section>
+  </main>
+  <footer class="footer">See ../md/03-unified-architecture.md for the Markdown source.</footer>
+</body>
+</html>

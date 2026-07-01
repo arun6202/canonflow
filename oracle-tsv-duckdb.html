@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Oracle TSV DuckDB Path - Symphony and Helios</title>
+  <link rel="stylesheet" href="material.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand"><span class="mark">O</span><span>Oracle TSV DuckDB Path</span></div>
+      <nav class="nav">
+        <a href="index.html">Vision</a>
+        <a href="architecture.html">Architecture</a>
+        <a href="new-mvp.html">New MVP</a>
+        <a class="active" href="oracle-tsv-duckdb.html">Oracle Path</a>
+        <a href="polyglot-export.html">Polyglot</a>
+        <a href="license-strategy.html">License</a>
+        <a href="fsharp-core-csharp.html">F# Core</a>
+        <a href="canonflow-brand.html">Brand</a>
+        <a href="sota.html">SOTA</a>
+        <a href="blind-spots.html">Blind Spots</a>
+        <a href="feature-directions.html">Features</a>
+        <a href="development-schools.html">Two Schools</a>
+        <a href="helios.html">Helios</a>
+        <a href="roadmap.html">Roadmap</a>
+        <a href="quality.html">Quality</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Production backbone</p>
+        <h1>Oracle to TSV to DuckDB to ETL to Elasticsearch.</h1>
+        <p class="lead">This path creates a durable, inspectable boundary between source extraction and projection. TSV is simple, DuckDB is the staging/query engine, and Symphony owns the projection semantics.</p>
+      </div>
+      <aside class="panel">
+        <h2>Why TSV first?</h2>
+        <p class="lead">It is streamable, human-inspectable, diffable, easy for DuckDB to load, and perfect for replay/debug before Parquet or direct streaming.</p>
+      </aside>
+    </section>
+
+    <section class="section">
+      <div class="flow">
+        <div class="flow-step"><span class="num">1</span><div><strong>Oracle harvest</strong><br>Read columns, constraints, comments, keys, indexes, and type fidelity into SourceCatalog.</div></div>
+        <div class="flow-step"><span class="num">2</span><div><strong>SCN extract</strong><br>Extract source rows with source identity, SCN, row counts, checksums, and query hash.</div></div>
+        <div class="flow-step"><span class="num">3</span><div><strong>Typed TSV</strong><br>Emit data TSV, schema JSON, manifest, checksums, and extract log.</div></div>
+        <div class="flow-step"><span class="num">4</span><div><strong>DuckDB stage</strong><br>Load TSV, run staging SQL, inspect counts, and support reconciliation.</div></div>
+        <div class="flow-step"><span class="num">5</span><div><strong>ETL projection</strong><br>Parse, refine, build documents, assign deterministic IDs, stream to bulk writer.</div></div>
+        <div class="flow-step"><span class="num">6</span><div><strong>Elasticsearch validation</strong><br>Create validation index, bulk load, smoke query, strict mapping rejection, quality suite, alias plan.</div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="diagram">Evidence chain:
+  source catalog hash
+  + projection spec hash
+  + TSV manifest hash
+  + mapping hash
+  + bulk manifest hash
+  + validation result
+  + alias result
+  = run ledger</div>
+    </section>
+  </main>
+  <footer class="footer">Markdown source: ../md/24-oracle-tsv-duckdb-etl-elasticsearch.md</footer>
+</body>
+</html>

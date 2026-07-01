@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Canonflow Unified Vision</title>
+  <link rel="stylesheet" href="material.css">
+</head>
+<body>
+  <div class="shell">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="brand"><span class="mark">C</span><span>Canonflow</span></div>
+        <nav class="nav">
+          <a class="active" href="index.html">Vision</a>
+          <a href="architecture.html">Architecture</a>
+          <a href="new-mvp.html">New MVP</a>
+          <a href="oracle-tsv-duckdb.html">Oracle Path</a>
+          <a href="polyglot-export.html">Polyglot</a>
+          <a href="license-strategy.html">License</a>
+          <a href="fsharp-core-csharp.html">F# Core</a>
+          <a href="canonflow-brand.html">Brand</a>
+          <a href="sota.html">SOTA</a>
+          <a href="blind-spots.html">Blind Spots</a>
+          <a href="feature-directions.html">Features</a>
+          <a href="development-schools.html">Two Schools</a>
+          <a href="helios.html">Helios</a>
+          <a href="roadmap.html">Roadmap</a>
+          <a href="quality.html">Quality</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div>
+          <p class="eyebrow">Canonflow</p>
+          <h1>Compile source truth into governed data products.</h1>
+          <p class="lead">Canonflow is the umbrella platform: Symphony is the brutal F# compiler core, and Helios is the workbench, query, catalog, and product surface. Source/domain intent in, governed read model out, evidence attached.</p>
+          <div class="actions">
+            <a class="button primary" href="../md/00-index.md">Read Markdown Pack</a>
+            <a class="button secondary" href="architecture.html">Explore Architecture</a>
+          </div>
+        </div>
+        <aside class="panel">
+          <p class="eyebrow">Current evidence</p>
+          <h2>Northwind is the scale model</h2>
+          <p class="lead">The current SQLite path already produces strict mappings, bulk chunks, lineage, catalog output, and OpenMetadata drafts. Next: make it follow the same TSV/DuckDB/run-ledger path Oracle will use.</p>
+          <div class="metric-grid">
+            <div class="metric"><strong>609k</strong><span>order-line documents</span></div>
+            <div class="metric"><strong>6</strong><span>bulk chunks</span></div>
+            <div class="metric"><strong>TSV</strong><span>next staging boundary</span></div>
+            <div class="metric"><strong>F#</strong><span>brutal compiler core</span></div>
+          </div>
+        </aside>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <h2>One Score, Many Performances</h2>
+          <p>The `ProjectionSpec` is the score. Mappings, TSV manifests, bulk files, catalog entities, lineage, tests, contracts, docs, and generated client models are performances of the same source.</p>
+        </div>
+        <div class="grid three">
+          <article class="card emphasis">
+            <h3>Symphony</h3>
+            <p>Compiler engine for SourceCatalog, DomainIR, ProjectionSpec, TSV/DuckDB staging, mappings, bulk artifacts, lineage, run ledger, and validation.</p>
+            <div class="chip-row">
+              <span class="chip">Bridge.Spec</span>
+              <span class="chip">Bridge.Folds</span>
+              <span class="chip">Bridge.Cli</span>
+            </div>
+          </article>
+          <article class="card blue">
+            <h3>Helios</h3>
+            <p>Product layer for typed Elasticsearch query authoring, semantic catalog, API, frontend, search quality, and field trust evidence.</p>
+            <div class="chip-row">
+              <span class="chip">Elastic DSL</span>
+              <span class="chip">Platform API</span>
+              <span class="chip">Fable UI</span>
+            </div>
+          </article>
+          <article class="card gold">
+            <h3>Canonflow</h3>
+            <p>SQLite miniature first, Oracle TSV/DuckDB batch second, then streaming CDC with source versions, tombstones, and convergence tests.</p>
+            <div class="chip-row">
+              <span class="chip">Oracle SCN</span>
+              <span class="chip">Debezium</span>
+              <span class="chip">Propulsion.Net</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="diagram">Source truth
+  -> typed F# spec
+  -> pure folds
+  -> Elasticsearch mapping + bulk
+  -> validation + alias swap
+  -> OpenMetadata + OKF + semantic catalog
+  -> Helios API + UI + typed query DSL</div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <h2>Two Valid Entry Points</h2>
+          <p>Brownfield teams often start from database truth. Greenfield teams often start from F# domain types. The platform should support both and converge them into one projection spec.</p>
+        </div>
+        <div class="grid two">
+          <article class="card">
+            <h3>Database-First</h3>
+            <p>Harvest tables, constraints, comments, keys, and type fidelity from existing systems. Generate a source catalog, then enrich it into governed projections.</p>
+          </article>
+          <article class="card">
+            <h3>Functional DDD</h3>
+            <p>Start with bounded contexts, records, discriminated unions, constrained primitives, and workflows. Generate read models and search projections from domain intent.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <h2>New MVP Direction</h2>
+          <p>Unify the codebase around a SQLite miniature first, then repeat the exact pipeline through Oracle end-to-end.</p>
+        </div>
+        <div class="diagram">SQLite miniature:
+  schema -> SourceCatalog -> ProjectionSpec -> TSV -> DuckDB -> ETL -> Elasticsearch
+
+Oracle production path:
+  dictionary -> SCN extract -> typed TSV -> DuckDB -> ETL -> Elasticsearch -> run ledger
+
+Greenfield:
+  F# DDD -> DomainIR -> ProjectionSpec -> same outputs
+
+Polyglot:
+  DomainIR -> TypeScript / JavaScript / Kotlin / Swift models + validators</div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <h2>License And Core Language Posture</h2>
+          <p>Apache 2.0 plus MIT dependencies is enterprise-friendly. The architectural answer is permissive/open, but the compiler core should stay uncompromisingly F#.</p>
+        </div>
+        <div class="grid two">
+          <article class="card emphasis">
+            <h3>License Advantage</h3>
+            <p>Apache 2.0 at the root and MIT for embedded SqlHydra make this safe to inspect, fork, adopt, commercialize, and extend with clear attribution rules.</p>
+          </article>
+          <article class="card blue">
+            <h3>F# Core Rule</h3>
+            <p>Do not weaken the core for C# compatibility. Generate C# OneOf/sealed-record adapters from DomainIR at the boundary.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <h2>How This Fares</h2>
+          <p>The shape is strong because it connects categories that are usually separate: schema intelligence, functional modeling, projection, search, catalog, quality, and documentation.</p>
+        </div>
+        <div class="grid three">
+          <article class="card emphasis">
+            <h3>Strong Wedge</h3>
+            <p>Turn existing relational systems into governed Elasticsearch surfaces with mappings, lineage, contracts, tests, and docs.</p>
+          </article>
+          <article class="card blue">
+            <h3>Main Blind Spot</h3>
+            <p>CDC can move events, but denormalized document semantics decide correctness. Parent changes, deletes, and history policy need product decisions.</p>
+          </article>
+          <article class="card gold">
+            <h3>SOTA Upgrade</h3>
+            <p>Attach evidence to every claim: spec hash, mapping hash, validation run, lineage coverage, quality result, and run ledger.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <h2>Immediate Build Focus</h2>
+          <p>The best next move is not more scope. It is making the current slice deterministic, tested, and easy to hand off.</p>
+        </div>
+        <div class="grid two">
+          <div class="flow">
+            <div class="flow-step"><span class="num">1</span><div><strong>Harden artifacts</strong><br>Mapping parse, strict dynamic, bulk pairs, manifest counts, OpenMetadata shape.</div></div>
+            <div class="flow-step"><span class="num">2</span><div><strong>Close constraint model</strong><br>Replace stringly CHECK handling with a structured supported subset.</div></div>
+            <div class="flow-step"><span class="num">3</span><div><strong>Stream extraction</strong><br>Move reader to projector to bulk writer without materializing all documents.</div></div>
+          </div>
+          <div class="flow">
+            <div class="flow-step"><span class="num">4</span><div><strong>Harvest Oracle</strong><br>Read data dictionary metadata, comments, keys, types, and constraints.</div></div>
+            <div class="flow-step"><span class="num">5</span><div><strong>Harden Helios</strong><br>Result-based lowering, negative compilation tests, and ES validation tests.</div></div>
+            <div class="flow-step"><span class="num">6</span><div><strong>Plan CDC</strong><br>Debezium capture, Propulsion.Net projection, version guards, tombstones.</div></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">Generated documentation pack for Canonflow. Markdown source lives in docs/md.</footer>
+  </div>
+</body>
+</html>

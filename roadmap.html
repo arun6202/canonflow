@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Roadmap - Symphony and Helios</title>
+  <link rel="stylesheet" href="material.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand"><span class="mark">R</span><span>Roadmap</span></div>
+      <nav class="nav">
+        <a href="index.html">Vision</a>
+        <a href="architecture.html">Architecture</a>
+        <a href="new-mvp.html">New MVP</a>
+        <a href="oracle-tsv-duckdb.html">Oracle Path</a>
+        <a href="polyglot-export.html">Polyglot</a>
+        <a href="license-strategy.html">License</a>
+        <a href="fsharp-core-csharp.html">F# Core</a>
+        <a href="canonflow-brand.html">Brand</a>
+        <a href="sota.html">SOTA</a>
+        <a href="blind-spots.html">Blind Spots</a>
+        <a href="feature-directions.html">Features</a>
+        <a href="development-schools.html">Two Schools</a>
+        <a href="helios.html">Helios</a>
+        <a class="active" href="roadmap.html">Roadmap</a>
+        <a href="quality.html">Quality</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Phased build</p>
+        <h1>SQLite miniature first, Oracle repeat second, CDC later.</h1>
+        <p class="lead">The roadmap now centers on one compiler path: SourceCatalog/DomainIR to ProjectionSpec, TSV to DuckDB staging, ETL to Elasticsearch, run ledger, docs, and polyglot contracts.</p>
+      </div>
+      <div class="panel">
+        <h2>Decision Lens</h2>
+        <p class="lead">Every phase should produce test evidence, documentation, and one stronger handoff artifact.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="timeline">
+        <div class="timeline-item"><strong>Phase 0 - Documentation and shared understanding</strong><p>Expanded Markdown and HTML docs. New collaborators can orient quickly.</p></div>
+        <div class="timeline-item"><strong>Phase 1 - Reframe SQLite as miniature</strong><p>Add SourceCatalog and ProjectionSpec drafts around the existing Northwind slice.</p></div>
+        <div class="timeline-item"><strong>Phase 2 - TSV and DuckDB staging</strong><p>SQLite to typed TSV, TSV manifest/checksums, DuckDB load, reconciliation hooks.</p></div>
+        <div class="timeline-item"><strong>Phase 3 - Closed constraint model</strong><p>Structured CHECK subset, refined witnesses, constraint coverage, unsupported degradation.</p></div>
+        <div class="timeline-item"><strong>Phase 4 - Streaming projection and bulk</strong><p>Reader to parser to projector to chunk writer. Bounded memory and checkpoint-ready manifests.</p></div>
+        <div class="timeline-item"><strong>Phase 5 - Oracle harvest and TSV batch</strong><p>Dictionary harvest, type fidelity, SCN extract, Oracle TSV, DuckDB staging, alias lifecycle.</p></div>
+        <div class="timeline-item"><strong>Phase 6 - Polyglot domain export</strong><p>DomainIR to TypeScript and C# adapters first, with shared fixtures and codecs.</p></div>
+        <div class="timeline-item"><strong>Phase 7 - Helios query library hardening</strong><p>Result-based lowering, stronger phantom APIs, golden tests, ES validation.</p></div>
+        <div class="timeline-item"><strong>Phase 8 - Semantic catalog integration</strong><p>Symphony emits technical seeds; humans enrich; Helios consumes catalog-driven schema.</p></div>
+        <div class="timeline-item"><strong>Phase 9 - CDC prototype</strong><p>Debezium feasibility, Propulsion.Net projector spike, version guards, tombstones, convergence tests.</p></div>
+        <div class="timeline-item"><strong>Phase 10 - Governance and productization</strong><p>Spec diff review, owners, PII tags, quality dashboard, run history, operator runbooks.</p></div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">See ../md/11-roadmap.md for detailed phase notes.</footer>
+</body>
+</html>
